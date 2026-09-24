@@ -126,7 +126,7 @@ section{padding:96px 0;position:relative}
 .hero-scroll svg{width:22px;height:22px}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
 .hero-stats{position:relative;z-index:2;background:rgba(20,18,16,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(250,246,240,.12)}
-.hero-stats .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.hero-stats .container{display:grid;grid-template-columns:repeat(3,1fr)}
 .stat{padding:22px 10px;text-align:center}
 .stat:not(:first-child){border-inline-start:1px solid rgba(250,246,240,.12)}
 .stat-num{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--color-secondary-light);line-height:1.3}
@@ -153,21 +153,6 @@ section{padding:96px 0;position:relative}
 .feat-card p{font-size:.8rem;color:var(--color-text-secondary);line-height:1.9}
 
 /* ============ دوره‌ها (کارت‌های شیب‌دار) ============ */
-.unit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:20px}
-.unit-card{--c:var(--color-primary);background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px 22px;cursor:pointer;position:relative;transition:transform .2s ease,box-shadow .35s,border-color .35s;will-change:transform;transform-style:preserve-3d}
-.unit-card::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--c);border-radius:var(--r) var(--r) 0 0}
-.unit-card:hover{border-color:color-mix(in srgb,var(--c) 45%,var(--border));box-shadow:0 30px 46px -22px color-mix(in srgb,var(--c) 45%,transparent)}
-.u-icon{width:52px;height:52px;border-radius:15px;background:color-mix(in srgb,var(--c) 13%,transparent);color:var(--c);display:grid;place-items:center;margin-bottom:16px}
-.u-icon svg{width:24px;height:24px}
-.u-ku{font-family:var(--ku);font-size:1.2rem;font-weight:700;color:var(--color-text-secondary);line-height:1.5}
-.u-fa{font-weight:900;font-size:1.1rem;margin:2px 0 8px}
-.u-meta{display:flex;gap:8px;font-size:.7rem;color:var(--color-text-secondary);margin-bottom:12px;flex-wrap:wrap}
-.u-meta span{background:var(--color-bg-secondary);padding:2px 10px;border-radius:99px;border:1px solid var(--border)}
-.u-samples{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.u-samples span{font-family:var(--ku);background:color-mix(in srgb,var(--c) 8%,transparent);border:1px solid var(--border);padding:3px 11px;border-radius:9px;font-size:.9rem}
-.u-go{display:inline-flex;align-items:center;gap:7px;color:var(--c);font-weight:800;font-size:.85rem}
-.u-go svg{width:16px;height:16px;transition:.3s}
-.unit-card:hover .u-go svg{transform:translateX(-5px)}
 
 /* ============ نوار واژه‌های متحرک ============ */
 .ticker{overflow:hidden;background:var(--color-bg-secondary);border-block:1px solid var(--border);padding:15px 0;position:relative}
@@ -184,7 +169,7 @@ section{padding:96px 0;position:relative}
 .t-sep{color:var(--color-secondary);font-size:.55rem;align-self:center;padding:0 12px}
 
 /* ============ بخش یادگیری ============ */
-.chips-bar{position:sticky;top:66px;z-index:60;padding:14px 0;margin-bottom:30px;background:var(--color-bg-primary);background:color-mix(in srgb,var(--color-bg-primary) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.chips-bar{position:static;padding:14px 0;margin-bottom:30px;background:var(--color-bg-primary);background:color-mix(in srgb,var(--color-bg-primary) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:99px;border:1.5px solid var(--border);background:var(--card);font-weight:700;font-size:.88rem;transition:.25s;color:var(--color-text-primary)}
 .chip svg{width:17px;height:17px;color:var(--c)}
@@ -322,7 +307,6 @@ section{padding:96px 0;position:relative}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
 .reveal.done{transition-delay:0s}
-.unit-card.reveal.done{transition:transform .2s ease,box-shadow .35s,border-color .35s}
 .tl-item.reveal.done,.feat-card.reveal.done{transition:.3s}
 
 /* ============ ریسپانسیو ============ */
@@ -335,6 +319,7 @@ section{padding:96px 0;position:relative}
   .nav-links{display:none}
   #menuBtn{display:grid}
   .nav-cta{display:none}
+  .nav-actions{margin-inline-start:auto}
   .tl-line{left:auto;right:17px;transform:none}
   .tl-item{width:100%;padding:20px 60px 20px 20px}
   .tl-item:nth-child(even){margin-inline-start:0}
@@ -343,14 +328,9 @@ section{padding:96px 0;position:relative}
 }
 @media(max-width:640px){
   section{padding:66px 0}
-  .hero-stats .container{grid-template-columns:1fr 1fr}
-  .stat:nth-child(3){border-inline-start:none}
-  .stat{border-top:1px solid rgba(250,246,240,.1)}
-  .stat:nth-child(-n+2){border-top:none}
   .flashcard{height:330px}
   .feat{grid-template-columns:1fr}
   .fc-word{font-size:1.7rem}
-  .chips-bar{top:60px}
   .wl-search{margin-inline-start:0;width:100%}
   .wl-search input{width:100%;max-width:none}
 }
@@ -379,7 +359,6 @@ section{padding:96px 0;position:relative}
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">معرفی</a>
-      <a href="#units">دوره‌ها</a>
       <a href="#learn">واژه‌نامه</a>
       <a href="#alphabet">الفبا</a>
       <a href="#path">مسیر یادگیری</a>
@@ -397,7 +376,7 @@ section{padding:96px 0;position:relative}
 
 <div id="drawer">
   <button class="icon-btn" id="drawerClose" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-  <a href="#about">معرفی زبان</a><a href="#units">دوره‌ها</a><a href="#learn">واژه‌نامه</a>
+  <a href="#about">معرفی زبان</a><a href="#learn">واژه‌نامه</a>
   <a href="#alphabet">الفبا</a><a href="#path">مسیر یادگیری</a>
 </div>
 
@@ -422,7 +401,7 @@ section{padding:96px 0;position:relative}
       <a href="#alphabet" class="btn btn-ghost">آشنایی با الفبا</a>
     </div>
     <div class="hero-meta h-in">
-      <span>۱۱۶ واژه بنیادی</span><i></i><span>۵ دسته‌بندی موضوعی</span><i></i><span>همراه تلفظ صوتی</span>
+      <span>۱۱۶ واژه بنیادی</span><i></i><span>همراه تلفظ صوتی</span>
     </div>
   </div>
 
@@ -434,7 +413,6 @@ section{padding:96px 0;position:relative}
   <div class="hero-stats">
     <div class="container">
       <div class="stat"><div class="stat-num" data-count="116">۰</div><div class="stat-lbl">واژه سورانی</div></div>
-      <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">دسته‌بندی</div></div>
       <div class="stat"><div class="stat-num" data-count="33">۰</div><div class="stat-lbl">حرف الفبا</div></div>
       <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">حروف ویژه</div></div>
     </div>
@@ -483,18 +461,6 @@ section{padding:96px 0;position:relative}
 </section>
 
 <!-- ═══════════ دوره‌ها ═══════════ -->
-<section id="units" class="sec-alt">
-  <div class="container">
-    <div class="sec-head reveal">
-      <span class="eyebrow">دوره‌ها</span>
-      <h2>دسته‌های آموزشی</h2>
-      <span class="rainbow"></span>
-      <p>روی هر کارت بزنید تا همان دسته در واژه‌نامهٔ تعاملی باز شود و یادگیری را همین‌جا شروع کنید.</p>
-    </div>
-    <div class="unit-grid" id="unitGrid"></div>
-  </div>
-</section>
-
 <!-- نوار واژه‌های متحرک -->
 <div class="ticker" id="ticker" title="برای شنیدن تلفظ، روی واژه بزنید"><div class="ticker-inner" id="tickerInner"></div></div>
 
@@ -798,31 +764,6 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.5});
  $$('.stat-num').forEach(el=>cio.observe(el));
 
-/* ---------- کارت‌های دوره (Tilt) ---------- */
- $('#unitGrid').innerHTML=CATS.map((c,i)=>`
- <div class="unit-card reveal" style="--c:${c.color};--d:${i*.08}s" data-cat="${i}" role="button" tabindex="0" aria-label="ورود به دسته ${c.fa}">
-  <div class="u-icon">${c.icon}</div>
-  <div class="u-ku">${c.ku}</div>
-  <div class="u-fa">${c.fa}</div>
-  <div class="u-meta"><span>${faNum(c.items.length)} واژه</span><span>سطح ${c.level}</span></div>
-  <div class="u-samples">${c.items.slice(0,3).map(w=>`<span>${w.ku.split(' / ')[0]}</span>`).join('')}</div>
-  <span class="u-go">ورود به دسته ${IC.arrow}</span>
- </div>`).join('');
- $$('.reveal').forEach(el=>{if(!el.classList.contains('in'))io.observe(el);});
-const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
- $$('.unit-card').forEach(card=>{
- card.addEventListener('click',()=>goCat(+card.dataset.cat,true));
- card.addEventListener('keydown',e=>{if(e.key==='Enter')goCat(+card.dataset.cat,true);});
- if(fine){
-  card.addEventListener('mousemove',e=>{
-   const r=card.getBoundingClientRect();
-   const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
-   card.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-5px)`;
-  });
-  card.addEventListener('mouseleave',()=>card.style.transform='');
- }
-});
-
 /* ---------- نوار واژه‌های متحرک ---------- */
 const TICK=[['سڵاو','Slaw'],['دڵ','Dił'],['خۆر','Xor'],['مانگ','Mang'],['گوڵ','Guł'],['کێو','Kêw'],['ئاو','Aw'],['دەست','Dest'],['ماڵ','Mał'],['ڕۆژ','Řoj'],['شەو','Şew'],['بەرد','Berd'],['باوک','Bawk'],['دایک','Dayk'],['گوێ','Gwê'],['یەک','Yek'],['تکایە','Tikaye'],['ژیان','Jiyan']];
 const half=TICK.map(w=>`<span class="t-item" data-ku="${w[0]}"><span class="tk">${w[0]}</span><span class="tp">${w[1]}</span></span><span class="t-sep">◆</span>`).join('');
@@ -995,7 +936,7 @@ const spy=new IntersectionObserver(es=>es.forEach(en=>{
  if(en.isIntersecting){
   $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
  }}),{rootMargin:'-40% 0px -55% 0px'});
-['about','units','learn','alphabet','path'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
+['about','learn','alphabet','path'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
 
 /* ---------- شروع ---------- */
 setCat(0);
