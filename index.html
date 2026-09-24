@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>گۆرانی | آموزش زبان کردی گورانی</title>
+<title>سۆرانی | آموزش زبان کردی سورانی</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -296,72 +296,6 @@ section{padding:96px 0;position:relative}
 .tl-link:hover{gap:11px}
 .tl-link svg{width:15px;height:15px}
 
-/* ============ نظرات ============ */
-#testimonials{background:var(--color-bg-dark) var(--pattern);color:#F3EDE3}
-#testimonials .sec-head h2{color:#FAF6F0}
-#testimonials .eyebrow{color:var(--color-secondary-light)}
-#testimonials .eyebrow::before,#testimonials .eyebrow::after{background:var(--color-secondary-light)}
-#testimonials .sec-head p{color:rgba(250,246,240,.65)}
-.testi-stage{overflow:hidden}
-.testi-track{display:flex;transition:transform .65s cubic-bezier(.3,.7,.25,1)}
-.t-slide{flex:0 0 100%;display:flex;justify-content:center;padding:6px}
-.t-card{max-width:720px;width:100%;background:rgba(250,246,240,.055);border:1px solid rgba(250,246,240,.14);border-radius:24px;padding:36px;backdrop-filter:blur(6px);text-align:center;transition:.3s}
-.t-card:hover{border-color:rgba(240,192,64,.4)}
-.t-quote{width:36px;height:36px;color:var(--color-secondary);margin:0 auto 16px;opacity:.9}
-.t-text{font-size:1.02rem;line-height:2.2;color:rgba(250,246,240,.9);margin-bottom:24px}
-.t-person{display:flex;align-items:center;justify-content:center;gap:13px}
-.t-av{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:1.1rem;color:#1A1815}
-.t-info{text-align:right}
-.t-info b{display:block;font-size:.92rem}
-.t-info span{font-size:.74rem;color:rgba(250,246,240,.6)}
-.testi-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px}
-.t-arrow{width:44px;height:44px;border-radius:13px;border:1.5px solid rgba(250,246,240,.25);background:transparent;color:#FAF6F0;display:grid;place-items:center;transition:.25s}
-.t-arrow:hover{background:var(--color-secondary);border-color:var(--color-secondary);color:#1A1815}
-.t-arrow svg{width:18px;height:18px}
-.t-dots{display:flex;gap:8px}
-.t-dot{width:9px;height:9px;border-radius:99px;background:rgba(250,246,240,.3);border:none;transition:.3s;padding:0}
-.t-dot.active{background:var(--color-secondary-light);width:28px}
-
-/* ============ ثبت‌نام ============ */
-.reg-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
-.reg-txt h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;margin:8px 0 14px}
-.reg-txt>p{color:var(--color-text-secondary);font-size:.95rem;margin-bottom:22px}
-.reg-list{list-style:none;display:grid;gap:13px;margin-bottom:26px}
-.reg-list li{display:flex;gap:11px;align-items:flex-start;font-size:.9rem}
-.reg-list svg{width:20px;height:20px;color:var(--color-accent);flex:none;margin-top:4px}
-.reg-note{font-size:.78rem;color:var(--color-text-secondary);background:var(--color-bg-secondary);border:1px dashed var(--border);border-radius:12px;padding:10px 16px}
-.form-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 34px 60px -40px rgba(26,24,21,.4)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{position:relative;margin-bottom:20px}
-.field input,.field textarea{width:100%;background:var(--color-bg-primary);border:1.5px solid var(--border);border-radius:14px;padding:16px;font:inherit;font-size:.9rem;color:var(--color-text-primary);outline:none;transition:.3s;resize:vertical}
-.field label{position:absolute;inset-inline-start:17px;top:16px;color:var(--color-text-secondary);font-size:.9rem;pointer-events:none;transition:.25s;padding:0 5px}
-.field input:focus,.field textarea:focus{border-color:var(--color-primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--color-primary) 13%,transparent)}
-.field input:focus~label,.field input:not(:placeholder-shown)~label,
-.field textarea:focus~label,.field textarea:not(:placeholder-shown)~label{top:-11px;font-size:.72rem;background:var(--card);color:var(--color-primary);border-radius:6px;font-weight:700}
-.field.error input{border-color:var(--color-error);animation:shake .35s}
-@keyframes shake{0%,100%{transform:none}25%{transform:translateX(6px)}75%{transform:translateX(-6px)}}
-.f-cap{display:block;font-size:.75rem;font-weight:700;color:var(--color-text-secondary);margin-bottom:7px}
-.field select{width:100%;background:var(--color-bg-primary);border:1.5px solid var(--border);border-radius:14px;padding:13px 16px;font:inherit;font-size:.9rem;color:var(--color-text-primary);outline:none;transition:.3s;appearance:none;cursor:pointer}
-.field select:focus{border-color:var(--color-primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--color-primary) 13%,transparent)}
-.field .sel-arrow{position:absolute;left:16px;bottom:17px;width:15px;height:15px;color:var(--color-text-secondary);pointer-events:none}
-.form-card .btn{width:100%;justify-content:center;margin-top:6px}
-.form-card .btn.sent{background:var(--color-success);box-shadow:none}
-
-/* ============ فوتر ============ */
-footer{background:#141210;color:rgba(250,246,240,.78)}
-.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;padding:60px 0 44px}
-.f-brand .brand-text b{color:#FAF6F0}
-.f-brand p{font-size:.85rem;line-height:2.1;margin:16px 0 20px;color:rgba(250,246,240,.6);max-width:340px}
-.socials{display:flex;gap:11px}
-.socials a{width:42px;height:42px;border-radius:12px;border:1.5px solid rgba(250,246,240,.18);display:grid;place-items:center;color:rgba(250,246,240,.85);transition:.3s}
-.socials a:hover{background:var(--color-secondary);border-color:var(--color-secondary);color:#1A1815;transform:translateY(-4px)}
-.socials svg{width:18px;height:18px}
-.f-col h5{color:#FAF6F0;font-size:.95rem;font-weight:800;margin-bottom:18px;position:relative;padding-bottom:10px}
-.f-col h5::after{content:'';position:absolute;bottom:0;inset-inline-start:0;width:32px;height:3px;border-radius:2px;background:var(--color-secondary)}
-.f-col a{display:block;font-size:.85rem;padding:5px 0;color:rgba(250,246,240,.6);transition:.25s}
-.f-col a:hover{color:var(--color-secondary-light);transform:translateX(-4px)}
-.f-bottom{border-top:1px solid rgba(250,246,240,.1);padding:20px 0;text-align:center;font-size:.78rem;color:rgba(250,246,240,.45)}
-
 /* ============ شناورها ============ */
 #helpFab{position:fixed;left:20px;bottom:20px;width:50px;height:50px;border-radius:50%;background:var(--color-bg-secondary);color:var(--color-primary);border:2px solid var(--color-secondary);font-size:1.25rem;font-weight:900;z-index:110;box-shadow:0 14px 26px -12px rgba(26,24,21,.5);transition:.3s}
 #helpFab:hover{transform:scale(1.12) rotate(8deg);background:var(--color-secondary);color:#1A1815}
@@ -387,13 +321,15 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
 /* ============ انیمیشن اسکرول ============ */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
+.reveal.done{transition-delay:0s}
+.unit-card.reveal.done{transition:transform .2s ease,box-shadow .35s,border-color .35s}
+.tl-item.reveal.done,.feat-card.reveal.done{transition:.3s}
 
 /* ============ ریسپانسیو ============ */
 @media(max-width:1024px){
   .learn-stage{grid-template-columns:1fr}
   .aside-card{position:static}
-  .about-grid,.reg-grid{grid-template-columns:1fr;gap:40px}
-  .f-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:880px){
   .nav-links{display:none}
@@ -413,8 +349,6 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
   .stat:nth-child(-n+2){border-top:none}
   .flashcard{height:330px}
   .feat{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .f-grid{grid-template-columns:1fr;gap:34px}
   .fc-word{font-size:1.7rem}
   .chips-bar{top:60px}
   .wl-search{margin-inline-start:0;width:100%}
@@ -424,6 +358,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
 </style>
+<script>try{var t=localStorage.getItem('sorani-theme');if(!t&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.dataset.theme='dark';}catch(e){}</script>
 </head>
 <body>
 
@@ -432,7 +367,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
 <!-- ═══════════ هدر ═══════════ -->
 <header id="navbar">
   <div class="container nav-inner">
-    <a class="brand" href="#home" aria-label="گورانی - صفحه اصلی">
+    <a class="brand" href="#home" aria-label="سورانی - صفحه اصلی">
       <svg class="logo-sun" viewBox="0 0 44 44" fill="none" aria-hidden="true">
         <circle cx="22" cy="22" r="8" fill="currentColor"/>
         <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
@@ -440,7 +375,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
           <path d="M8 8l4.2 4.2"/><path d="M31.8 31.8L36 36"/><path d="M8 36l4.2-4.2"/><path d="M31.8 12.2L36 8"/>
         </g>
       </svg>
-      <span class="brand-text"><b class="ku">گۆرانی</b><small>آموزش زبان کردی گورانی</small></span>
+      <span class="brand-text"><b class="ku">سۆرانی</b><small>آموزش زبان کردی سورانی</small></span>
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">معرفی</a>
@@ -448,14 +383,13 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
       <a href="#learn">واژه‌نامه</a>
       <a href="#alphabet">الفبا</a>
       <a href="#path">مسیر یادگیری</a>
-      <a href="#testimonials">نظرات</a>
     </nav>
     <div class="nav-actions">
       <button id="themeToggle" aria-label="تغییر حالت شب و روز">
         <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="#register" class="nav-cta">شروع یادگیری</a>
+      <a href="#learn" class="nav-cta">شروع یادگیری</a>
       <button class="icon-btn" id="menuBtn" aria-label="منو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </div>
@@ -464,7 +398,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
 <div id="drawer">
   <button class="icon-btn" id="drawerClose" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   <a href="#about">معرفی زبان</a><a href="#units">دوره‌ها</a><a href="#learn">واژه‌نامه</a>
-  <a href="#alphabet">الفبا</a><a href="#path">مسیر یادگیری</a><a href="#register">ثبت‌نام</a>
+  <a href="#alphabet">الفبا</a><a href="#path">مسیر یادگیری</a>
 </div>
 
 <!-- ═══════════ هیرو ═══════════ -->
@@ -474,12 +408,12 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
       onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=80';}else{this.style.display='none';}">
   </div>
   <div class="hero-overlay"></div>
-  <div class="hero-word ku" aria-hidden="true">گۆرانی</div>
+  <div class="hero-word ku" aria-hidden="true">سۆرانی</div>
 
   <div class="hero-content container">
-    <span class="hero-eyebrow h-in">پلی برای دریا و کوه ها</span>
-    <h1 class="h-in">آموزش زبان کردی <span class="hl">گورانی</span></h1>
-    <p class="hero-sub h-in">از «سڵاو» تا جمله‌سازی؛ واژه‌های گورانی را با معنی فارسی، آوانگاری و تلفظ صوتی، قدم‌به‌قدم یاد بگیرید.</p>
+    <span class="hero-eyebrow h-in">پلی برای دریا و کوه‌ها</span>
+    <h1 class="h-in">آموزش زبان کردی <span class="hl">سورانی</span></h1>
+    <p class="hero-sub h-in">از «سڵاو» تا جمله‌سازی؛ واژه‌های سورانی را با معنی فارسی، آوانگاری و تلفظ صوتی، قدم‌به‌قدم یاد بگیرید.</p>
     <div class="hero-cta h-in">
       <a href="#learn" class="btn btn-glass">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -499,10 +433,10 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
 
   <div class="hero-stats">
     <div class="container">
-      <div class="stat"><div class="stat-num" data-count="116">۰</div><div class="stat-lbl">واژه گورانی</div></div>
+      <div class="stat"><div class="stat-num" data-count="116">۰</div><div class="stat-lbl">واژه سورانی</div></div>
       <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">دسته‌بندی</div></div>
       <div class="stat"><div class="stat-num" data-count="33">۰</div><div class="stat-lbl">حرف الفبا</div></div>
-      <div class="stat"><div class="stat-num" data-count="100" data-suffix="٪">۰</div><div class="stat-lbl">رایگان</div></div>
+      <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">حروف ویژه</div></div>
     </div>
   </div>
 </section>
@@ -514,9 +448,9 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
   <div class="container about-grid">
     <div class="about-txt reveal">
       <span class="eyebrow">آشنایی</span>
-      <h2>گورانی؛ میراث زبانی کوهستان</h2>
-      <p>گورانی (هورامی) یکی از زبان‌های کهن منطقهٔ کردستان است که در هورامان، گاورود و بخش‌هایی از کرمانشاه و کردستان عراق گفتگو می‌شود. این زبان پیشینهٔ درخشانی در شعر و ادبیات دارد.</p>
-      <p>نزدیکی واژگانی گورانی با فارسی، یادگیری آن را برای شما لذت‌بخش و سریع می‌کند؛ بسیاری از واژه‌ها را بار اول هم می‌شناسید!</p>
+      <h2>سورانی؛ میراث زبانی کوهستان</h2>
+      <p>سورانی یکی از زبان‌های کهن منطقهٔ کردستان است که در بخش‌های وسیعی از کردستان ایران و عراق، از جمله سنندج، مهاباد، سلیمانیه و اربیل گفتگو می‌شود. این زبان پیشینهٔ درخشانی در شعر و ادبیات دارد.</p>
+      <p>نزدیکی واژگانی سورانی با فارسی، یادگیری آن را برای شما لذت‌بخش و سریع می‌کند؛ بسیاری از واژه‌ها را بار اول هم می‌شناسید!</p>
       <button class="ku-pill" id="welcomePill">
         <b>خێر هاتیت</b>
         <span>یعنی «خوش آمدی» — بشنوید!</span>
@@ -527,7 +461,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
       <div class="feat-card reveal" style="--fc:#C4392B;--d:.05s">
         <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <h4>پیشینهٔ ادبی کهن</h4>
-        <p>شعر و متون گورانی میراثی چندصدساله است؛ زبان بسیاری از دیوان‌ها و دم‌های عرفانی منطقه.</p>
+        <p>شعر و متون سورانی میراثی چندصدساله است؛ زبان بسیاری از دیوان‌ها و دم‌های عرفانی منطقه.</p>
       </div>
       <div class="feat-card reveal" style="--fc:#D4A017;--d:.15s">
         <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -537,7 +471,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
       <div class="feat-card reveal" style="--fc:#6B7F3E;--d:.25s">
         <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><path d="m15 5 4 4"/></svg></div>
         <h4>خط فارسی‌ـ‌عربی</h4>
-        <p>با ۳۳ حرف و ۵ حرف ویژهٔ گورانی (ڕ، ڵ، ۆ، ێ، ڤ) نوشته می‌شود.</p>
+        <p>با ۳۳ حرف و ۵ حرف ویژهٔ سورانی (ڕ، ڵ، ۆ، ێ، ڤ) نوشته می‌شود.</p>
       </div>
       <div class="feat-card reveal" style="--fc:#9E2E22;--d:.35s">
         <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
@@ -645,7 +579,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">الفبا</span>
-      <h2>۳۳ حرف الفبای گورانی</h2>
+      <h2>۳۳ حرف الفبای سورانی</h2>
       <span class="rainbow"></span>
       <p>روی هر حرف بزنید تا واژهٔ نمونه همراه با تلفظ پخش شود.</p>
     </div>
@@ -680,7 +614,7 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
       <div class="tl-item reveal" data-n="۱">
         <span class="tl-tag">هفتهٔ ۱</span>
         <h4>شناخت الفبا</h4>
-        <p>با ۳۳ حرف گورانی و حرف‌های ویژهٔ آن (ڕ، ڵ، ۆ، ێ، ڤ) آشنا شوید؛ پایهٔ خواندن و نوشتن همین‌جا ساخته می‌شود.</p>
+        <p>با ۳۳ حرف سورانی و حرف‌های ویژهٔ آن (ڕ، ڵ، ۆ، ێ، ڤ) آشنا شوید؛ پایهٔ خواندن و نوشتن همین‌جا ساخته می‌شود.</p>
         <a class="tl-link" href="#alphabet">رفتن به بخش الفبا <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
       </div>
       <div class="tl-item reveal" data-n="۲">
@@ -699,123 +633,21 @@ footer{background:#141210;color:rgba(250,246,240,.78)}
         <span class="tl-tag">هفتهٔ ۴ و ۵</span>
         <h4>دنیای اطراف</h4>
         <p>خانواده و اعضای بدن، طبیعت و مکان‌ها؛ واژه‌هایی که هر روز می‌بینید و به‌کار می‌برید.</p>
-        <button class="tl-link" data-goto="1">شروع دستهٔ خانواده و بدن <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <button class="tl-link" data-goto="1">شروع دستهٔ خانواده و بدن <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+          <button class="tl-link" data-goto="2">شروع دستهٔ طبیعت و مکان <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        </div>
       </div>
       <div class="tl-item reveal" data-n="۵">
         <span class="tl-tag">هفتهٔ ۶</span>
         <h4>افعال و جمله‌سازی</h4>
-        <p>مصدرها را بیاموزید و جمله بسازید. یادتان باشد: در گورانی مصدر معمولاً به «ـەن» ختم می‌شود، مثل «کەردەن».</p>
+        <p>مصدرها را بیاموزید و جمله بسازید. یادتان باشد: در سورانی مصدر معمولاً به «ـن» ختم می‌شود، مثل «کردن».</p>
         <button class="tl-link" data-goto="3">شروع دستهٔ افعال <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ نظرات ═══════════ -->
-<section id="testimonials">
-  <div class="container">
-    <div class="sec-head reveal">
-      <span class="eyebrow">نظرات زبان‌آموزان</span>
-      <h2>آن‌ها شروع کردند، شما چطور؟</h2>
-      <span class="rainbow"></span>
-    </div>
-    <div class="testi-stage reveal"><div class="testi-track" id="testiTrack"></div></div>
-    <div class="testi-nav reveal">
-      <button class="t-arrow" id="tPrev" aria-label="قبلی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-      <div class="t-dots" id="tDots"></div>
-      <button class="t-arrow" id="tNext" aria-label="بعدی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ثبت‌نام ═══════════ -->
-<section id="register">
-  <div class="container reg-grid">
-    <div class="reg-txt reveal">
-      <span class="eyebrow">ثبت‌نام</span>
-      <h2>جای شما در کلاس خالی است</h2>
-      <p>برای دریافت برنامهٔ شخصی یادگیری و اطلاع از جلسات تمرین مکالمه، فرم را پر کنید.</p>
-      <ul class="reg-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>دسترسی کامل و رایگان به همهٔ دسته‌های واژه‌نامه</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>جلسات هفتگی تمرین تلفظ و مکالمهٔ گروهی</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>یادگیری در شش هفته با نقشهٔ راه مشخص</span></li>
-      </ul>
-      <div class="reg-note">این یک نمونهٔ نمایشی است؛ اطلاعات فرم فقط در مرورگر خودتان می‌ماند و به سروری ارسال نمی‌شود.</div>
-    </div>
-    <form class="form-card reveal" style="--d:.15s" id="regForm" novalidate>
-      <div class="form-row">
-        <div class="field">
-          <input type="text" id="fName" placeholder=" " autocomplete="name">
-          <label for="fName">نام و نام خانوادگی</label>
-        </div>
-        <div class="field">
-          <input type="text" id="fContact" placeholder=" " autocomplete="email">
-          <label for="fContact">ایمیل یا شمارهٔ موبایل</label>
-        </div>
-      </div>
-      <div class="field">
-        <span class="f-cap">سطح فعلی شما</span>
-        <select id="fLevel">
-          <option>مبتدی (از صفر)</option>
-          <option>متوسط (چند واژه بلدم)</option>
-          <option>پیشرفته (فقط می‌خواهم تمرین کنم)</option>
-        </select>
-        <svg class="sel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="field">
-        <textarea id="fMsg" rows="3" placeholder=" "></textarea>
-        <label for="fMsg">پیام (اختیاری)</label>
-      </div>
-      <button type="submit" class="btn btn-primary" id="regSubmit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        ثبت‌نام در دورهٔ رایگان
-      </button>
-    </form>
-  </div>
-</section>
-
-<!-- ═══════════ فوتر ═══════════ -->
-<div class="kilim-strip" aria-hidden="true"></div>
-<footer>
-  <div class="container">
-    <div class="f-grid">
-      <div class="f-brand">
-        <a class="brand" href="#home">
-          <svg class="logo-sun" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="22" r="8" fill="#D4A017"/>
-            <g stroke="#D4A017" stroke-width="3" stroke-linecap="round">
-              <path d="M22 2v6"/><path d="M22 36v6"/><path d="M2 22h6"/><path d="M36 22h6"/>
-              <path d="M8 8l4.2 4.2"/><path d="M31.8 31.8L36 36"/><path d="M8 36l4.2-4.2"/><path d="M31.8 12.2L36 8"/>
-            </g>
-          </svg>
-          <span class="brand-text"><b class="ku">گۆرانی</b><small style="color:rgba(250,246,240,.55)">آموزش زبان کردی گورانی</small></span>
-        </a>
-        <p>پلی میان فارسی‌زبانان و زبان کهن گورانی؛ یادگیری رایگان، تعاملی و همراه با صدا — از الفبا تا اولین مکالمه.</p>
-        <div class="socials">
-          <a href="#" aria-label="اینستاگرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="تلگرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
-          <a href="#" aria-label="یوتیوب"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15.5 12 10 15 10 9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="ایکس"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4.5 4.5l15 15M19.5 4.5l-15 15"/></svg></a>
-        </div>
-      </div>
-      <div class="f-col">
-        <h5>بخش‌های آموزشی</h5>
-        <a href="#alphabet">الفبای گورانی</a>
-        <a href="#learn">واژه‌نامهٔ تعاملی</a>
-        <a href="#units">دسته‌های موضوعی</a>
-        <a href="#path">مسیر یادگیری</a>
-      </div>
-      <div class="f-col">
-        <h5>دسترسی سریع</h5>
-        <a href="#about">معرفی زبان گورانی</a>
-        <a href="#testimonials">نظرات زبان‌آموزان</a>
-        <a href="#register">ثبت‌نام در دوره</a>
-        <a href="#home">بازگشت به ابتدا</a>
-      </div>
-    </div>
-    <div class="f-bottom">© ۱۴۰۴ گۆرانی — آموزش زبان کردی گورانی برای فارسی‌زبانان | ساخته‌شده با عشق به زبان‌ها</div>
-  </div>
-</footer>
 
 <!-- شناورها -->
 <button id="helpFab" aria-label="راهنمای سایت">؟</button>
@@ -860,44 +692,37 @@ const CATS=[
  {id:'greet',fa:'احوالپرسی',ku:'سڵاو و احوالپرسی',color:'#C4392B',icon:IC.chat,level:'مبتدی',
   desc:'جمله‌های اول برای شروع هر گفت‌وگو؛ از سلام تا خداحافظی.',
   tip:'«سڵاو» رایج‌ترین سلام در کردی است و در هر موقعیتی — رسمی یا دوستانه — کاربرد دارد.',
-  words:[{fa:'سلام',ku:'سڵاو',pr:'Slaw'},{fa:'حالت چطوره؟',ku:'تۆ چۆنی؟ / حاڵت چۆنە؟',pr:'To çonî? / Hâlet çone?'},{fa:'خوبم',ku:'خاسم / باشم',pr:'Xasm / Başm'},{fa:'صبح بخیر',ku:'بەیانی خاس',pr:'Beyanî xas'},{fa:'شب بخیر',ku:'شەو خاس',pr:'Şew xas'},{fa:'خوش آمدی',ku:'خێر هاتیت',pr:'Xêr hatît'},{fa:'خداحافظ',ku:'وە خاتر / بە خاتر',pr:'We xatir / Be xatir'},{fa:'ممنون',ku:'دەستت خاس / سوپاس',pr:'Destt xas / Supas'},{fa:'بله',ku:'بەڵێ / ئا',pr:'Bełê / A'},{fa:'نه',ku:'نە / نەخێر',pr:'Ne / Nexêr'},{fa:'لطفاً',ku:'تکایە',pr:'Tikaye'},{fa:'ببخشید',ku:'ببورە / لێم ببورە',pr:'Bibure / Lêm bibure'}]},
+  words:[{id:'greet-slaw',fa:'سلام',ku:'سڵاو',pr:'Slaw'},{id:'greet-toconi',fa:'حالت چطوره؟',ku:'تۆ چۆنی؟ / حاڵت چۆنە؟',pr:'To çonî? / Hałet çone?'},{id:'greet-basm',fa:'خوبم',ku:'باشم / چاکم',pr:'Başm / Çakm'},{id:'greet-beyanibas',fa:'صبح بخیر',ku:'بەیانی باش',pr:'Beyanî baş'},{id:'greet-sewbas',fa:'شب بخیر',ku:'شەو باش',pr:'Şew baş'},{id:'greet-xerhatit',fa:'خوش آمدی',ku:'خێر هاتیت',pr:'Xêr hatît'},{id:'greet-xwahafiz',fa:'خداحافظ',ku:'خواحافیز / بە خاتر',pr:'Xwahafîz / Be xatir'},{id:'greet-supas',fa:'ممنون',ku:'سوپاس / دەستت خۆش',pr:'Supas / Destt xoş'},{id:'greet-bee',fa:'بله',ku:'بەڵێ / ئا',pr:'Bełê / A'},{id:'greet-ne',fa:'نه',ku:'نە / نەخێر',pr:'Ne / Nexêr'},{id:'greet-tikaye',fa:'لطفاً',ku:'تکایە',pr:'Tikaye'},{id:'greet-bibure',fa:'ببخشید',ku:'ببورە / لێم ببورە',pr:'Bibure / Lêm bibure'}]},
  {id:'family',fa:'خانواده و بدن',ku:'بنەماڵە و لەش',color:'#D4A017',icon:IC.users,level:'مبتدی',
   desc:'واژه‌های نزدیک‌ترین آدم‌های زندگی و اعضای بدن.',
-  tip:'«دایک» مادر و «باوک» پدر است؛ پایان «ـە» را در بسیاری از واژه‌ها به‌روشنی می‌شنوید: دایە، نەنە، خانە.',
-  words:[{g:'خانواده'},{fa:'پدر',ku:'باوک / باب',pr:'Bawk / Bab'},{fa:'مادر',ku:'دایک / دایە',pr:'Dayk / Daye'},{fa:'برادر',ku:'برا',pr:'Bira'},{fa:'خواهر',ku:'خوشک',pr:'Xuşk'},{fa:'پسر',ku:'کوڕ',pr:'Kuř'},{fa:'دختر',ku:'کِچ / کچ',pr:'Kiç'},{fa:'پدربزرگ',ku:'باپیر',pr:'Bapîr'},{fa:'مادربزرگ',ku:'داپیر / نەنە',pr:'Dapîr / Nene'},{fa:'عمو',ku:'مام',pr:'Mam'},{fa:'خاله / عمه',ku:'خاڵە / پوور',pr:'Xałe / Pûr'},{fa:'شوهر',ku:'مێرد',pr:'Mêrd'},{fa:'زن (همسر)',ku:'ژن',pr:'Jin'},{fa:'فرزند / بچه',ku:'زاڕۆ / منداڵ',pr:'Zařo / Mindał'},{g:'بدن'},{fa:'سر',ku:'سەر',pr:'Ser'},{fa:'چشم',ku:'چەم',pr:'Çem'},{fa:'گوش',ku:'گوێ',pr:'Gwê'},{fa:'بینی',ku:'لووت',pr:'Lût'},{fa:'دهان',ku:'دەم',pr:'Dem'},{fa:'دندان',ku:'ددان',pr:'Ddan'},{fa:'دست',ku:'دەست',pr:'Dest'},{fa:'پا',ku:'پێ',pr:'Pê'},{fa:'قلب',ku:'دڵ',pr:'Dił'},{fa:'خون',ku:'خوێن',pr:'Xwên'},{fa:'مو',ku:'قژ',pr:'Qij'},{fa:'صورت',ku:'ڕوو',pr:'Řû'},{fa:'انگشت',ku:'پەنجە',pr:'Pence'},{fa:'شکم',ku:'سک',pr:'Sik'}]},
+  tip:'«دایک» مادر و «باوک» پدر است؛ پایان «ـە» را در بسیاری از واژه‌ها به‌روشنی می‌شنوید: دایە، خاڵە، خانە.',
+  words:[{g:'خانواده'},{id:'family-bawk',fa:'پدر',ku:'باوک / باوکه',pr:'Bawk / Bawke'},{id:'family-dayk',fa:'مادر',ku:'دایک / دایە',pr:'Dayk / Daye'},{id:'family-bira',fa:'برادر',ku:'برا',pr:'Bira'},{id:'family-xwisk',fa:'خواهر',ku:'خوشک',pr:'Xwîşk',sp:'خویشک'},{id:'family-kur',fa:'پسر',ku:'کوڕ',pr:'Kuř'},{id:'family-kic',fa:'دختر',ku:'کِچ / کەنیشک',pr:'Kiç / Kenîşk'},{id:'family-bapir',fa:'پدربزرگ',ku:'باپیر',pr:'Bapîr'},{id:'family-dapir',fa:'مادربزرگ',ku:'داپیر / داعا',pr:'Dapîr / Da\'a'},{id:'family-mamo',fa:'عمو',ku:'مامۆ',pr:'Mamo'},{id:'family-xae',fa:'خاله / عمه',ku:'خاڵە / میمی',pr:'Xałe / Mîmî'},{id:'family-merd',fa:'شوهر',ku:'مێرد / شوو',pr:'Mêrd / Şû'},{id:'family-jin',fa:'زن (همسر)',ku:'ژن',pr:'Jin'},{id:'family-roe',fa:'فرزند / بچه',ku:'ڕۆڵە / منداڵ',pr:'Řołe / Mindał'},{g:'بدن'},{id:'family-ser',fa:'سر',ku:'سەر',pr:'Ser'},{id:'family-caw',fa:'چشم',ku:'چاو',pr:'Çaw'},{id:'family-gwe',fa:'گوش',ku:'گوێ',pr:'Gwê'},{id:'family-lut',fa:'بینی',ku:'لووت',pr:'Lût'},{id:'family-dem',fa:'دهان',ku:'دەم',pr:'Dem'},{id:'family-didan',fa:'دندان',ku:'ددان',pr:'Didan'},{id:'family-dest',fa:'دست',ku:'دەست',pr:'Dest'},{id:'family-pe',fa:'پا',ku:'پێ',pr:'Pê'},{id:'family-di',fa:'قلب',ku:'دڵ',pr:'Dił'},{id:'family-xwen',fa:'خون',ku:'خوێن',pr:'Xwên'},{id:'family-qij',fa:'مو',ku:'قژ',pr:'Qij'},{id:'family-ru',fa:'صورت',ku:'ڕوو',pr:'Řû'},{id:'family-pence',fa:'انگشت',ku:'پەنجە',pr:'Pence'},{id:'family-zik',fa:'شکم',ku:'سک',pr:'Zik',sp:'زِک'}]},
  {id:'nature',fa:'طبیعت و مکان',ku:'سروشت و شوێن',color:'#6B7F3E',icon:IC.mount,level:'مبتدی',
   desc:'از کوه و رود و ستاره گرفته تا خانه و بازار.',
   tip:'«کێو» یعنی کوه؛ کردستان سرزمین کوه‌هاست و این واژه را در نامه‌ها و ترانه‌ها زیاد می‌شنوید.',
-  words:[{g:'طبیعت'},{fa:'آب',ku:'ئاو',pr:'Aw'},{fa:'آتش',ku:'ئاگر',pr:'Agir'},{fa:'خاک',ku:'خاک',pr:'Xak'},{fa:'آسمان',ku:'ئاسمان',pr:'Asman'},{fa:'خورشید',ku:'خۆر',pr:'Xor'},{fa:'ماه',ku:'مانگ',pr:'Mang'},{fa:'ستاره',ku:'ئەستێرە',pr:'Estêre'},{fa:'کوه',ku:'کێو',pr:'Kêw'},{fa:'رودخانه',ku:'چەم / ڕووبار',pr:'Çem / Řûbar'},{fa:'درخت',ku:'دار',pr:'Dar'},{fa:'گل',ku:'گوڵ',pr:'Guł'},{fa:'باران',ku:'باران',pr:'Baran'},{fa:'باد',ku:'با',pr:'Ba'},{fa:'برف',ku:'بەفر',pr:'Befr'},{fa:'سنگ',ku:'بەرد',pr:'Berd'},{fa:'جنگل',ku:'دارستان / مێرگ',pr:'Daristan / Mêrg'},{g:'مکان'},{fa:'خانه',ku:'ماڵ / خانە',pr:'Mał / Xane'},{fa:'روستا',ku:'دێ',pr:'Dê'},{fa:'شهر',ku:'شار',pr:'Şar'},{fa:'جاده / راه',ku:'ڕێ / ڕێگا',pr:'Řê / Řêga'},{fa:'در (درب)',ku:'دەرگا',pr:'Derga'},{fa:'اتاق',ku:'ژوور',pr:'Jûr'},{fa:'مدرسه',ku:'قوتابخانە',pr:'Qutabxane'},{fa:'بازار',ku:'بازاڕ',pr:'Bazař'}]},
+  words:[{g:'طبیعت'},{id:'nature-aw',fa:'آب',ku:'ئاو',pr:'Aw'},{id:'nature-agir',fa:'آتش',ku:'ئاگر',pr:'Agir'},{id:'nature-xo',fa:'خاک',ku:'خۆڵ / زەوی',pr:'Xoł / Zewî'},{id:'nature-asman',fa:'آسمان',ku:'ئاسمان',pr:'Asman'},{id:'nature-xor',fa:'خورشید',ku:'خۆر',pr:'Xor'},{id:'nature-mang',fa:'ماه',ku:'مانگ',pr:'Mang'},{id:'nature-estere',fa:'ستاره',ku:'ئەستێرە',pr:'Estêre'},{id:'nature-kew',fa:'کوه',ku:'کێو',pr:'Kêw'},{id:'nature-cem',fa:'رودخانه',ku:'چەم / ڕووبار',pr:'Çem / Řûbar'},{id:'nature-dar',fa:'درخت',ku:'دار',pr:'Dar'},{id:'nature-gu',fa:'گل',ku:'گوڵ',pr:'Guł'},{id:'nature-baran',fa:'باران',ku:'باران',pr:'Baran'},{id:'nature-ba',fa:'باد',ku:'با',pr:'Ba'},{id:'nature-befr',fa:'برف',ku:'بەفر',pr:'Befr'},{id:'nature-berd',fa:'سنگ',ku:'بەرد',pr:'Berd'},{id:'nature-daristan',fa:'جنگل',ku:'دارستان / مێرگ',pr:'Daristan / Mêrg'},{g:'مکان'},{id:'nature-ma',fa:'خانه',ku:'ماڵ / خانە',pr:'Mał / Xane'},{id:'nature-de',fa:'روستا',ku:'دێ',pr:'Dê'},{id:'nature-sar',fa:'شهر',ku:'شار',pr:'Şar'},{id:'nature-re',fa:'جاده / راه',ku:'ڕێ / ڕێگا',pr:'Řê / Řêga'},{id:'nature-derga',fa:'در (درب)',ku:'دەرگا',pr:'Derga'},{id:'nature-jur',fa:'اتاق',ku:'ژوور',pr:'Jûr'},{id:'nature-qutabxane',fa:'مدرسه',ku:'قوتابخانە',pr:'Qutabxane'},{id:'nature-bazar',fa:'بازار',ku:'بازاڕ',pr:'Bazař'}]},
  {id:'verbs',fa:'افعال',ku:'کردارەکان',color:'#9E2E22',icon:IC.zap,level:'متوسط',
   desc:'مصدرهای پرکاربرد برای ساختن جمله‌های واقعی.',
-  tip:'<b>نکتهٔ مهم:</b> در گورانی مصدر افعال معمولاً به «ـەن» ختم می‌شود (مانند «کەردەن» و «دیەن») — برخلاف سورانی.',
-  words:[{fa:'رفتن',ku:'چوون / ڕۆیشتن',pr:'Çûn / Roîşten'},{fa:'آمدن',ku:'هاتن',pr:'Haten'},{fa:'خوردن',ku:'واردەن / خواردن',pr:'Warden / Xwardin'},{fa:'نوشیدن',ku:'خواردنەوە',pr:'Xwardinewe'},{fa:'دیدن',ku:'دیەن',pr:'Dîyen'},{fa:'گفتن',ku:'واتەن',pr:'Waten'},{fa:'دادن',ku:'دان',pr:'Dan'},{fa:'گرفتن',ku:'گرتن',pr:'Girten'},{fa:'خوابیدن',ku:'خەوتن',pr:'Xewten'},{fa:'نشستن',ku:'نیشتن',pr:'Nişten'},{fa:'ایستادن',ku:'وەستان',pr:'Westan'},{fa:'دانستن',ku:'زانین',pr:'Zanîn'},{fa:'خواستن',ku:'وێستن',pr:'Wêsten'},{fa:'انجام دادن',ku:'کەردەن',pr:'Kerden'},{fa:'مردن',ku:'مردن',pr:'Mirden'},{fa:'زندگی کردن',ku:'ژیان',pr:'Jiyan'},{fa:'نوشتن',ku:'نووسین',pr:'Nûsîn'},{fa:'خواندن',ku:'خوێندنەوە',pr:'Xwêndinewe'},{fa:'شنیدن',ku:'بیستن',pr:'Bîsten'},{fa:'خندیدن',ku:'پێکەنین',pr:'Pêkenîn'}]},
+  tip:'<b>نکتهٔ مهم:</b> در سورانی مصدر افعال معمولاً به «ـن» ختم می‌شود (مانند «هاتن»، «گرتن» و «کردن»).',
+  words:[{id:'verbs-cun',fa:'رفتن',ku:'چوون / ڕۆیشتن',pr:'Çûn / Řoyştin'},{id:'verbs-hatin',fa:'آمدن',ku:'هاتن',pr:'Hatin'},{id:'verbs-xwardin',fa:'خوردن',ku:'خواردن',pr:'Xwardin'},{id:'verbs-xwardinewe',fa:'نوشیدن',ku:'خواردنەوە',pr:'Xwardinewe'},{id:'verbs-ditin',fa:'دیدن',ku:'دیتن',pr:'Dîtin'},{id:'verbs-gutin',fa:'گفتن',ku:'گوتن / وتن',pr:'Gutin / Witin'},{id:'verbs-dan',fa:'دادن',ku:'دان',pr:'Dan'},{id:'verbs-girtin',fa:'گرفتن',ku:'گرتن',pr:'Girtin'},{id:'verbs-xewtin',fa:'خوابیدن',ku:'خەوتن',pr:'Xewtin'},{id:'verbs-nistin',fa:'نشستن',ku:'نیشتن',pr:'Nîştin'},{id:'verbs-westan',fa:'ایستادن',ku:'وەستان',pr:'Westan'},{id:'verbs-zanin',fa:'دانستن',ku:'زانین',pr:'Zanîn'},{id:'verbs-wistin',fa:'خواستن',ku:'ویستن',pr:'Wîstin'},{id:'verbs-kirdin',fa:'انجام دادن',ku:'کردن',pr:'Kirdin'},{id:'verbs-mirdin',fa:'مردن',ku:'مردن',pr:'Mirdin'},{id:'verbs-jiyan',fa:'زندگی کردن',ku:'ژیان',pr:'Jiyan'},{id:'verbs-nusin',fa:'نوشتن',ku:'نووسین',pr:'Nûsîn'},{id:'verbs-xwendinewe',fa:'خواندن',ku:'خوێندنەوە',pr:'Xwêndinewe'},{id:'verbs-bistin',fa:'شنیدن',ku:'بیستن',pr:'Bîstin'},{id:'verbs-pekenin',fa:'خندیدن',ku:'پێکەنین',pr:'Pêkenîn'}]},
  {id:'basic',fa:'واژه‌های پایه',ku:'وشە بنەڕەتییەکان',color:'#556530',icon:IC.spark,level:'مبتدی',
   desc:'ضمیر، عدد و صفت‌هایی که در هر جمله‌ای به کار می‌آیند.',
-  tip:'«ئەو» هم «او» است و هم «آن»؛ یعنی در گورانی برای انسان و شیء یک واژه داریم.',
-  words:[{g:'ضمایر'},{fa:'من',ku:'من',pr:'Min'},{fa:'تو',ku:'تۆ / تُو',pr:'To / Tû'},{fa:'او',ku:'ئەو',pr:'Ew'},{fa:'ما',ku:'ئێمە',pr:'Ême'},{fa:'شما',ku:'ئێوە',pr:'Êwe'},{fa:'آنها',ku:'ئەوان',pr:'Ewan'},{g:'اعداد'},{fa:'یک',ku:'یەک',pr:'Yek'},{fa:'دو',ku:'دوو',pr:'Dû'},{fa:'سه',ku:'سێ',pr:'Sê'},{fa:'چهار',ku:'چوار',pr:'Çwar'},{fa:'پنج',ku:'پێنج',pr:'Pênc'},{fa:'شش',ku:'شەش',pr:'Şeş'},{fa:'هفت',ku:'حەوت',pr:'Hewt'},{fa:'هشت',ku:'هەشت',pr:'Heşt'},{fa:'نه',ku:'نۆ',pr:'No'},{fa:'ده',ku:'دە',pr:'De'},{g:'صفات و واژگان روزمره'},{fa:'بزرگ',ku:'گەورە',pr:'Gewre'},{fa:'کوچک',ku:'بچووک',pr:'Biçûk'},{fa:'خوب',ku:'خاس / باش',pr:'Xas / Baş'},{fa:'بد',ku:'خراپ',pr:'Xirap'},{fa:'جدید',ku:'نوێ',pr:'Nwê'},{fa:'قدیمی',ku:'کۆن',pr:'Kon'},{fa:'گرم',ku:'گەرم',pr:'Germ'},{fa:'سرد',ku:'سارد',pr:'Sard'},{fa:'روز',ku:'ڕۆژ',pr:'Řoj'},{fa:'شب',ku:'شەو',pr:'Şew'},{fa:'نام',ku:'ناو',pr:'Naw'},{fa:'این',ku:'ئەمە',pr:'Eme'},{fa:'آن',ku:'ئەو',pr:'Ew'},{fa:'سفید',ku:'سپی',pr:'Sipî'},{fa:'سیاه',ku:'ڕەش',pr:'Řeş'},{fa:'سرخ',ku:'سوور',pr:'Sûr'},{fa:'سبز',ku:'سەوز',pr:'Sewz'}]}
+  tip:'«ئەو» هم «او» است و هم «آن»؛ یعنی در سورانی برای انسان و شیء یک واژه داریم.',
+  words:[{g:'ضمایر'},{id:'basic-min',fa:'من',ku:'من',pr:'Min'},{id:'basic-to',fa:'تو',ku:'تۆ / تُو',pr:'To / Tû'},{id:'basic-ew',fa:'او',ku:'ئەو',pr:'Ew'},{id:'basic-eme',fa:'ما',ku:'ئێمە',pr:'Ême'},{id:'basic-ewe',fa:'شما',ku:'ئێوە',pr:'Êwe'},{id:'basic-ewan',fa:'آنها',ku:'ئەوان',pr:'Ewan'},{g:'اعداد'},{id:'basic-yek',fa:'یک',ku:'یەک',pr:'Yek'},{id:'basic-du',fa:'دو',ku:'دوو',pr:'Dû'},{id:'basic-se',fa:'سه',ku:'سێ',pr:'Sê'},{id:'basic-cwar',fa:'چهار',ku:'چوار',pr:'Çwar'},{id:'basic-penc',fa:'پنج',ku:'پێنج',pr:'Pênc'},{id:'basic-ses',fa:'شش',ku:'شەش',pr:'Şeş'},{id:'basic-hewt',fa:'هفت',ku:'حەوت',pr:'Hewt'},{id:'basic-hest',fa:'هشت',ku:'هەشت',pr:'Heşt'},{id:'basic-no',fa:'نه',ku:'نۆ',pr:'No'},{id:'basic-de',fa:'ده',ku:'دە',pr:'De'},{g:'صفات و واژگان روزمره'},{id:'basic-gewre',fa:'بزرگ',ku:'گەورە',pr:'Gewre'},{id:'basic-bicuk',fa:'کوچک',ku:'بچووک',pr:'Biçûk'},{id:'basic-bas',fa:'خوب',ku:'باش / چاک',pr:'Baş / Çak'},{id:'basic-xirap',fa:'بد',ku:'خراپ',pr:'Xirap'},{id:'basic-nwe',fa:'جدید',ku:'نوێ',pr:'Nwê'},{id:'basic-kon',fa:'قدیمی',ku:'کۆن',pr:'Kon'},{id:'basic-germ',fa:'گرم',ku:'گەرم',pr:'Germ'},{id:'basic-sard',fa:'سرد',ku:'سارد',pr:'Sard'},{id:'basic-roj',fa:'روز',ku:'ڕۆژ',pr:'Řoj'},{id:'basic-sew',fa:'شب',ku:'شەو',pr:'Şew'},{id:'basic-naw',fa:'نام',ku:'ناو',pr:'Naw'},{id:'basic-eme2',fa:'این',ku:'ئەمە',pr:'Eme'},{id:'basic-ew2',fa:'آن',ku:'ئەو',pr:'Ew'},{id:'basic-sipi',fa:'سفید',ku:'سپی',pr:'Sipî'},{id:'basic-res',fa:'سیاه',ku:'ڕەش',pr:'Řeş'},{id:'basic-sur',fa:'سرخ',ku:'سوور',pr:'Sûr'},{id:'basic-sewz',fa:'سبز',ku:'سەوز',pr:'Sewz'}]}
 ];
 CATS.forEach(c=>c.items=c.words.filter(w=>!w.g));
 
-/* الفبای گورانی (۳۳ حرف) با واژهٔ نمونه */
+/* الفبای سورانی (۳۳ حرف) با واژهٔ نمونه */
 const ABC=[
  ['ا','ئەلیف','ئاو','آب'],['ب','بێ','باران','باران'],['پ','پێ','پێ','پا'],['ت','تێ','تۆ','تو'],
- ['ج','جیم','جوان','زیبا'],['چ','چێ','چەم','چشم'],['ح','حێ','حەوت','هفت'],['خ','خێ','خۆر','خورشید'],
- ['د','دال','دەست','دست'],['ر','رێ','بەرد','سنگ'],['ڕ','ڕێ','ڕۆژ','روز'],['ز','زێ','زاڕۆ','فرزند'],
+ ['ج','جیم','جوان','زیبا'],['چ','چێ','چاو','چشم'],['ح','حێ','حەوت','هفت'],['خ','خێ','خۆر','خورشید'],
+ ['د','دال','دەست','دست'],['ر','رێ','بەرد','سنگ'],['ڕ','ڕێ','ڕۆژ','روز'],['ز','زێ','زمان','زبان'],
  ['ژ','ژێ','ژن','زن'],['س','سین','سەر','سر'],['ش','شین','شەو','شب'],['ع','عەین','عەشق','عشق'],
- ['غ','غەین','غەم','غم'],['ف','فێ','فێربوون','یادگیری'],['ڤ','ڤێ','ڤیان','زندگی'],['ق','قاف','قوتابخانە','مدرسه'],
+ ['غ','غەین','غەم','غم'],['ف','فێ','فێربوون','یادگیری'],['ڤ','ڤێ','ڤیدیۆ','ویدئو'],['ق','قاف','قوتابخانە','مدرسه'],
  ['ک','کاف','کێو','کوه'],['گ','گاف','گوڵ','گل'],['ل','لام','لووت','بینی'],['ڵ','ڵام','دڵ','قلب'],
- ['م','میم','مانگ','ماه'],['ن','نون','ناو','نام'],['و','واو','وەستان','ایستادن'],['ۆ','ۆ','ۆرامان','اورامان'],
- ['وو','واو+واو','دوو','دو'],['ھ','ھێ','هەور','ابر'],['ە','ە (هێ)','خانە','خانه'],['ی','یێ','یەک','یک'],
+ ['م','میم','مانگ','ماه'],['ن','نون','ناو','نام'],['و','واو','وەستان','ایستادن'],['ۆ','ۆ','دۆست','دوست'],
+['ھ','ھێ','هەور','ابر'],['ە','ە (کورت)','خانە','خانه'],['ی','یێ','یەک','یک'],
  ['ێ','ێ','ئێمە','ما'],['ئ','هەمزە','ئەو','او']
-];
-
-const TESTIMONIALS=[
- {t:'با صفر شروع کردم و بعد از دو ماه اولین جمله‌هایم را با پدربزرگم گفتم. بخش واژه‌نامه با فلش‌کارت‌ها دقیقاً همان چیزی بود که لازم داشتم.',n:'امیر رضایی',c:'تهران',col:'#C4392B'},
- {t:'تلفظ صوتیِ هر واژه بهترین بخش سایت است؛ یاد گرفتن با گوش دادن خیلی عمیق‌تر از حفظ کردن از روی لیست است.',n:'سارا محمدی',c:'کرج',col:'#D4A017'},
- {t:'می‌خواستم به بچه‌ها زبان پدربزرگ و مادربزرگ را یاد بدهم؛ دستهٔ «خانواده و بدن» دقیقاً از همان واژه‌هایی شروع شد که در خانه می‌گوییم.',n:'دلنیا احمدی',c:'سنندج',col:'#6B7F3E'},
- {t:'جدول الفبا با واژهٔ نمونه و صدا، بهترین نقطهٔ شروع بود. هیچ‌جا حرف‌های ڕ و ڵ این‌قدر ساده برایم روشن نشده بود.',n:'کاوه کریمی',c:'تبریز',col:'#9E2E22'}
 ];
 
 /* ---------- توست ---------- */
@@ -908,28 +733,29 @@ function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show'
 let voices=[];
 function loadVoices(){try{voices=speechSynthesis.getVoices();}catch(e){}}
 if('speechSynthesis' in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
-function speak(text,btn){
- if(!('speechSynthesis' in window)){toast('پخش صدا در این مرورگر پشتیبانی نمی‌شود');return;}
+function speak(text,btn,onDone){
+ if(!('speechSynthesis' in window)){toast('پخش صدا در این مرورگر پشتیبانی نمی‌شود');if(onDone)onDone();return;}
  try{
   speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text);
   const v=voices.find(v=>/^(ku|ckb|kmr)/i.test(v.lang))||voices.find(v=>/^fa/i.test(v.lang))||voices.find(v=>/^ar/i.test(v.lang));
   if(v)u.voice=v;
   u.lang=v?v.lang:'fa-IR';u.rate=.82;u.pitch=1;
-  if(btn){btn.classList.add('speaking');const done=()=>btn.classList.remove('speaking');u.onend=done;u.onerror=done;}
+  if(btn)btn.classList.add('speaking');
+  let fin=false;const done=()=>{if(fin)return;fin=true;if(btn)btn.classList.remove('speaking');if(onDone)onDone();};u.onend=done;u.onerror=done;
   speechSynthesis.speak(u);
- }catch(e){toast('پخش صدا ممکن نشد');}
+ }catch(e){toast('پخش صدا ممکن نشد');if(onDone)onDone();}
 }
 const kuSpeak=s=>s.split(' / ').join('، ');
 
 /* ---------- تم ---------- */
 const root=document.documentElement;
-try{if(localStorage.getItem('gorani-theme')==='dark')root.dataset.theme='dark';}catch(e){}
+try{if(localStorage.getItem('sorani-theme')==='dark')root.dataset.theme='dark';}catch(e){}
  $('#themeToggle').addEventListener('click',()=>{
  const d=root.dataset.theme==='dark'?'light':'dark';
  root.dataset.theme=d;
- try{localStorage.setItem('gorani-theme',d);}catch(e){}
- toast(d==='dark'?'حالت شب روشن شد 🌙':'حالت روز روشن شد ☀️'.replace(' ☀️','').replace(' 🌙',''));
+ try{localStorage.setItem('sorani-theme',d);}catch(e){}
+ toast(d==='dark'?'حالت شب روشن شد 🌙':'حالت روز روشن شد ☀️');
 });
 
 /* ---------- نوبار، پیشرفت، پارالاکس، بک‌تاپ (rAF) ---------- */
@@ -960,7 +786,7 @@ function closeDrawer(){drawer.classList.remove('open');document.body.style.overf
 drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
 
 /* ---------- نمایان‌شدن هنگام اسکرول ---------- */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;el.classList.add('in');io.unobserve(el);const d=parseFloat(el.style.getPropertyValue('--d'))||0;setTimeout(()=>el.classList.add('done'),(0.8+d)*1000+60);}}),{threshold:.14});
  $$('.reveal').forEach(el=>io.observe(el));
 
 /* ---------- شمارنده‌های هیرو ---------- */
@@ -1005,8 +831,9 @@ const half=TICK.map(w=>`<span class="t-item" data-ku="${w[0]}"><span class="tk">
 
 /* ---------- یادگیری: دسته‌ها، فلش‌کارت، لیست ---------- */
 let catIdx=0,order=[],pos=0;
-let known={};try{known=JSON.parse(localStorage.getItem('gorani-known')||'{}');}catch(e){known={};}
-const saveKnown=()=>{try{localStorage.setItem('gorani-known',JSON.stringify(known));}catch(e){}};
+let known={};try{known=JSON.parse(localStorage.getItem('sorani-known')||'{}');}catch(e){known={};}
+const saveKnown=()=>{try{localStorage.setItem('sorani-known',JSON.stringify(known));}catch(e){}};
+CATS.forEach(c=>{const a=known[c.id];if(Array.isArray(a))known[c.id]=a.map(x=>typeof x==='number'?(c.items[x]&&c.items[x].id):x).filter(Boolean);});
 const knownSet=id=>new Set(known[id]||[]);
 const shuffleArr=a=>{const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;};
 const learnSec=$('#learn'),fc=$('#flashcard');
@@ -1015,18 +842,20 @@ const learnSec=$('#learn'),fc=$('#flashcard');
  <button class="chip" style="--c:${c.color}" data-cat="${i}">${c.icon}${c.fa}<span class="cnt">${faNum(c.items.length)}</span></button>`).join('');
  $('#chips').addEventListener('click',e=>{const ch=e.target.closest('.chip');if(ch)setCat(+ch.dataset.cat);});
 
+let backTimer;
 function renderCard(anim){
  const c=CATS[catIdx],w=c.items[order[pos]];
  learnSec.style.setProperty('--cat',c.color);
- fc.classList.remove('flipped');
+ clearTimeout(backTimer);
+ const wasFlipped=fc.classList.contains('flipped');
+ const setBack=()=>{$('#fcFa').textContent=w.fa;$('#fcPr').textContent=w.pr;};
+ if(wasFlipped){fc.classList.remove('flipped');backTimer=setTimeout(setBack,760);}else setBack();
  $('#fcTag').textContent=c.ku;
  $('#fcKu').textContent=w.ku;
- $('#fcFa').textContent=w.fa;
- $('#fcPr').textContent=w.pr;
  $('#fcCounter').innerHTML=`<b>${faNum(pos+1)}</b> از ${faNum(c.items.length)}`;
- const ks=knownSet(c.id),on=ks.has(order[pos]);
+ const ks=knownSet(c.id),on=ks.has(w.id);
  const kb=$('#fcKnowBtn');kb.classList.toggle('on',on);
- if(anim&&!reduceMotion){fc.style.animation='none';void fc.offsetWidth;fc.style.animation='fcPop .45s cubic-bezier(.2,.8,.2,1)';}
+ if(anim&&!reduceMotion&&!wasFlipped){fc.style.animation='none';void fc.offsetWidth;fc.style.animation='fcPop .45s cubic-bezier(.2,.8,.2,1)';}
 }
 const st=document.createElement('style');
 st.textContent='@keyframes fcPop{0%{opacity:.35;transform:translateY(12px) scale(.97)}100%{opacity:1;transform:none}}';
@@ -1039,7 +868,7 @@ function updateLearned(){
  $('#aKnown').textContent=faNum(n)+' واژه';
  $$('#wordGrid .w-item').forEach(it=>{
   const i=+it.dataset.i;
-  it.classList.toggle('known',ks.has(i));
+  it.classList.toggle('known',ks.has(c.items[i].id));
  });
 }
 function updateAside(){
@@ -1049,15 +878,17 @@ function updateAside(){
  $('#aTip').innerHTML='💡 '+c.tip;
  $('#aCount').textContent=faNum(c.items.length)+' واژه';
 }
+const norm=t=>String(t||'').toLowerCase().replace(/[يى]/g,'ی').replace(/ك/g,'ک').replace(/ة/g,'ە').replace(/\u200c/g,' ').trim();
 function renderGrid(){
- const c=CATS[catIdx],q=($('#wlSearch').value||'').trim().toLowerCase(),ks=knownSet(c.id);
- let html='',shown=0;
+ const c=CATS[catIdx],q=norm($('#wlSearch').value),ks=knownSet(c.id);
+ let html='',shown=0,pending='';
  c.words.forEach(w=>{
-  if(w.g){html+=`<div class="w-group">${w.g}</div>`;return;}
+  if(w.g){pending=`<div class="w-group">${w.g}</div>`;return;}
   const i=c.items.indexOf(w);
-  if(q&&!(w.fa.toLowerCase().includes(q)||w.ku.includes(q)||w.pr.toLowerCase().includes(q)))return;
+  if(q&&!(norm(w.fa).includes(q)||norm(w.ku).includes(q)||w.pr.toLowerCase().includes(q)))return;
   shown++;
-  html+=`<div class="w-item${ks.has(i)?' known':''}" data-i="${i}" data-ku="${w.ku}" role="button" tabindex="0">
+  if(pending){html+=pending;pending='';}
+  html+=`<div class="w-item${ks.has(w.id)?' known':''}" data-i="${i}" data-ku="${w.sp||w.ku}" role="button" tabindex="0">
    <div class="w-txts"><span class="w-ku">${w.ku}</span><span class="w-fa">${w.fa}</span><span class="w-pr">${w.pr}</span></div>
    <span class="w-vol">${IC.vol}</span></div>`;
  });
@@ -1079,13 +910,13 @@ const prev=()=>{pos=(pos-1+CATS[catIdx].items.length)%CATS[catIdx].items.length;
 fc.addEventListener('click',()=>fc.classList.toggle('flipped'));
 fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fc.classList.toggle('flipped');}});
 const curWord=()=>CATS[catIdx].items[order[pos]];
-function doSpeak(btn){speak(kuSpeak(curWord().ku),btn);}
+function doSpeak(btn){const w=curWord();speak(kuSpeak(w.sp||w.ku),btn);}
  $('#fcSpeak').addEventListener('click',e=>{e.stopPropagation();doSpeak(e.currentTarget);});
  $('#fcSpeak2').addEventListener('click',e=>doSpeak(e.currentTarget));
  $('#fcShuffle').addEventListener('click',()=>{order=shuffleArr(order);pos=0;renderCard(true);toast('ترتیب کارت‌ها بُر خورد!');});
  $('#fcKnowBtn').addEventListener('click',e=>{
  e.stopPropagation();
- const id=CATS[catIdx].id,i=order[pos];
+ const id=CATS[catIdx].id,i=curWord().id;
  const ks=knownSet(id);ks.has(i)?ks.delete(i):ks.add(i);
  known[id]=[...ks];saveKnown();
  e.currentTarget.classList.toggle('on',ks.has(i));
@@ -1106,6 +937,7 @@ document.addEventListener('keydown',e=>{
  if(e.key==='ArrowLeft')next();
  else if(e.key==='ArrowRight')prev();
  else if(e.key===' '){
+  const ib=e.target.closest&&e.target.closest('button,a,[role="button"]');if(ib&&ib!==fc)return;
   const r=fc.getBoundingClientRect();
   if(r.top<innerHeight*.85&&r.bottom>innerHeight*.15){e.preventDefault();fc.classList.toggle('flipped');}
  }
@@ -1119,25 +951,26 @@ document.addEventListener('keydown',e=>{
   <div class="ch ku">${a[0]}</div><div class="nm">${a[1]}</div>
   <div class="ex ku">${a[2]}</div><div class="fx">${a[3]}</div>
  </div>`).join('');
-let abcTimer=null,abcIdx=-1;
-const stopAbc=()=>{clearInterval(abcTimer);abcTimer=null;abcIdx=-1;
+let abcRun=0,abcPlaying=false;
+const stopAbc=()=>{abcRun++;abcPlaying=false;try{speechSynthesis.cancel();}catch(e){}
  $('#abcPlayLbl').textContent='پخش پیاپی الفبا';
  $$('.abc.playing').forEach(t=>t.classList.remove('playing'));};
  $('#abcPlay').addEventListener('click',()=>{
- if(abcTimer){stopAbc();return;}
- abcIdx=0;$('#abcPlayLbl').textContent='توقف پخش';
- const step=()=>{
-  if(abcIdx>=ABC.length){stopAbc();toast('یک دور کامل الفبا تمام شد!');return;}
-  const t=$(`.abc[data-i="${abcIdx}"]`);
+ if(abcPlaying){stopAbc();return;}
+ const run=++abcRun;abcPlaying=true;$('#abcPlayLbl').textContent='توقف پخش';
+ const step=i=>{
+  if(run!==abcRun)return;
+  if(i>=ABC.length){stopAbc();toast('یک دور کامل الفبا تمام شد!');return;}
+  const t=$(`.abc[data-i="${i}"]`);
   $$('.abc.playing').forEach(x=>x.classList.remove('playing'));
-  if(t){t.classList.add('playing');t.scrollIntoView({block:'nearest',behavior:reduceMotion?'auto':'smooth'});speak(ABC[abcIdx][2]);}
-  abcIdx++;
+  if(t){t.classList.add('playing');t.scrollIntoView({block:'nearest',behavior:reduceMotion?'auto':'smooth'});}
+  speak(ABC[i][2],null,()=>setTimeout(()=>step(i+1),450));
  };
- step();abcTimer=setInterval(step,1700);
+ step(0);
 });
  $('#abcGrid').addEventListener('click',e=>{
  const t=e.target.closest('.abc');if(!t)return;
- if(abcTimer)stopAbc();
+ if(abcPlaying)stopAbc();
  $$('.abc.playing').forEach(x=>x.classList.remove('playing'));
  t.classList.add('playing');setTimeout(()=>t.classList.remove('playing'),1400);
  speak(t.dataset.ex);
@@ -1152,45 +985,6 @@ function tlUpdate(){
  tlFill.style.height=(p*100)+'%';
 }
 
-/* ---------- اسلایدر نظرات ---------- */
-const track=$('#testiTrack'),dotsBox=$('#tDots');
-const AV=['آ','س','د','ک'];
-track.innerHTML=TESTIMONIALS.map(t=>`
- <div class="t-slide"><div class="t-card">
-  <svg class="t-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-  <p class="t-text">«${t.t}»</p>
-  <div class="t-person"><span class="t-av" style="background:${t.col}">${AV[TESTIMONIALS.indexOf(t)]}</span>
-  <span class="t-info"><b>${t.n}</b><span>زبان‌آموز از ${t.c}</span></span></div>
- </div></div>`).join('');
-dotsBox.innerHTML=TESTIMONIALS.map((_,i)=>`<button class="t-dot${i===0?' active':''}" data-i="${i}" aria-label="نظر ${faNum(i+1)}"></button>`).join('');
-let tIdx=0,tTimer;
-function tGo(i){
- tIdx=(i+TESTIMONIALS.length)%TESTIMONIALS.length;
- track.style.transform=`translateX(${tIdx*track.parentElement.clientWidth}px)`;
- $$('.t-dot').forEach((d,j)=>d.classList.toggle('active',j===tIdx));
-}
-function tAuto(){clearInterval(tTimer);tTimer=setInterval(()=>tGo(tIdx+1),6000);}
- $('#tNext').addEventListener('click',()=>{tGo(tIdx+1);tAuto();});
- $('#tPrev').addEventListener('click',()=>{tGo(tIdx-1);tAuto();});
-dotsBox.addEventListener('click',e=>{const d=e.target.closest('.t-dot');if(d){tGo(+d.dataset.i);tAuto();}});
-addEventListener('resize',()=>tGo(tIdx));
-tAuto();
-
-/* ---------- فرم ---------- */
- $('#regForm').addEventListener('submit',e=>{
- e.preventDefault();
- const name=$('#fName'),contact=$('#fContact');let ok=true;
- [name,contact].forEach(f=>f.parentElement.classList.remove('error'));
- if(name.value.trim().length<3){name.parentElement.classList.add('error');ok=false;}
- if(contact.value.trim().length<5){contact.parentElement.classList.add('error');ok=false;}
- if(!ok){toast('لطفاً نام و راه ارتباطی را درست پر کنید');return;}
- const btn=$('#regSubmit');btn.classList.add('sent');
- btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ثبت شد — خێر هاتیت!';
- toast('ثبت‌نام شما با موفقیت انجام شد ✓');
- setTimeout(()=>{e.target.reset();btn.classList.remove('sent');
-  btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ثبت‌نام در دورهٔ رایگان';},2800);
-});
-
 /* ---------- مودال راهنما، بک‌تاپ، اسکرول‌اسپای ---------- */
 const helpModal=$('#helpModal');
  $('#helpFab').addEventListener('click',()=>helpModal.classList.add('open'));
@@ -1201,7 +995,7 @@ const spy=new IntersectionObserver(es=>es.forEach(en=>{
  if(en.isIntersecting){
   $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
  }}),{rootMargin:'-40% 0px -55% 0px'});
-['about','units','learn','alphabet','path','testimonials'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
+['about','units','learn','alphabet','path'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
 
 /* ---------- شروع ---------- */
 setCat(0);
