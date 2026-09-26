@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سۆرانی | آموزش زبان کردی سورانی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg-cream:#F5F0E8;
+  --bg-cream-light:#FDFBF7;
+  --bg-dark:#1A1714;
+  --fg-dark:#2C2520;
+  --fg-light:#F5F0E8;
+  --fg-muted:#8B7E74;
+  --fg-muted-light:#A69E94;
+  --accent-gold:#C8A96E;
+  --border-warm:#E2D9CC;
+  --border-dark:#3D3630;
+  --card:#FDFBF7;
+  --card-dark:#211D19;
+  --success:#66744D;
+  --danger:#8D5145;
+  --shadow:0 24px 55px -30px rgba(26,23,20,.42);
+  --shadow-soft:0 16px 32px -24px rgba(26,23,20,.28);
+  --radius:14px;
+  --radius-lg:22px;
+  --radius-sm:8px;
+  --pattern:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke-width='1'%3E%3Cpath d='M28 6 L50 28 L28 50 L6 28 Z' stroke='%23C8A96E' stroke-opacity='.075'/%3E%3Cpath d='M28 16 L40 28 L28 40 L16 28 Z' stroke='%232C2520' stroke-opacity='.035'/%3E%3C/g%3E%3C/svg%3E");
+  --ku:'Noto Naskh Arabic','Vazirmatn',serif;
+}
+[data-theme="dark"]{
+  --bg-cream:#1A1714;
+  --bg-cream-light:#211D19;
+  --fg-dark:#F3EDE4;
+  --fg-light:#F5F0E8;
+  --fg-muted:#B0A397;
+  --fg-muted-light:#8F857C;
+  --border-warm:#3A332D;
+  --border-dark:#433A32;
+  --card:#211D19;
+  --card-dark:#171310;
+  --shadow:0 24px 55px -30px rgba(0,0,0,.75);
+  --shadow-soft:0 16px 32px -24px rgba(0,0,0,.55);
+  --pattern:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke-width='1'%3E%3Cpath d='M28 6 L50 28 L28 50 L6 28 Z' stroke='%23F5F0E8' stroke-opacity='.035'/%3E%3C/g%3E%3C/svg%3E");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg-cream) var(--pattern);color:var(--fg-dark);line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color .35s,color .35s}
+::selection{background:var(--accent-gold);color:var(--bg-dark)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--bg-cream)}
+::-webkit-scrollbar-thumb{background:#75695F;border-radius:99px}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+button{cursor:pointer}
+.container{width:min(1180px,92%);margin-inline:auto}
+.ku{font-family:var(--ku)}
+section{padding:92px 0;position:relative}
+.sec-alt{background:var(--bg-cream-light)}
+
+/* نوار پیشرفت */
+#progressBar{position:fixed;top:0;right:0;height:3px;width:0;z-index:500;background:linear-gradient(90deg,#75654F,var(--accent-gold),#D7BF94);border-radius:0 0 0 4px}
+
+/* ناوبری — سبک زوون مازنی */
+#navbar{position:fixed;top:0;right:0;left:0;z-index:400;padding:1.2rem 0;color:var(--fg-light);transition:background .4s,padding .4s,border-color .4s,box-shadow .4s;border-bottom:1px solid transparent}
+#navbar.scrolled{background:rgba(26,23,20,.965);border-bottom-color:var(--border-dark);padding:.78rem 0;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+.nav-inner{display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.logo-home{width:42px;height:42px;flex:none;border:1.4px solid rgba(200,169,110,.78);border-radius:50%;padding:9px;color:var(--accent-gold);background:radial-gradient(circle at 50% 45%,rgba(200,169,110,.12),transparent 58%);box-shadow:inset 0 0 0 1px rgba(245,240,232,.04);transition:transform .35s,box-shadow .35s,border-color .35s}
+.logo-home path,.logo-home polyline{vector-effect:non-scaling-stroke}
+.brand:hover .logo-home{transform:translateY(-1px) scale(1.035);border-color:var(--accent-gold);box-shadow:0 0 0 4px rgba(200,169,110,.08),0 8px 20px rgba(0,0,0,.16)}
+.brand-text{min-width:0}
+.brand-text b{font-family:var(--ku);font-size:1.28rem;display:block;line-height:1.05;font-weight:700;color:var(--fg-light);white-space:nowrap}
+.brand-text small{font-size:.62rem;display:block;font-weight:300;color:var(--fg-muted-light);white-space:nowrap}
+.nav-links{display:flex;gap:22px;margin-inline-start:auto}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--fg-light);opacity:.86;position:relative;padding:4px 0;transition:.25s}
+.nav-links a::after{content:'';position:absolute;right:0;bottom:0;width:0;height:1px;background:var(--accent-gold);transition:.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent-gold);opacity:1}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:9px;margin-inline-start:10px}
+.nav-cta{font-size:.76rem;font-weight:500;color:var(--fg-light);border:1px solid rgba(245,240,232,.44);padding:.48rem 1.05rem;border-radius:2px;transition:.3s;display:inline-flex;align-items:center;gap:7px}
+.nav-cta:hover{background:var(--fg-light);color:var(--bg-dark);border-color:var(--fg-light)}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(245,240,232,.35);background:transparent;color:inherit;display:grid;place-items:center;transition:.25s}
+.icon-btn svg{width:18px;height:18px}
+.icon-btn:hover{border-color:var(--accent-gold);color:var(--accent-gold);transform:translateY(-1px)}
+#themeToggle{position:relative;width:64px;height:30px;padding:0;border:0;border-radius:999px;overflow:hidden;background:#1B1E2D;display:block;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),0 6px 16px rgba(0,0,0,.18);transition:background .6s ease,box-shadow .35s ease,transform .25s ease}
+#themeToggle:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px rgba(200,169,110,.45),0 8px 20px rgba(0,0,0,.22)}
+#themeToggle:active{transform:translateY(0) scale(.98)}
+#themeToggle .theme-scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;transition:opacity .55s ease,transform .65s cubic-bezier(.22,.9,.3,1)}
+#themeToggle .theme-scene.day{opacity:0;transform:translateX(-10px) scale(1.03)}
+#themeToggle .theme-scene.night{opacity:1;transform:translateX(0) scale(1)}
+#themeToggle .theme-knob{position:absolute;z-index:3;top:2px;left:2px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#E9EDF2,#C7CDD6);border:1px solid rgba(255,255,255,.72);box-shadow:0 3px 8px rgba(0,0,0,.28),inset 0 1px 2px rgba(255,255,255,.75);transition:transform .65s cubic-bezier(.22,.9,.3,1),background .5s ease,box-shadow .35s ease}
+#themeToggle .knob-icon{position:absolute;width:15px;height:15px;display:block;transition:opacity .35s ease,transform .5s cubic-bezier(.22,.9,.3,1)}
+#themeToggle .knob-sun{opacity:0;transform:scale(.65) rotate(-70deg);color:#E6B928;filter:drop-shadow(0 1px 1px rgba(150,108,0,.22))}
+#themeToggle .knob-moon{opacity:1;transform:scale(1) rotate(0);color:#6A7385}
+#themeToggle .scene-sun{transform-origin:center;transition:transform .65s cubic-bezier(.22,.9,.3,1)}
+[data-theme="light"] #themeToggle{background:#6FA7D0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 6px 16px rgba(40,76,110,.18)}
+[data-theme="light"] #themeToggle .theme-scene.day{opacity:1;transform:translateX(0) scale(1)}
+[data-theme="light"] #themeToggle .theme-scene.night{opacity:0;transform:translateX(10px) scale(1.03)}
+[data-theme="light"] #themeToggle .theme-knob{transform:translateX(34px);background:linear-gradient(145deg,#FFE96A,#F4C42D);border-color:rgba(255,255,255,.85);box-shadow:0 3px 9px rgba(132,96,0,.28),inset 0 1px 2px rgba(255,255,255,.72)}
+[data-theme="light"] #themeToggle .knob-sun{opacity:1;transform:scale(1) rotate(0)}
+[data-theme="light"] #themeToggle .knob-moon{opacity:0;transform:scale(.65) rotate(70deg)}
+@media(prefers-reduced-motion:reduce){#themeToggle,.theme-scene,.theme-knob,.knob-icon,.scene-sun{transition:none!important}}
+@media(max-width:480px){#themeToggle{width:60px;height:28px}#themeToggle .theme-knob{top:2px;left:2px;width:24px;height:24px}#themeToggle .knob-icon{width:14px;height:14px}[data-theme="light"] #themeToggle .theme-knob{transform:translateX(32px)}}
+
+/* متن دکمه‌ها باید در هر دو تم خوانا بماند */
+.ku-pill{color:var(--fg-dark)}
+.tl-link{color:var(--fg-dark)}
+#modalClose{color:var(--fg-dark)!important;border-color:var(--border-warm)!important}
+#menuBtn{display:none}
+
+/* منوی موبایل */
+#drawer{position:fixed;inset:0;background:rgba(26,23,20,.985);backdrop-filter:blur(10px);z-index:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;opacity:0;visibility:hidden;transition:.35s}
+#drawer.open{opacity:1;visibility:visible}
+#drawer a{color:var(--fg-light);font-size:1.12rem;font-weight:600;padding:11px 25px;border-radius:6px;transition:.25s}
+#drawer a:hover{background:rgba(245,240,232,.06);color:var(--accent-gold)}
+#drawerClose{position:absolute;top:22px;left:20px}
+
+/* هیرو — مشابه زوون مازنی */
+.hero{position:relative;min-height:100vh;min-height:100svh;aspect-ratio:1672/940;display:flex;flex-direction:column;overflow:hidden;background:#141210;color:var(--fg-light);padding:0}
+.hero-bg{position:absolute;inset:0;z-index:0;will-change:transform;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:fill;object-position:center center;display:block;filter:brightness(.58) saturate(.88) contrast(.96)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.50) 0%,rgba(0,0,0,.42) 34%,rgba(0,0,0,.52) 58%,rgba(0,0,0,.74) 78%,rgba(0,0,0,.94) 100%)}
+.hero-word{position:absolute;z-index:1;bottom:-6%;left:50%;transform:translateX(-50%);font-family:var(--ku);font-size:min(30vw,410px);font-weight:700;color:rgba(245,240,232,.045);pointer-events:none;white-space:nowrap;line-height:1}
+.hero-content{position:relative;z-index:2;margin-block:auto;text-align:center;padding-top:110px}
+.hero-eyebrow{display:inline-block;font-size:.76rem;font-weight:500;letter-spacing:.08em;color:var(--accent-gold);border:1px solid rgba(200,169,110,.36);background:rgba(200,169,110,.07);padding:6px 16px;border-radius:2px;margin-bottom:20px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(2.3rem,6vw,4.15rem);font-weight:900;line-height:1.35;margin-bottom:12px}
+.hero h1 .hl{color:#D8BE90;background:linear-gradient(transparent 72%,rgba(200,169,110,.24) 72%);padding:0 4px}
+.hero-sub{max-width:620px;margin:0 auto 30px;color:rgba(245,240,232,.78);font-size:clamp(.9rem,1.55vw,1.02rem);font-weight:300}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.hero-cta .btn{padding:11px 22px;border-radius:3px;font-size:.8rem;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.3s;border:none}
+.btn svg{width:17px;height:17px}
+.btn-glass{background:rgba(245,240,232,.09);border:1px solid rgba(245,240,232,.32);backdrop-filter:blur(12px);color:var(--fg-light)}
+.btn-glass:hover{background:rgba(245,240,232,.18);transform:translateY(-2px)}
+.btn-ghost{color:var(--fg-light);border:1px solid rgba(245,240,232,.3);background:transparent}
+.btn-ghost:hover{border-color:var(--fg-light);background:rgba(245,240,232,.07);transform:translateY(-2px)}
+.hero-meta{display:flex;gap:11px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:.72rem;color:rgba(245,240,232,.67);font-weight:300}
+.hero-meta i{width:4px;height:4px;border-radius:50%;background:var(--accent-gold);display:inline-block}
+.hero-scroll{position:relative;z-index:2;align-self:center;margin-bottom:14px;color:rgba(245,240,232,.72);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.62rem;animation:bob 1.8s ease-in-out infinite}
+.hero-scroll svg{width:20px;height:20px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.hero-stats{position:relative;z-index:2;background:rgba(20,18,16,.76);backdrop-filter:blur(10px);border-top:1px solid rgba(245,240,232,.1)}
+.hero-stats .container{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:18px 10px;text-align:center}
+.stat:not(:first-child){border-inline-start:1px solid rgba(245,240,232,.1)}
+.stat-num{font-size:clamp(1.25rem,3vw,1.85rem);font-weight:800;color:#D6BB89;line-height:1.25}
+.stat-lbl{font-size:.7rem;color:rgba(245,240,232,.64);font-weight:300}
+
+/* نوار واژه‌های متحرک */
+.ticker{overflow:hidden;background:var(--bg-cream-light);border-block:1px solid var(--border-warm);padding:13px 0;position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:75px;z-index:2;pointer-events:none}
+.ticker::before{right:0;background:linear-gradient(90deg,var(--bg-cream-light),transparent)}
+.ticker::after{left:0;background:linear-gradient(-90deg,var(--bg-cream-light),transparent)}
+.ticker-inner{display:flex;width:max-content;direction:ltr;animation:tick 55s linear infinite}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.t-item{display:inline-flex;align-items:baseline;gap:8px;padding:0 9px;cursor:pointer;white-space:nowrap;transition:.25s}
+.t-item .tk{font-family:var(--ku);font-size:1.08rem;font-weight:700}
+.t-item .tp{font-size:.66rem;color:var(--fg-muted);direction:ltr}
+.t-item:hover .tk{color:var(--accent-gold)}
+.t-sep{color:var(--accent-gold);font-size:.48rem;align-self:center;padding:0 11px}
+
+/* سرصفحه بخش‌ها */
+.sec-head{text-align:center;max-width:660px;margin:0 auto 42px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;color:#9C8055;letter-spacing:.05em}
+.eyebrow::before,.eyebrow::after{content:'';width:20px;height:1px;background:var(--accent-gold);opacity:.6;border-radius:2px}
+.sec-head h2{font-size:clamp(1.65rem,3.4vw,2.35rem);font-weight:900;margin:9px 0 5px}
+.rainbow{display:block;width:58px;height:3px;border-radius:99px;margin:8px auto 13px;background:linear-gradient(90deg,#8F5F4E 0 33%,var(--accent-gold) 33% 66%,#748060 66% 100%)}
+.sec-head p{color:var(--fg-muted);font-size:.86rem;font-weight:300}
+
+/* معرفی */
+#about{background:var(--bg-cream)}
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
+.about-txt h2{font-size:clamp(1.7rem,3vw,2.25rem);font-weight:900;margin:7px 0 15px;line-height:1.45}
+.about-txt p{color:var(--fg-muted);margin-bottom:13px;font-size:.88rem;line-height:2.1;font-weight:300}
+.ku-pill{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--card);border:1px dashed var(--accent-gold);border-radius:4px;padding:10px 16px;cursor:pointer;transition:.3s;font-size:.78rem}
+.ku-pill:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.ku-pill b{font-family:var(--ku);font-size:1.15rem;color:var(--fg-dark)}
+.ku-pill svg{width:17px;height:17px;color:var(--accent-gold)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.feat-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius);padding:20px;transition:.3s;box-shadow:0 1px 0 rgba(255,255,255,.25) inset}
+.feat-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:var(--shadow-soft)}
+.feat-card .f-ic{width:43px;height:43px;border-radius:9px;display:grid;place-items:center;margin-bottom:13px;background:rgba(200,169,110,.12);color:var(--accent-gold)}
+.feat-card .f-ic svg{width:20px;height:20px}
+.feat-card h4{font-size:.9rem;font-weight:800;margin-bottom:5px}
+.feat-card p{font-size:.73rem;color:var(--fg-muted);line-height:1.95}
+
+/* یادگیری */
+#learn{background:var(--bg-cream-light)}
+.chips-bar{position:static;padding:13px 0;margin-bottom:28px;background:color-mix(in srgb,var(--bg-cream-light) 88%,transparent);backdrop-filter:blur(12px);border-block:1px solid var(--border-warm)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:3px;border:1px solid var(--border-warm);background:transparent;font-weight:600;font-size:.76rem;transition:.25s;color:var(--fg-dark)}
+.chip svg{width:15px;height:15px;color:var(--c)}
+.chip .cnt{font-size:.62rem;font-weight:800;color:var(--fg-muted);padding:0 5px}
+.chip:hover:not(.active){border-color:var(--accent-gold);transform:translateY(-2px)}
+.chip.active{background:var(--fg-dark);border-color:var(--fg-dark);color:var(--fg-light)}
+.chip.active svg,.chip.active .cnt{color:var(--accent-gold)}
+[data-theme="dark"] .chip.active{background:#F3EDE4;border-color:#F3EDE4;color:#1A1714}
+[data-theme="dark"] .chip.active svg,[data-theme="dark"] .chip.active .cnt{color:#C8A96E}
+.learn-stage{display:grid;grid-template-columns:minmax(0,1fr) 275px;gap:34px;align-items:start;margin-bottom:40px}
+.learned{margin:0 auto 15px;max-width:520px}
+.learned .bar{height:5px;background:var(--border-warm);border-radius:99px;overflow:hidden}
+.learned .fill{height:100%;width:0;background:var(--accent-gold);transition:width .5s ease;border-radius:99px}
+.learned .lbl{font-size:.68rem;color:var(--fg-muted);margin-top:6px;text-align:center}
+.fc-wrap{perspective:1500px;display:flex;justify-content:center}
+.flashcard{--cat:var(--accent-gold);position:relative;width:min(100%,430px);height:390px;cursor:pointer;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.25,.8,.25,1)}
+.flashcard.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;overflow:hidden}
+.fc-face::before{content:'';position:absolute;top:0;right:0;left:0;height:6px;background:var(--cat)}
+.fc-front{background:var(--card) var(--pattern);border:1px solid var(--border-warm);box-shadow:var(--shadow)}
+.fc-tag{font-size:.62rem;font-weight:700;color:#9C8055;border:1px solid rgba(200,169,110,.55);background:rgba(200,169,110,.08);padding:4px 13px;border-radius:2px;margin-bottom:21px}
+.fc-word{font-family:var(--ku);font-size:clamp(2rem,4.4vw,3.05rem);font-weight:700;text-align:center;line-height:1.7;color:var(--fg-dark)}
+.fc-hint{position:absolute;bottom:20px;font-size:.65rem;color:var(--fg-muted);display:flex;align-items:center;gap:6px;opacity:.9}
+.fc-hint svg{width:14px;height:14px}
+.fc-back{background:#211D19;color:var(--fg-light);transform:rotateY(180deg);box-shadow:var(--shadow)}
+.fc-cap{font-size:.62rem;letter-spacing:.16em;color:rgba(245,240,232,.48);margin-bottom:9px}
+.fc-fa{font-size:clamp(1.35rem,3vw,1.95rem);font-weight:900;text-align:center;margin-bottom:9px}
+.fc-pr{font-size:.82rem;letter-spacing:1.2px;color:#D8BE90;direction:ltr;margin-bottom:23px;font-weight:500}
+.fc-actions{display:flex;gap:9px}
+.fc-actions .btn{padding:10px 17px;border-radius:3px;font-size:.75rem}
+.btn-speak{background:#6E654F;color:#fff}
+.btn-speak:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-know{background:transparent;border:1px solid rgba(245,240,232,.4);color:#FAF6F0}
+.btn-know.on{background:var(--success);border-color:var(--success)}
+.fc-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+.fc-btn{width:42px;height:42px;border-radius:4px;border:1px solid var(--border-warm);background:var(--card);color:var(--fg-dark);display:grid;place-items:center;transition:.25s}
+.fc-btn svg{width:17px;height:17px}
+.fc-btn:hover{border-color:var(--accent-gold);color:var(--accent-gold);transform:translateY(-2px)}
+.fc-btn.speaking{border-color:var(--accent-gold);color:var(--fg-light);background:#6E654F;animation:pulse 1s infinite}
+.fc-btn.on{background:var(--success);border-color:var(--success);color:#fff}
+.fc-counter{font-weight:700;font-size:.76rem;min-width:78px;text-align:center;color:var(--fg-muted)}
+.fc-counter b{color:var(--fg-dark);font-size:.92rem}
+.divider-v{width:1px;height:25px;background:var(--border-warm)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,169,110,.38)}70%{box-shadow:0 0 0 13px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* پنل کنار فلش‌کارت */
+.aside-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius);padding:21px;position:sticky;top:118px;box-shadow:var(--shadow-soft)}
+.a-title{display:flex;align-items:center;gap:10px;font-weight:900;margin-bottom:10px;font-size:.92rem}
+.a-title .dot{width:9px;height:9px;border-radius:2px;background:var(--accent-gold);flex:none;transform:rotate(45deg)}
+.a-desc{font-size:.76rem;color:var(--fg-muted);line-height:2}
+.a-tip{background:rgba(200,169,110,.09);border:1px dashed rgba(200,169,110,.48);border-radius:5px;padding:12px 13px;font-size:.71rem;line-height:2;margin-top:14px;color:var(--fg-muted)}
+.a-tip b{color:#9C8055}
+.a-stat-row{display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid var(--border-warm);font-size:.68rem;color:var(--fg-muted)}
+.a-stat-row b{color:var(--fg-dark)}
+
+/* لیست واژه‌ها */
+.wl-head{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:17px}
+.wl-head h3{font-size:1rem;font-weight:900}
+.wl-head .w-count{font-size:.66rem;color:var(--fg-muted);background:transparent;border:1px solid var(--border-warm);padding:3px 11px;border-radius:99px}
+.wl-search{margin-inline-start:auto;position:relative}
+.wl-search input{width:230px;max-width:60vw;background:var(--card);border:1px solid var(--border-warm);border-radius:4px;padding:9px 36px 9px 12px;font:inherit;font-size:.73rem;color:var(--fg-dark);outline:none;transition:.3s}
+.wl-search input:focus{border-color:var(--accent-gold);box-shadow:0 0 0 3px rgba(200,169,110,.1)}
+.wl-search svg{position:absolute;right:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--fg-muted)}
+#wordGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
+.w-group{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-weight:900;color:var(--fg-muted);font-size:.76rem;margin-top:10px}
+.w-group::before{content:'◆';color:var(--accent-gold);font-size:.5rem}
+.w-group::after{content:'';flex:1;height:1px;background:var(--border-warm)}
+.w-item{background:var(--card);border:1px solid var(--border-warm);border-radius:7px;padding:11px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:.25s;position:relative}
+.w-item:hover{transform:translateY(-2px);border-color:var(--accent-gold);box-shadow:var(--shadow-soft)}
+.w-txts{min-width:0}
+.w-ku{font-family:var(--ku);font-size:1.18rem;font-weight:700;line-height:1.5;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.w-fa{font-size:.7rem;color:var(--fg-muted);display:block}
+.w-pr{font-size:.63rem;color:#9C8055;direction:ltr;display:block;letter-spacing:.4px}
+.w-vol{margin-inline-start:auto;flex:none;width:34px;height:34px;border-radius:4px;border:1px solid var(--border-warm);background:transparent;color:#9C8055;display:grid;place-items:center;transition:.25s}
+.w-vol svg{width:15px;height:15px}
+.w-item:hover .w-vol{background:#6E654F;color:#fff;border-color:#6E654F}
+.w-item.known::after{content:'✓';position:absolute;top:-7px;inset-inline-start:-5px;width:20px;height:20px;border-radius:50%;background:var(--success);color:#fff;font-size:.65rem;display:grid;place-items:center;border:2px solid var(--bg-cream-light)}
+.no-result{grid-column:1/-1;text-align:center;color:var(--fg-muted);padding:30px;font-size:.8rem}
+
+/* الفبا */
+#alphabet{background:var(--bg-cream-light)}
+.abc-special{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:29px}
+.abc-special span{background:var(--card);border:1px solid var(--border-warm);border-radius:4px;padding:7px 13px;font-size:.7rem;color:var(--fg-muted)}
+.abc-special b{font-family:var(--ku);font-size:1.1rem;color:#9C8055;margin-inline-end:6px}
+.abc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:11px}
+.abc{background:var(--card);border:1px solid var(--border-warm);border-radius:7px;padding:13px 7px 12px;text-align:center;cursor:pointer;transition:.25s;position:relative}
+.abc:hover{transform:translateY(-4px);border-color:var(--accent-gold);box-shadow:var(--shadow-soft)}
+.abc.playing{border-color:#9C8055;box-shadow:0 0 0 3px rgba(200,169,110,.16)}
+.abc .ch{font-family:var(--ku);font-size:2.05rem;font-weight:700;line-height:1.35;color:var(--fg-dark)}
+.abc .nm{font-size:.58rem;color:var(--fg-muted)}
+.abc .ex{font-family:var(--ku);font-size:.92rem;color:#9C8055;margin-top:5px;font-weight:700}
+.abc .fx{font-size:.58rem;color:var(--fg-muted)}
+.abc-head-btn{margin-top:-8px;margin-bottom:30px;display:flex;justify-content:center}
+.btn-olive{background:#6E654F;color:#fff;border-radius:3px;padding:11px 20px;font-size:.76rem;font-weight:600;box-shadow:0 12px 25px -18px rgba(26,23,20,.7)}
+.btn-olive:hover{background:#5D5542;transform:translateY(-2px)}
+
+/* مسیر یادگیری */
+#path{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  color:var(--fg-light);
+  background:#141210;
+}
+#path::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background-image:url("taq-bostan.webp");
+  background-size:cover;
+  background-position:center 42%;
+  background-repeat:no-repeat;
+  filter:brightness(.48) saturate(.92) contrast(.98);
+  transform:scale(1.01);
+}
+#path::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.48) 0%,
+    rgba(0,0,0,.38) 34%,
+    rgba(0,0,0,.52) 68%,
+    rgba(0,0,0,.74) 100%
+  );
+}
+#path .container,
+#path .sec-head,
+#path .timeline{
+  position:relative;
+  z-index:1;
+}
+#path .sec-head h2{
+  color:var(--fg-light);
+}
+#path .sec-head p{
+  color:rgba(245,240,232,.74);
+}
+#path .eyebrow{
+  color:#D8BE90;
+}
+#path .tl-line{
+  background:rgba(245,240,232,.22);
+}
+#path .tl-fill{
+  filter:brightness(1.08);
+}
+#path .tl-item{
+  background:rgba(26,23,20,.72);
+  border-color:rgba(245,240,232,.20);
+  box-shadow:0 16px 36px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter:blur(7px);
+}
+#path .tl-item h4{
+  color:var(--fg-light);
+}
+#path .tl-item p{
+  color:rgba(245,240,232,.72);
+}
+#path .tl-link{
+  color:#D8BE90;
+}
+#path .tl-item::after{
+  border-color:#141210;
+  background:#141210;
+}
+.timeline{position:relative;max-width:880px;margin:0 auto;padding:12px 0 2px}
+.tl-line{position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);background:var(--border-warm);border-radius:2px}
+.tl-fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(var(--accent-gold),#7D6B51,#6E765C);border-radius:2px;transition:height .15s linear}
+.tl-item{position:relative;width:calc(50% - 40px);margin-bottom:28px;background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius);padding:21px;transition:.3s;box-shadow:0 1px 0 rgba(255,255,255,.18) inset}
+.tl-item:hover{border-color:var(--accent-gold);transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.tl-item:nth-child(even){margin-inline-start:auto}
+.tl-item::after{content:attr(data-n);position:absolute;top:18px;width:34px;height:34px;border-radius:50%;background:var(--bg-dark);color:var(--accent-gold);display:grid;place-items:center;font-weight:800;font-size:.82rem;border:3px solid var(--bg-cream);z-index:2;transition:.3s}
+.tl-item:hover::after{background:var(--accent-gold);color:var(--bg-dark);transform:scale(1.08)}
+.tl-item:nth-child(odd)::after{inset-inline-end:-48px}
+.tl-item:nth-child(even)::after{inset-inline-start:-48px}
+.tl-tag{display:inline-block;font-size:.58rem;font-weight:800;color:#8B7653;background:rgba(200,169,110,.11);padding:3px 11px;border-radius:99px;margin-bottom:8px}
+.tl-item h4{font-size:.98rem;font-weight:900;margin-bottom:5px}
+.tl-item p{font-size:.74rem;color:var(--fg-muted);line-height:2;margin-bottom:10px}
+.tl-link{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:#8F7250;font-weight:800;font-size:.72rem;padding:0;transition:.25s}
+.tl-link:hover{gap:10px;color:var(--fg-dark)}
+.tl-link svg{width:14px;height:14px}
+
+/* مودال/شناورها */
+#helpFab{position:fixed;left:18px;bottom:18px;width:45px;height:45px;border-radius:50%;background:var(--bg-dark);color:var(--accent-gold);border:1px solid var(--accent-gold);font-size:1rem;font-weight:800;z-index:250;box-shadow:0 12px 26px rgba(0,0,0,.2);transition:.25s}
+#helpFab:hover{transform:scale(1.08);background:var(--accent-gold);color:var(--bg-dark)}
+#backTop{position:fixed;right:18px;bottom:18px;width:43px;height:43px;border-radius:4px;background:var(--bg-dark);color:var(--accent-gold);border:1px solid var(--accent-gold);z-index:250;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(13px);transition:.3s;box-shadow:0 12px 26px rgba(0,0,0,.18)}
+#backTop.show{opacity:1;visibility:visible;transform:none}
+#backTop:hover{background:var(--accent-gold);color:var(--bg-dark)}
+#backTop svg{width:18px;height:18px}
+#toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,22px);opacity:0;pointer-events:none;background:var(--bg-dark);color:var(--fg-light);padding:11px 20px;border-radius:4px;z-index:800;transition:.35s;font-size:.75rem;border:1px solid rgba(245,240,232,.12);box-shadow:0 18px 36px -16px rgba(0,0,0,.5);max-width:90vw;text-align:center}
+#toast.show{transform:translate(50%,0);opacity:1}
+.modal{position:fixed;inset:0;z-index:700;display:grid;place-items:center;padding:18px;visibility:hidden;opacity:0;transition:.3s}
+.modal.open{visibility:visible;opacity:1}
+.modal-bg{position:absolute;inset:0;background:rgba(20,18,16,.7);backdrop-filter:blur(5px)}
+.modal-card{position:relative;background:var(--bg-cream-light);border:1px solid var(--border-warm);border-radius:var(--radius);padding:27px;max-width:460px;width:100%;transform:translateY(20px) scale(.97);transition:.35s;border-top:4px solid var(--accent-gold);box-shadow:var(--shadow)}
+.modal.open .modal-card{transform:none}
+.modal-card h3{font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:10px;font-size:1rem}
+.modal-card h3 svg{width:20px;height:20px;color:var(--accent-gold)}
+.modal-card ul{list-style:none;display:grid;gap:10px}
+.modal-card li{display:flex;gap:9px;font-size:.75rem;line-height:1.95;color:var(--fg-muted)}
+.modal-card li b{color:#9C8055}
+.modal-card li::before{content:'◆';color:var(--accent-gold);font-size:.45rem;margin-top:8px}
+#modalClose{position:absolute;top:12px;left:12px;color:var(--fg-dark);border-color:var(--border-warm)}
+
+
+/* ورود عناصر */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in,.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.done{transition-delay:0s}
+.h-in{opacity:0;transform:translateY(30px);animation:hIn .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes hIn{to{opacity:1;transform:none}}
+.h-in:nth-child(2){animation-delay:.12s}.h-in:nth-child(3){animation-delay:.24s}.h-in:nth-child(4){animation-delay:.36s}.h-in:nth-child(5){animation-delay:.48s}
+.card-enter{animation:cardEnter .35s ease-out}
+@keyframes cardEnter{from{opacity:.4;transform:scale(.985) translateY(6px)}to{opacity:1;transform:none}}
+
+/* نوار/راهنمای آموزشی */
+.tour-overlay{position:fixed;inset:0;z-index:9998;cursor:pointer}
+.tour-overlay[hidden]{display:none}
+.tour-spotlight{position:fixed;z-index:9998;border:2px solid var(--accent-gold);border-radius:8px;box-shadow:0 0 0 2000px rgba(26,23,20,.84);transition:top .5s cubic-bezier(.4,0,.2,1),left .5s cubic-bezier(.4,0,.2,1),width .5s cubic-bezier(.4,0,.2,1),height .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.tour-tooltip{position:fixed;z-index:9999;max-width:320px;background:var(--bg-cream-light);border:1px solid var(--border-warm);border-radius:6px;padding:1.35rem;box-shadow:0 12px 40px rgba(0,0,0,.4);transition:top .5s cubic-bezier(.4,0,.2,1),left .5s cubic-bezier(.4,0,.2,1),opacity .3s;cursor:default}
+.tour-step-num{display:inline-block;font-size:.58rem;font-weight:700;color:var(--accent-gold);letter-spacing:.08em;margin-bottom:.55rem}
+.tour-tooltip h3{font-size:.9rem;font-weight:800;color:var(--fg-dark);margin-bottom:.42rem;line-height:1.5}
+.tour-tooltip p{font-size:.72rem;font-weight:300;color:var(--fg-muted);line-height:1.9;margin-bottom:1rem}
+.tour-controls{display:flex;align-items:center;justify-content:space-between;gap:.7rem}
+.tour-dots{display:flex;gap:.32rem}
+.tour-dot{width:6px;height:6px;border-radius:50%;background:var(--border-warm)}
+.tour-dot.active{background:var(--accent-gold)}
+.tour-skip-btn,.tour-next-btn{font-size:.68rem;font-weight:500;font-family:inherit;border-radius:2px;cursor:pointer;padding:.45rem .85rem;transition:all .2s}
+.tour-skip-btn{background:none;border:1px solid var(--border-warm);color:var(--fg-muted)}
+.tour-next-btn{background:var(--fg-dark);border:1px solid var(--fg-dark);color:var(--fg-light)}
+.tour-next-btn:hover{background:var(--accent-gold);border-color:var(--accent-gold);color:var(--bg-dark)}
+.tour-hint{font-size:.57rem;font-weight:300;color:var(--fg-muted-light);margin-top:.8rem;text-align:center}
+.tour-replay-btn{position:fixed;bottom:1.2rem;left:1.2rem;z-index:500;width:40px;height:40px;border-radius:50%;background:var(--bg-dark);color:var(--accent-gold);border:1px solid var(--accent-gold);font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s}
+.tour-replay-btn:hover{transform:scale(1.07)}
+
+/* ریسپانسیو */
+@media(max-width:1024px){
+  .learn-stage{grid-template-columns:1fr}
+  .aside-card{position:static}
+  .about-grid{grid-template-columns:1fr;gap:38px}
+  .about-image{max-width:460px;margin:0 auto}
+}
+@media(max-width:880px){
+  .nav-links{display:none}
+  #menuBtn{display:grid}
+  .nav-cta{display:none}
+  .nav-actions{margin-inline-start:auto}
+  .tl-line{left:auto;right:17px;transform:none}
+  .tl-item{width:100%;padding:19px 58px 19px 19px}
+  .tl-item:nth-child(even){margin-inline-start:0}
+  .tl-item::after{inset-inline-start:2px!important;inset-inline-end:auto!important;top:17px;width:30px;height:30px;font-size:.74rem}
+}
+@media(max-width:768px){
+  section{padding:68px 0}
+  .hero-content{padding-top:90px}
+  .hero-sub{max-width:520px}
+  .hero-stats{gap:1.5rem;padding:1rem 1.25rem}
+  .stat-num{font-size:1.2rem}
+  .about-grid{gap:30px}
+  .feat{grid-template-columns:1fr 1fr}
+  .flashcard{height:360px;max-width:390px}
+  .chips{gap:6px}
+  .chip{padding:7px 10px;font-size:.68rem}
+}
+@media(max-width:640px){
+  #navbar{padding:.9rem 0}
+  .brand-text small{display:none}
+  .feat{grid-template-columns:1fr}
+  .flashcard{height:335px;max-width:320px}
+  .fc-word{font-size:1.8rem}
+  .fc-actions{gap:7px}
+  .wl-search{margin-inline-start:0;width:100%}
+  .wl-search input{width:100%;max-width:none}
+  #wordGrid{grid-template-columns:1fr}
+  .abc-grid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}
+}
+@media(max-width:480px){
+  .container{width:min(92%,100%)}
+  .nav-inner{gap:8px}
+  .logo-sun{width:38px;height:38px}
+  .brand-text b{font-size:1.12rem}
+  .nav-actions{gap:5px}
+  /* دکمه شب و روز در موبایل نباید فشرده شود */
+  #themeToggle{width:60px;height:28px}
+  #themeToggle .theme-knob{top:2px;left:2px;width:24px;height:24px}
+  #themeToggle .knob-icon{width:14px;height:14px}
+  [data-theme="light"] #themeToggle .theme-knob{transform:translateX(32px)}
+  #menuBtn{width:38px;height:38px}
+  .hero h1{font-size:2.2rem}
+  .hero-sub{font-size:.84rem}
+  .hero-cta .btn{padding:10px 15px;font-size:.72rem}
+  .hero-meta{font-size:.64rem}
+  .hero-stats .container{grid-template-columns:repeat(3,1fr)}
+  .stat{padding:15px 5px}
+  .stat-num{font-size:1.02rem}
+  .stat-lbl{font-size:.6rem}
+  .flashcard{height:320px;max-width:285px}
+  .fc-face{padding:24px 17px}
+  .fc-word{font-size:1.62rem}
+  .fc-fa{font-size:1.3rem}
+  .fc-hint{font-size:.58rem}
+  .fc-counter{min-width:62px}
+  .about-image img{border-radius:10px!important}
+  .tour-tooltip{max-width:88vw;padding:1.05rem}
+}
+
+@media(max-width:640px){
+  .hero{aspect-ratio:auto;min-height:100svh}
+  .hero-bg img{object-fit:cover;object-position:center center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-bg{animation:none}
+}
+:focus-visible{outline:2px solid var(--accent-gold);outline-offset:2px}
+
+</style>
+<script>try{var t=localStorage.getItem('sorani-theme');if(!t&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.dataset.theme='dark';}catch(e){}</script>
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<!-- ═══════════ هدر ═══════════ -->
+<header id="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="#home" aria-label="سورانی - صفحه اصلی">
+      <svg class="logo-home" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3.5 10.8 12 4l8.5 6.8v8.3a1.4 1.4 0 0 1-1.4 1.4H4.9a1.4 1.4 0 0 1-1.4-1.4v-8.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M9.2 20.5v-5.3h5.6v5.3" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-text"><b class="ku">سۆرانی</b><small>آموزش زبان کردی سورانی</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">معرفی</a>
+      <a href="#learn">واژه‌نامه</a>
+      <a href="#alphabet">الفبا</a>
+      <a href="#path">مسیر یادگیری</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle" aria-label="تغییر به حالت شب" aria-pressed="false" title="تغییر حالت شب و روز">
+        <svg class="theme-scene day" viewBox="0 0 64 30" aria-hidden="true">
+          <defs>
+            <linearGradient id="daySky" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#9EC8E5"/><stop offset="1" stop-color="#477FAE"/>
+            </linearGradient>
+            <linearGradient id="dayGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FFE768"/><stop offset="1" stop-color="#F2C725"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="62" height="28" rx="14" fill="url(#daySky)"/>
+          <circle class="scene-sun" cx="14" cy="15" r="8.5" fill="url(#dayGlow)" stroke="#D8B31D" stroke-width="1"/>
+          <g fill="#F5FAFC" opacity=".95">
+            <ellipse cx="39" cy="20" rx="9" ry="4.2"/><ellipse cx="45" cy="17" rx="5.5" ry="4.8"/><ellipse cx="51" cy="20" rx="7.5" ry="3.7"/>
+            <ellipse cx="32" cy="23" rx="7" ry="3"/>
+          </g>
+          <g fill="none" stroke="#D8E6EE" stroke-width="1" opacity=".8">
+            <path d="M25 2c6 2 11 5 15 9"/><path d="M31 1c6 2 10 4 13 8"/>
+          </g>
+        </svg>
+        <svg class="theme-scene night" viewBox="0 0 64 30" aria-hidden="true">
+          <defs>
+            <linearGradient id="nightSky" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#171A2A"/><stop offset="1" stop-color="#3D4154"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="62" height="28" rx="14" fill="url(#nightSky)"/>
+          <g fill="#FFF7D8">
+            <circle cx="9" cy="8" r=".8"/><circle cx="17" cy="14" r=".8"/><circle cx="26" cy="7" r=".7"/><circle cx="32" cy="11" r=".7"/>
+          </g>
+          <g fill="#EEF1F5" stroke="#C9CED7" stroke-width=".8">
+            <circle class="scene-moon" cx="48" cy="15" r="8"/>
+          </g>
+          <g fill="#AAB3C4" opacity=".9">
+            <circle cx="45" cy="11.5" r="1.7"/><circle cx="50.5" cy="16" r="2.2"/><circle cx="45.5" cy="19" r="1.3"/>
+          </g>
+          <g fill="#F7F9FB" opacity=".9">
+            <path d="M25 24c6-3.5 11-3.5 16 0H25Z"/><path d="M10 25c4-2 7-2 11 0H10Z"/>
+          </g>
+        </svg>
+        <span class="theme-knob" aria-hidden="true">
+          <svg class="knob-icon knob-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+            <path d="M12 2v3M12 19v3M4.9 4.9L7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/>
+          </svg>
+          <svg class="knob-icon knob-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 15.7A8.7 8.7 0 0 1 8.3 3.5a8.9 8.9 0 1 0 12.2 12.2Z"/>
+          </svg>
+        </span>
+      </button>
+      <a href="#learn" class="nav-cta">شروع یادگیری</a>
+      <button class="icon-btn" id="menuBtn" aria-label="منو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div id="drawer">
+  <button class="icon-btn" id="drawerClose" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <a href="#about">معرفی زبان</a><a href="#learn">واژه‌نامه</a>
+  <a href="#alphabet">الفبا</a><a href="#path">مسیر یادگیری</a>
+</div>
+
+<!-- ═══════════ هیرو ═══════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img id="heroImg" src="header.webp" alt="منظر کوهستانی کردستان" loading="eager" decoding="async">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-word ku" aria-hidden="true">سۆرانی</div>
+
+  <div class="hero-content container">
+    <span class="hero-eyebrow h-in">پلی برای دریا و کوه‌ها</span>
+    <h1 class="h-in">آموزش زبان کردی <span class="hl">سورانی</span></h1>
+    <p class="hero-sub h-in">از «سڵاو» تا جمله‌سازی؛ واژه‌های سورانی را با معنی فارسی، آوانگاری و تلفظ صوتی، قدم‌به‌قدم یاد بگیرید.</p>
+    <div class="hero-cta h-in">
+      <a href="#learn" class="btn btn-glass">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        شروع یادگیری
+      </a>
+      <a href="#alphabet" class="btn btn-ghost">آشنایی با الفبا</a>
+    </div>
+    <div class="hero-meta h-in">
+      <span>۱۱۶ واژه بنیادی</span><i></i><span>همراه تلفظ صوتی</span>
+    </div>
+  </div>
+
+  <a class="hero-scroll" href="#about" aria-label="اسکرول به پایین">
+    <span>اسکرول کنید</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+
+  <div class="hero-stats">
+    <div class="container">
+      <div class="stat"><div class="stat-num" data-count="116">۰</div><div class="stat-lbl">واژه سورانی</div></div>
+      <div class="stat"><div class="stat-num" data-count="33">۰</div><div class="stat-lbl">حرف الفبا</div></div>
+      <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">حروف ویژه</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="kilim-strip" aria-hidden="true"></div>
+
+<!-- ═══════════ معرفی زبان ═══════════ -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-txt reveal">
+      <span class="eyebrow">آشنایی</span>
+      <h2>سورانی؛ میراث زبانی کوهستان</h2>
+      <p>سورانی یکی از زبان‌های کهن منطقهٔ کردستان است که در بخش‌های وسیعی از کردستان ایران و عراق، از جمله سنندج، مهاباد، سلیمانیه و اربیل گفتگو می‌شود. این زبان پیشینهٔ درخشانی در شعر و ادبیات دارد.</p>
+      <p>نزدیکی واژگانی سورانی با فارسی، یادگیری آن را برای شما لذت‌بخش و سریع می‌کند؛ بسیاری از واژه‌ها را بار اول هم می‌شناسید!</p>
+      <button class="ku-pill" id="welcomePill">
+        <b>خێر هاتیت</b>
+        <span>یعنی «خوش آمدی» — بشنوید!</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+      </button>
+    </div>
+    <div class="feat">
+      <div class="feat-card reveal" style="--fc:#C4392B;--d:.05s">
+        <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h4>پیشینهٔ ادبی کهن</h4>
+        <p>شعر و متون سورانی میراثی چندصدساله است؛ زبان بسیاری از دیوان‌ها و دم‌های عرفانی منطقه.</p>
+      </div>
+      <div class="feat-card reveal" style="--fc:#D4A017;--d:.15s">
+        <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>نزدیک به فارسی</h4>
+        <p>واژه‌های مشترک فراوان و ساختار آشنا؛ شروعی نرم برای فارسی‌زبان‌ها.</p>
+      </div>
+      <div class="feat-card reveal" style="--fc:#6B7F3E;--d:.25s">
+        <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><path d="m15 5 4 4"/></svg></div>
+        <h4>خط فارسی‌ـ‌عربی</h4>
+        <p>با ۳۳ حرف و ۵ حرف ویژهٔ سورانی (ڕ، ڵ، ۆ، ێ، ڤ) نوشته می‌شود.</p>
+      </div>
+      <div class="feat-card reveal" style="--fc:#9E2E22;--d:.35s">
+        <div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
+        <h4>تلفظ صوتی</h4>
+        <p>هر واژه و هر حرف را بشنوید و با تکرار، تلفظ درست را تثبیت کنید.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ دوره‌ها ═══════════ -->
+<!-- نوار واژه‌های متحرک -->
+<div class="ticker" id="ticker" title="برای شنیدن تلفظ، روی واژه بزنید"><div class="ticker-inner" id="tickerInner"></div></div>
+
+<!-- ═══════════ واژه‌نامه تعاملی ═══════════ -->
+<section id="learn">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">واژه‌نامهٔ تعاملی</span>
+      <h2>یاد بگیر، بشنو، تکرار کن</h2>
+      <span class="rainbow"></span>
+      <p>روی کارت بزنید تا معنی فارسی را ببینید؛ با دکمهٔ بلندگو تلفظ را بشنوید و واژه‌هایی را که بلدید علامت بزنید.</p>
+    </div>
+
+    <div class="chips-bar"><div class="chips" id="chips"></div></div>
+
+    <div class="learn-stage">
+      <div class="reveal">
+        <div class="learned">
+          <div class="bar"><div class="fill" id="learnedFill"></div></div>
+          <div class="lbl" id="learnedLbl"></div>
+        </div>
+        <div class="fc-wrap">
+          <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="کارت واژه — برای دیدن معنی کلیک کنید">
+            <div class="fc-face fc-front">
+              <span class="fc-tag ku" id="fcTag"></span>
+              <div class="fc-word ku" id="fcKu"></div>
+              <span class="fc-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5a1.5 1.5 0 0 1 3 0v6"/><path d="M12 11V9.5a1.5 1.5 0 0 1 3 0V13"/><path d="M15 13v-1a1.5 1.5 0 0 1 3 0v3.5a5.5 5.5 0 0 1-5.5 5.5h-1a5.5 5.5 0 0 1-4.9-3L4.4 14a1.6 1.6 0 0 1 2.7-1.6L9 14.5"/></svg>
+                برای دیدن معنی، روی کارت بزنید
+              </span>
+            </div>
+            <div class="fc-face fc-back">
+              <span class="fc-cap">معنی در فارسی</span>
+              <div class="fc-fa" id="fcFa"></div>
+              <div class="fc-pr" id="fcPr"></div>
+              <div class="fc-actions">
+                <button class="btn btn-speak" id="fcSpeak">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  تلفظ
+                </button>
+                <button class="btn btn-know" id="fcKnowBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>بلدم</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-controls">
+          <button class="fc-btn" id="fcPrev" aria-label="واژه قبلی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <span class="fc-counter" id="fcCounter"></span>
+          <button class="fc-btn" id="fcNext" aria-label="واژه بعدی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <span class="divider-v"></span>
+          <button class="fc-btn" id="fcSpeak2" aria-label="پخش تلفظ" title="تلفظ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
+          <button class="fc-btn" id="fcShuffle" aria-label="بُر زدن" title="بُر زدن ترتیب"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></button>
+        </div>
+      </div>
+
+      <aside class="aside-card reveal" style="--d:.15s">
+        <div class="a-title"><span class="dot"></span><span id="aCat"></span></div>
+        <p class="a-desc" id="aDesc"></p>
+        <div class="a-tip" id="aTip"></div>
+        <div class="a-stat-row"><span>تعداد واژه‌ها</span><b id="aCount"></b></div>
+        <div class="a-stat-row"><span>یاد گرفته‌اید</span><b id="aKnown"></b></div>
+      </aside>
+    </div>
+
+    <div class="wl-head reveal">
+      <h3>همهٔ واژه‌های این دسته</h3>
+      <span class="w-count" id="wlCount"></span>
+      <div class="wl-search">
+        <input type="text" id="wlSearch" placeholder="جستجو در واژه‌ها...">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+    </div>
+    <div id="wordGrid" class="reveal"></div>
+  </div>
+</section>
+
+<!-- ═══════════ الفبا ═══════════ -->
+<section id="alphabet" class="sec-alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">الفبا</span>
+      <h2>۳۳ حرف الفبای سورانی</h2>
+      <span class="rainbow"></span>
+      <p>روی هر حرف بزنید تا واژهٔ نمونه همراه با تلفظ پخش شود.</p>
+    </div>
+    <div class="abc-special reveal">
+      <span><b class="ku">ڕ</b>«ر» پرتپاک و غلتان</span>
+      <span><b class="ku">ڵ</b>«ل» درشت و ته‌غوی</span>
+      <span><b class="ku">ۆ</b>واوِ گرد مثل «o»</span>
+      <span><b class="ku">ێ</b>یای کشیده مثل «ê»</span>
+      <span><b class="ku">ڤ</b>صدای «v»</span>
+    </div>
+    <div class="abc-head-btn reveal">
+      <button class="btn btn-olive" id="abcPlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span id="abcPlayLbl">پخش پیاپی الفبا</span>
+      </button>
+    </div>
+    <div class="abc-grid reveal" id="abcGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ مسیر یادگیری ═══════════ -->
+<section id="path">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">مسیر یادگیری</span>
+      <h2>از صفر تا جمله‌سازی، قدم‌به‌قدم</h2>
+      <span class="rainbow"></span>
+      <p>یک نقشهٔ راه شش‌هفته‌ای؛ هر مرحله مستقیم به بخش مرتبط واژه‌نامه وصل است.</p>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="tl-line"><div class="tl-fill" id="tlFill"></div></div>
+      <div class="tl-item reveal" data-n="۱">
+        <span class="tl-tag">هفتهٔ ۱</span>
+        <h4>شناخت الفبا</h4>
+        <p>با ۳۳ حرف سورانی و حرف‌های ویژهٔ آن (ڕ، ڵ، ۆ، ێ، ڤ) آشنا شوید؛ پایهٔ خواندن و نوشتن همین‌جا ساخته می‌شود.</p>
+        <a class="tl-link" href="#alphabet">رفتن به بخش الفبا <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+      </div>
+      <div class="tl-item reveal" data-n="۲">
+        <span class="tl-tag">هفتهٔ ۲</span>
+        <h4>واژه‌های پایه</h4>
+        <p>ضمایر (من، تو، او...)، اعداد ۱ تا ۱۰ و صفت‌های روزمره را با فلش‌کارت‌ها تمرین کنید؛ سنگ‌بنای هر جمله‌اند.</p>
+        <button class="tl-link" data-goto="4">شروع دستهٔ واژه‌های پایه <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      </div>
+      <div class="tl-item reveal" data-n="۳">
+        <span class="tl-tag">هفتهٔ ۳</span>
+        <h4>اولین گفت‌وگوها</h4>
+        <p>سلام، احوالپرسی، تشکر و خداحافظی؛ بعد از این هفته می‌توانید اولین مکالمهٔ واقعی‌تان را شروع کنید.</p>
+        <button class="tl-link" data-goto="0">شروع دستهٔ احوالپرسی <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      </div>
+      <div class="tl-item reveal" data-n="۴">
+        <span class="tl-tag">هفتهٔ ۴ و ۵</span>
+        <h4>دنیای اطراف</h4>
+        <p>خانواده و اعضای بدن، طبیعت و مکان‌ها؛ واژه‌هایی که هر روز می‌بینید و به‌کار می‌برید.</p>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <button class="tl-link" data-goto="1">شروع دستهٔ خانواده و بدن <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+          <button class="tl-link" data-goto="2">شروع دستهٔ طبیعت و مکان <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        </div>
+      </div>
+      <div class="tl-item reveal" data-n="۵">
+        <span class="tl-tag">هفتهٔ ۶</span>
+        <h4>افعال و جمله‌سازی</h4>
+        <p>مصدرها را بیاموزید و جمله بسازید. یادتان باشد: در سورانی مصدر معمولاً به «ـن» ختم می‌شود، مثل «کردن».</p>
+        <button class="tl-link" data-goto="3">شروع دستهٔ افعال <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- شناورها -->
+<button id="helpFab" aria-label="راهنمای سایت">؟</button>
+<button id="backTop" aria-label="بازگشت به بالا"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+<div id="toast" role="status"></div>
+
+<div class="modal" id="helpModal">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="icon-btn" id="modalClose" data-close aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>راهنمای سریع سایت</h3>
+    <ul>
+      <li><span>روی <b>کارت واژه</b> بزنید تا معنی فارسی را ببینید؛ با فلش‌های کیبورد بین کارت‌ها جابه‌جا شوید.</span></li>
+      <li><span>آیکون <b>بلندگو</b> تلفظ واژه یا حرف را پخش می‌کند.</span></li>
+      <li><span>واژه‌هایی را که بلدید با دکمهٔ <b>«بلدم»</b> علامت بزنید؛ پیشرفت شما ذخیره می‌شود.</span></li>
+      <li><span>با <b>چیپ‌های بالای واژه‌نامه</b> بین ۵ دستهٔ آموزشی جابه‌جا شوید.</span></li>
+      <li><span>با آیکون <b>ماه/خورشید</b> بالای صفحه، حالت شب را روشن کنید.</span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ---------- ابزارها ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const faNum=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const IC={
+ vol:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>',
+ chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>',
+ users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+ mount:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>',
+ zap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+ spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg>',
+ arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>'
+};
+
+/* ---------- داده واژگان (دسته‌های سایت) ---------- */
+const CATS=[
+ {id:'greet',fa:'احوالپرسی',ku:'سڵاو و احوالپرسی',color:'#C4392B',icon:IC.chat,level:'مبتدی',
+  desc:'جمله‌های اول برای شروع هر گفت‌وگو؛ از سلام تا خداحافظی.',
+  tip:'«سڵاو» رایج‌ترین سلام در کردی است و در هر موقعیتی — رسمی یا دوستانه — کاربرد دارد.',
+  words:[{id:'greet-slaw',fa:'سلام',ku:'سڵاو',pr:'Slaw'},{id:'greet-toconi',fa:'حالت چطوره؟',ku:'تۆ چۆنی؟ / حاڵت چۆنە؟',pr:'To çonî? / Hałet çone?'},{id:'greet-basm',fa:'خوبم',ku:'باشم / چاکم',pr:'Başm / Çakm'},{id:'greet-beyanibas',fa:'صبح بخیر',ku:'بەیانی باش',pr:'Beyanî baş'},{id:'greet-sewbas',fa:'شب بخیر',ku:'شەو باش',pr:'Şew baş'},{id:'greet-xerhatit',fa:'خوش آمدی',ku:'خێر هاتیت',pr:'Xêr hatît'},{id:'greet-xwahafiz',fa:'خداحافظ',ku:'خواحافیز / بە خاتر',pr:'Xwahafîz / Be xatir'},{id:'greet-supas',fa:'ممنون',ku:'سوپاس / دەستت خۆش',pr:'Supas / Destt xoş'},{id:'greet-bee',fa:'بله',ku:'بەڵێ / ئا',pr:'Bełê / A'},{id:'greet-ne',fa:'نه',ku:'نە / نەخێر',pr:'Ne / Nexêr'},{id:'greet-tikaye',fa:'لطفاً',ku:'تکایە',pr:'Tikaye'},{id:'greet-bibure',fa:'ببخشید',ku:'ببورە / لێم ببورە',pr:'Bibure / Lêm bibure'}]},
+ {id:'family',fa:'خانواده و بدن',ku:'بنەماڵە و لەش',color:'#D4A017',icon:IC.users,level:'مبتدی',
+  desc:'واژه‌های نزدیک‌ترین آدم‌های زندگی و اعضای بدن.',
+  tip:'«دایک» مادر و «باوک» پدر است؛ پایان «ـە» را در بسیاری از واژه‌ها به‌روشنی می‌شنوید: دایە، خاڵە، خانە.',
+  words:[{g:'خانواده'},{id:'family-bawk',fa:'پدر',ku:'باوک / باوکه',pr:'Bawk / Bawke'},{id:'family-dayk',fa:'مادر',ku:'دایک / دایە',pr:'Dayk / Daye'},{id:'family-bira',fa:'برادر',ku:'برا',pr:'Bira'},{id:'family-xwisk',fa:'خواهر',ku:'خوشک',pr:'Xwîşk',sp:'خویشک'},{id:'family-kur',fa:'پسر',ku:'کوڕ',pr:'Kuř'},{id:'family-kic',fa:'دختر',ku:'کِچ / کەنیشک',pr:'Kiç / Kenîşk'},{id:'family-bapir',fa:'پدربزرگ',ku:'باپیر',pr:'Bapîr'},{id:'family-dapir',fa:'مادربزرگ',ku:'داپیر / داعا',pr:'Dapîr / Da\'a'},{id:'family-mamo',fa:'عمو',ku:'مامۆ',pr:'Mamo'},{id:'family-xae',fa:'خاله / عمه',ku:'خاڵە / میمی',pr:'Xałe / Mîmî'},{id:'family-merd',fa:'شوهر',ku:'مێرد / شوو',pr:'Mêrd / Şû'},{id:'family-jin',fa:'زن (همسر)',ku:'ژن',pr:'Jin'},{id:'family-roe',fa:'فرزند / بچه',ku:'ڕۆڵە / منداڵ',pr:'Řołe / Mindał'},{g:'بدن'},{id:'family-ser',fa:'سر',ku:'سەر',pr:'Ser'},{id:'family-caw',fa:'چشم',ku:'چاو',pr:'Çaw'},{id:'family-gwe',fa:'گوش',ku:'گوێ',pr:'Gwê'},{id:'family-lut',fa:'بینی',ku:'لووت',pr:'Lût'},{id:'family-dem',fa:'دهان',ku:'دەم',pr:'Dem'},{id:'family-didan',fa:'دندان',ku:'ددان',pr:'Didan'},{id:'family-dest',fa:'دست',ku:'دەست',pr:'Dest'},{id:'family-pe',fa:'پا',ku:'پێ',pr:'Pê'},{id:'family-di',fa:'قلب',ku:'دڵ',pr:'Dił'},{id:'family-xwen',fa:'خون',ku:'خوێن',pr:'Xwên'},{id:'family-qij',fa:'مو',ku:'قژ',pr:'Qij'},{id:'family-ru',fa:'صورت',ku:'ڕوو',pr:'Řû'},{id:'family-pence',fa:'انگشت',ku:'پەنجە',pr:'Pence'},{id:'family-zik',fa:'شکم',ku:'سک',pr:'Zik',sp:'زِک'}]},
+ {id:'nature',fa:'طبیعت و مکان',ku:'سروشت و شوێن',color:'#6B7F3E',icon:IC.mount,level:'مبتدی',
+  desc:'از کوه و رود و ستاره گرفته تا خانه و بازار.',
+  tip:'«کێو» یعنی کوه؛ کردستان سرزمین کوه‌هاست و این واژه را در نامه‌ها و ترانه‌ها زیاد می‌شنوید.',
+  words:[{g:'طبیعت'},{id:'nature-aw',fa:'آب',ku:'ئاو',pr:'Aw'},{id:'nature-agir',fa:'آتش',ku:'ئاگر',pr:'Agir'},{id:'nature-xo',fa:'خاک',ku:'خۆڵ / زەوی',pr:'Xoł / Zewî'},{id:'nature-asman',fa:'آسمان',ku:'ئاسمان',pr:'Asman'},{id:'nature-xor',fa:'خورشید',ku:'خۆر',pr:'Xor'},{id:'nature-mang',fa:'ماه',ku:'مانگ',pr:'Mang'},{id:'nature-estere',fa:'ستاره',ku:'ئەستێرە',pr:'Estêre'},{id:'nature-kew',fa:'کوه',ku:'کێو',pr:'Kêw'},{id:'nature-cem',fa:'رودخانه',ku:'چەم / ڕووبار',pr:'Çem / Řûbar'},{id:'nature-dar',fa:'درخت',ku:'دار',pr:'Dar'},{id:'nature-gu',fa:'گل',ku:'گوڵ',pr:'Guł'},{id:'nature-baran',fa:'باران',ku:'باران',pr:'Baran'},{id:'nature-ba',fa:'باد',ku:'با',pr:'Ba'},{id:'nature-befr',fa:'برف',ku:'بەفر',pr:'Befr'},{id:'nature-berd',fa:'سنگ',ku:'بەرد',pr:'Berd'},{id:'nature-daristan',fa:'جنگل',ku:'دارستان / مێرگ',pr:'Daristan / Mêrg'},{g:'مکان'},{id:'nature-ma',fa:'خانه',ku:'ماڵ / خانە',pr:'Mał / Xane'},{id:'nature-de',fa:'روستا',ku:'دێ',pr:'Dê'},{id:'nature-sar',fa:'شهر',ku:'شار',pr:'Şar'},{id:'nature-re',fa:'جاده / راه',ku:'ڕێ / ڕێگا',pr:'Řê / Řêga'},{id:'nature-derga',fa:'در (درب)',ku:'دەرگا',pr:'Derga'},{id:'nature-jur',fa:'اتاق',ku:'ژوور',pr:'Jûr'},{id:'nature-qutabxane',fa:'مدرسه',ku:'قوتابخانە',pr:'Qutabxane'},{id:'nature-bazar',fa:'بازار',ku:'بازاڕ',pr:'Bazař'}]},
+ {id:'verbs',fa:'افعال',ku:'کردارەکان',color:'#9E2E22',icon:IC.zap,level:'متوسط',
+  desc:'مصدرهای پرکاربرد برای ساختن جمله‌های واقعی.',
+  tip:'<b>نکتهٔ مهم:</b> در سورانی مصدر افعال معمولاً به «ـن» ختم می‌شود (مانند «هاتن»، «گرتن» و «کردن»).',
+  words:[{id:'verbs-cun',fa:'رفتن',ku:'چوون / ڕۆیشتن',pr:'Çûn / Řoyştin'},{id:'verbs-hatin',fa:'آمدن',ku:'هاتن',pr:'Hatin'},{id:'verbs-xwardin',fa:'خوردن',ku:'خواردن',pr:'Xwardin'},{id:'verbs-xwardinewe',fa:'نوشیدن',ku:'خواردنەوە',pr:'Xwardinewe'},{id:'verbs-ditin',fa:'دیدن',ku:'دیتن',pr:'Dîtin'},{id:'verbs-gutin',fa:'گفتن',ku:'گوتن / وتن',pr:'Gutin / Witin'},{id:'verbs-dan',fa:'دادن',ku:'دان',pr:'Dan'},{id:'verbs-girtin',fa:'گرفتن',ku:'گرتن',pr:'Girtin'},{id:'verbs-xewtin',fa:'خوابیدن',ku:'خەوتن',pr:'Xewtin'},{id:'verbs-nistin',fa:'نشستن',ku:'نیشتن',pr:'Nîştin'},{id:'verbs-westan',fa:'ایستادن',ku:'وەستان',pr:'Westan'},{id:'verbs-zanin',fa:'دانستن',ku:'زانین',pr:'Zanîn'},{id:'verbs-wistin',fa:'خواستن',ku:'ویستن',pr:'Wîstin'},{id:'verbs-kirdin',fa:'انجام دادن',ku:'کردن',pr:'Kirdin'},{id:'verbs-mirdin',fa:'مردن',ku:'مردن',pr:'Mirdin'},{id:'verbs-jiyan',fa:'زندگی کردن',ku:'ژیان',pr:'Jiyan'},{id:'verbs-nusin',fa:'نوشتن',ku:'نووسین',pr:'Nûsîn'},{id:'verbs-xwendinewe',fa:'خواندن',ku:'خوێندنەوە',pr:'Xwêndinewe'},{id:'verbs-bistin',fa:'شنیدن',ku:'بیستن',pr:'Bîstin'},{id:'verbs-pekenin',fa:'خندیدن',ku:'پێکەنین',pr:'Pêkenîn'}]},
+ {id:'basic',fa:'واژه‌های پایه',ku:'وشە بنەڕەتییەکان',color:'#556530',icon:IC.spark,level:'مبتدی',
+  desc:'ضمیر، عدد و صفت‌هایی که در هر جمله‌ای به کار می‌آیند.',
+  tip:'«ئەو» هم «او» است و هم «آن»؛ یعنی در سورانی برای انسان و شیء یک واژه داریم.',
+  words:[{g:'ضمایر'},{id:'basic-min',fa:'من',ku:'من',pr:'Min'},{id:'basic-to',fa:'تو',ku:'تۆ / تُو',pr:'To / Tû'},{id:'basic-ew',fa:'او',ku:'ئەو',pr:'Ew'},{id:'basic-eme',fa:'ما',ku:'ئێمە',pr:'Ême'},{id:'basic-ewe',fa:'شما',ku:'ئێوە',pr:'Êwe'},{id:'basic-ewan',fa:'آنها',ku:'ئەوان',pr:'Ewan'},{g:'اعداد'},{id:'basic-yek',fa:'یک',ku:'یەک',pr:'Yek'},{id:'basic-du',fa:'دو',ku:'دوو',pr:'Dû'},{id:'basic-se',fa:'سه',ku:'سێ',pr:'Sê'},{id:'basic-cwar',fa:'چهار',ku:'چوار',pr:'Çwar'},{id:'basic-penc',fa:'پنج',ku:'پێنج',pr:'Pênc'},{id:'basic-ses',fa:'شش',ku:'شەش',pr:'Şeş'},{id:'basic-hewt',fa:'هفت',ku:'حەوت',pr:'Hewt'},{id:'basic-hest',fa:'هشت',ku:'هەشت',pr:'Heşt'},{id:'basic-no',fa:'نه',ku:'نۆ',pr:'No'},{id:'basic-de',fa:'ده',ku:'دە',pr:'De'},{g:'صفات و واژگان روزمره'},{id:'basic-gewre',fa:'بزرگ',ku:'گەورە',pr:'Gewre'},{id:'basic-bicuk',fa:'کوچک',ku:'بچووک',pr:'Biçûk'},{id:'basic-bas',fa:'خوب',ku:'باش / چاک',pr:'Baş / Çak'},{id:'basic-xirap',fa:'بد',ku:'خراپ',pr:'Xirap'},{id:'basic-nwe',fa:'جدید',ku:'نوێ',pr:'Nwê'},{id:'basic-kon',fa:'قدیمی',ku:'کۆن',pr:'Kon'},{id:'basic-germ',fa:'گرم',ku:'گەرم',pr:'Germ'},{id:'basic-sard',fa:'سرد',ku:'سارد',pr:'Sard'},{id:'basic-roj',fa:'روز',ku:'ڕۆژ',pr:'Řoj'},{id:'basic-sew',fa:'شب',ku:'شەو',pr:'Şew'},{id:'basic-naw',fa:'نام',ku:'ناو',pr:'Naw'},{id:'basic-eme2',fa:'این',ku:'ئەمە',pr:'Eme'},{id:'basic-ew2',fa:'آن',ku:'ئەو',pr:'Ew'},{id:'basic-sipi',fa:'سفید',ku:'سپی',pr:'Sipî'},{id:'basic-res',fa:'سیاه',ku:'ڕەش',pr:'Řeş'},{id:'basic-sur',fa:'سرخ',ku:'سوور',pr:'Sûr'},{id:'basic-sewz',fa:'سبز',ku:'سەوز',pr:'Sewz'}]}
+];
+CATS.forEach(c=>c.items=c.words.filter(w=>!w.g));
+
+/* الفبای سورانی (۳۳ حرف) با واژهٔ نمونه */
+const ABC=[
+ ['ا','ئەلیف','ئاو','آب'],['ب','بێ','باران','باران'],['پ','پێ','پێ','پا'],['ت','تێ','تۆ','تو'],
+ ['ج','جیم','جوان','زیبا'],['چ','چێ','چاو','چشم'],['ح','حێ','حەوت','هفت'],['خ','خێ','خۆر','خورشید'],
+ ['د','دال','دەست','دست'],['ر','رێ','بەرد','سنگ'],['ڕ','ڕێ','ڕۆژ','روز'],['ز','زێ','زمان','زبان'],
+ ['ژ','ژێ','ژن','زن'],['س','سین','سەر','سر'],['ش','شین','شەو','شب'],['ع','عەین','عەشق','عشق'],
+ ['غ','غەین','غەم','غم'],['ف','فێ','فێربوون','یادگیری'],['ڤ','ڤێ','ڤیدیۆ','ویدئو'],['ق','قاف','قوتابخانە','مدرسه'],
+ ['ک','کاف','کێو','کوه'],['گ','گاف','گوڵ','گل'],['ل','لام','لووت','بینی'],['ڵ','ڵام','دڵ','قلب'],
+ ['م','میم','مانگ','ماه'],['ن','نون','ناو','نام'],['و','واو','وەستان','ایستادن'],['ۆ','ۆ','دۆست','دوست'],
+['ھ','ھێ','هەور','ابر'],['ە','ە (کورت)','خانە','خانه'],['ی','یێ','یەک','یک'],
+ ['ێ','ێ','ئێمە','ما'],['ئ','هەمزە','ئەو','او']
+];
+
+/* ---------- توست ---------- */
+let toastT;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600);}
+
+/* ---------- گفتار (Web Speech API) ---------- */
+let voices=[];
+function loadVoices(){try{voices=speechSynthesis.getVoices();}catch(e){}}
+if('speechSynthesis' in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
+function speak(text,btn,onDone){
+ if(!('speechSynthesis' in window)){toast('پخش صدا در این مرورگر پشتیبانی نمی‌شود');if(onDone)onDone();return;}
+ try{
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  const v=voices.find(v=>/^(ku|ckb|kmr)/i.test(v.lang))||voices.find(v=>/^fa/i.test(v.lang))||voices.find(v=>/^ar/i.test(v.lang));
+  if(v)u.voice=v;
+  u.lang=v?v.lang:'fa-IR';u.rate=.82;u.pitch=1;
+  if(btn)btn.classList.add('speaking');
+  let fin=false;const done=()=>{if(fin)return;fin=true;if(btn)btn.classList.remove('speaking');if(onDone)onDone();};u.onend=done;u.onerror=done;
+  speechSynthesis.speak(u);
+ }catch(e){toast('پخش صدا ممکن نشد');if(onDone)onDone();}
+}
+const kuSpeak=s=>s.split(' / ').join('، ');
+
+/* ---------- تم ---------- */
+const root=document.documentElement,themeToggle=$('#themeToggle');
+try{if(localStorage.getItem('sorani-theme')==='dark')root.dataset.theme='dark';}catch(e){}
+const syncThemeButton=()=>{
+ const dark=root.dataset.theme==='dark';
+ themeToggle.setAttribute('aria-pressed',dark?'true':'false');
+ themeToggle.setAttribute('aria-label',dark?'تغییر به حالت روز':'تغییر به حالت شب');
+};
+syncThemeButton();
+themeToggle.addEventListener('click',()=>{
+ const d=root.dataset.theme==='dark'?'light':'dark';
+ root.dataset.theme=d;
+ try{localStorage.setItem('sorani-theme',d);}catch(e){}
+ syncThemeButton();
+ toast(d==='dark'?'حالت شب روشن شد 🌙':'حالت روز روشن شد ☀️');
+});
+
+/* ---------- نوبار، پیشرفت، پارالاکس، بک‌تاپ (rAF) ---------- */
+const nav=$('#navbar'),pBar=$('#progressBar'),backTop=$('#backTop');
+const heroBg=$('.hero-bg'),heroContent=$('.hero-content');
+let ticking=false;
+function onScroll(){
+ const y=scrollY,vh=innerHeight;
+ nav.classList.toggle('scrolled',y>40);
+ const dh=document.documentElement.scrollHeight-vh;
+ pBar.style.width=(dh>0?(y/dh)*100:0)+'%';
+ backTop.classList.toggle('show',y>640);
+ if(!reduceMotion&&y<vh*1.25){
+  heroBg.style.transform=`translateY(${y*.35}px) scale(${Math.max(1.04,1.12-y*.00018)})`;
+  heroContent.style.opacity=Math.max(0,1-y/(vh*.72));
+  heroContent.style.transform=`translateY(${-y*.16}px)`;
+ }
+ tlUpdate();
+ ticking=false;
+}
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+
+/* ---------- منوی موبایل ---------- */
+const drawer=$('#drawer');
+ $('#menuBtn').addEventListener('click',()=>{drawer.classList.add('open');document.body.style.overflow='hidden';});
+function closeDrawer(){drawer.classList.remove('open');document.body.style.overflow='';}
+ $('#drawerClose').addEventListener('click',closeDrawer);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+
+/* ---------- نمایان‌شدن هنگام اسکرول ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;el.classList.add('in');io.unobserve(el);const d=parseFloat(el.style.getPropertyValue('--d'))||0;setTimeout(()=>el.classList.add('done'),(0.8+d)*1000+60);}}),{threshold:.14});
+ $$('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- شمارنده‌های هیرو ---------- */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+ if(!e.isIntersecting)return;cio.unobserve(e.target);
+ const el=e.target,t=+el.dataset.count,suf=el.dataset.suffix||'',st=performance.now();
+ (function f(n){const p=Math.min(1,(n-st)/1300),ease=1-Math.pow(1-p,3);
+  el.textContent=faNum(Math.round(t*ease))+suf;if(p<1)requestAnimationFrame(f);})(st);
+}),{threshold:.5});
+ $$('.stat-num').forEach(el=>cio.observe(el));
+
+/* ---------- نوار واژه‌های متحرک ---------- */
+const TICK=[['سڵاو','Slaw'],['دڵ','Dił'],['خۆر','Xor'],['مانگ','Mang'],['گوڵ','Guł'],['کێو','Kêw'],['ئاو','Aw'],['دەست','Dest'],['ماڵ','Mał'],['ڕۆژ','Řoj'],['شەو','Şew'],['بەرد','Berd'],['باوک','Bawk'],['دایک','Dayk'],['گوێ','Gwê'],['یەک','Yek'],['تکایە','Tikaye'],['ژیان','Jiyan']];
+const half=TICK.map(w=>`<span class="t-item" data-ku="${w[0]}"><span class="tk">${w[0]}</span><span class="tp">${w[1]}</span></span><span class="t-sep">◆</span>`).join('');
+ $('#tickerInner').innerHTML=half+half;
+ $('#ticker').addEventListener('click',e=>{const it=e.target.closest('.t-item');if(it)speak(kuSpeak(it.dataset.ku),it.querySelector('.tk'));});
+
+/* ---------- یادگیری: دسته‌ها، فلش‌کارت، لیست ---------- */
+let catIdx=0,order=[],pos=0;
+let known={};try{known=JSON.parse(localStorage.getItem('sorani-known')||'{}');}catch(e){known={};}
+const saveKnown=()=>{try{localStorage.setItem('sorani-known',JSON.stringify(known));}catch(e){}};
+CATS.forEach(c=>{const a=known[c.id];if(Array.isArray(a))known[c.id]=a.map(x=>typeof x==='number'?(c.items[x]&&c.items[x].id):x).filter(Boolean);});
+const knownSet=id=>new Set(known[id]||[]);
+const shuffleArr=a=>{const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;};
+const learnSec=$('#learn'),fc=$('#flashcard');
+
+ $('#chips').innerHTML=CATS.map((c,i)=>`
+ <button class="chip" style="--c:${c.color}" data-cat="${i}">${c.icon}${c.fa}<span class="cnt">${faNum(c.items.length)}</span></button>`).join('');
+ $('#chips').addEventListener('click',e=>{const ch=e.target.closest('.chip');if(ch)setCat(+ch.dataset.cat);});
+
+let backTimer;
+function renderCard(anim){
+ const c=CATS[catIdx],w=c.items[order[pos]];
+ learnSec.style.setProperty('--cat',c.color);
+ clearTimeout(backTimer);
+ const wasFlipped=fc.classList.contains('flipped');
+ const setBack=()=>{$('#fcFa').textContent=w.fa;$('#fcPr').textContent=w.pr;};
+ if(wasFlipped){fc.classList.remove('flipped');backTimer=setTimeout(setBack,760);}else setBack();
+ $('#fcTag').textContent=c.ku;
+ $('#fcKu').textContent=w.ku;
+ $('#fcCounter').innerHTML=`<b>${faNum(pos+1)}</b> از ${faNum(c.items.length)}`;
+ const ks=knownSet(c.id),on=ks.has(w.id);
+ const kb=$('#fcKnowBtn');kb.classList.toggle('on',on);
+ if(anim&&!reduceMotion&&!wasFlipped){fc.style.animation='none';void fc.offsetWidth;fc.style.animation='fcPop .45s cubic-bezier(.2,.8,.2,1)';}
+}
+const st=document.createElement('style');
+st.textContent='@keyframes fcPop{0%{opacity:.35;transform:translateY(12px) scale(.97)}100%{opacity:1;transform:none}}';
+document.head.appendChild(st);
+
+function updateLearned(){
+ const c=CATS[catIdx],ks=knownSet(c.id),n=ks.size,t=c.items.length;
+ $('#learnedFill').style.width=(t?n/t*100:0)+'%';
+ $('#learnedLbl').textContent=`${faNum(n)} از ${faNum(t)} واژهٔ این دسته را یاد گرفته‌اید`;
+ $('#aKnown').textContent=faNum(n)+' واژه';
+ $$('#wordGrid .w-item').forEach(it=>{
+  const i=+it.dataset.i;
+  it.classList.toggle('known',ks.has(c.items[i].id));
+ });
+}
+function updateAside(){
+ const c=CATS[catIdx];
+ $('#aCat').textContent=c.fa+' — '+c.ku;
+ $('#aDesc').textContent=c.desc;
+ $('#aTip').innerHTML='💡 '+c.tip;
+ $('#aCount').textContent=faNum(c.items.length)+' واژه';
+}
+const norm=t=>String(t||'').toLowerCase().replace(/[يى]/g,'ی').replace(/ك/g,'ک').replace(/ة/g,'ە').replace(/\u200c/g,' ').trim();
+function renderGrid(){
+ const c=CATS[catIdx],q=norm($('#wlSearch').value),ks=knownSet(c.id);
+ let html='',shown=0,pending='';
+ c.words.forEach(w=>{
+  if(w.g){pending=`<div class="w-group">${w.g}</div>`;return;}
+  const i=c.items.indexOf(w);
+  if(q&&!(norm(w.fa).includes(q)||norm(w.ku).includes(q)||w.pr.toLowerCase().includes(q)))return;
+  shown++;
+  if(pending){html+=pending;pending='';}
+  html+=`<div class="w-item${ks.has(w.id)?' known':''}" data-i="${i}" data-ku="${w.sp||w.ku}" role="button" tabindex="0">
+   <div class="w-txts"><span class="w-ku">${w.ku}</span><span class="w-fa">${w.fa}</span><span class="w-pr">${w.pr}</span></div>
+   <span class="w-vol">${IC.vol}</span></div>`;
+ });
+ $('#wordGrid').innerHTML=shown?html:'<div class="no-result">واژه‌ای با این عبارت پیدا نشد.</div>';
+ $('#wlCount').textContent=`${faNum(shown)} از ${faNum(c.items.length)} واژه`;
+}
+function setCat(i){
+ catIdx=i;pos=0;order=[...Array(CATS[i].items.length).keys()];
+ $$('#chips .chip').forEach((ch,j)=>ch.classList.toggle('active',j===i));
+ updateAside();renderCard(false);renderGrid();updateLearned();
+}
+function goCat(i,scroll){setCat(i);if(scroll)learnSec.scrollIntoView({behavior:reduceMotion?'auto':'smooth'});}
+
+/* کنترل‌های فلش‌کارت */
+const next=()=>{pos=(pos+1)%CATS[catIdx].items.length;renderCard(true);updateLearned();};
+const prev=()=>{pos=(pos-1+CATS[catIdx].items.length)%CATS[catIdx].items.length;renderCard(true);updateLearned();};
+ $('#fcNext').addEventListener('click',next);
+ $('#fcPrev').addEventListener('click',prev);
+fc.addEventListener('click',()=>fc.classList.toggle('flipped'));
+fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fc.classList.toggle('flipped');}});
+const curWord=()=>CATS[catIdx].items[order[pos]];
+function doSpeak(btn){const w=curWord();speak(kuSpeak(w.sp||w.ku),btn);}
+ $('#fcSpeak').addEventListener('click',e=>{e.stopPropagation();doSpeak(e.currentTarget);});
+ $('#fcSpeak2').addEventListener('click',e=>doSpeak(e.currentTarget));
+ $('#fcShuffle').addEventListener('click',()=>{order=shuffleArr(order);pos=0;renderCard(true);toast('ترتیب کارت‌ها بُر خورد!');});
+ $('#fcKnowBtn').addEventListener('click',e=>{
+ e.stopPropagation();
+ const id=CATS[catIdx].id,i=curWord().id;
+ const ks=knownSet(id);ks.has(i)?ks.delete(i):ks.add(i);
+ known[id]=[...ks];saveKnown();
+ e.currentTarget.classList.toggle('on',ks.has(i));
+ updateLearned();
+ toast(ks.has(i)?'«'+curWord().fa+'» به واژه‌های بلده‌تان اضافه شد ✓':'علامت واژه برداشته شد');
+});
+ $('#wlSearch').addEventListener('input',renderGrid);
+ $('#wordGrid').addEventListener('click',e=>{
+ const it=e.target.closest('.w-item');if(!it)return;
+ speak(kuSpeak(it.dataset.ku),it.querySelector('.w-vol'));
+});
+ $('#wordGrid').addEventListener('keydown',e=>{
+ const it=e.target.closest('.w-item');
+ if(it&&e.key==='Enter')speak(kuSpeak(it.dataset.ku),it.querySelector('.w-vol'));
+});
+document.addEventListener('keydown',e=>{
+ if(e.target.matches('input,textarea,select'))return;
+ if(e.key==='ArrowLeft')next();
+ else if(e.key==='ArrowRight')prev();
+ else if(e.key===' '){
+  const ib=e.target.closest&&e.target.closest('button,a,[role="button"]');if(ib&&ib!==fc)return;
+  const r=fc.getBoundingClientRect();
+  if(r.top<innerHeight*.85&&r.bottom>innerHeight*.15){e.preventDefault();fc.classList.toggle('flipped');}
+ }
+});
+ $$('.tl-link[data-goto]').forEach(b=>b.addEventListener('click',()=>goCat(+b.dataset.goto,true)));
+ $('#welcomePill').addEventListener('click',()=>speak('خێر هاتیت',$('#welcomePill').querySelector('svg')));
+
+/* ---------- الفبا ---------- */
+ $('#abcGrid').innerHTML=ABC.map((a,i)=>`
+ <div class="abc" data-i="${i}" data-ex="${a[2]}" role="button" tabindex="0" aria-label="حرف ${a[0]} — ${a[3]}">
+  <div class="ch ku">${a[0]}</div><div class="nm">${a[1]}</div>
+  <div class="ex ku">${a[2]}</div><div class="fx">${a[3]}</div>
+ </div>`).join('');
+let abcRun=0,abcPlaying=false;
+const stopAbc=()=>{abcRun++;abcPlaying=false;try{speechSynthesis.cancel();}catch(e){}
+ $('#abcPlayLbl').textContent='پخش پیاپی الفبا';
+ $$('.abc.playing').forEach(t=>t.classList.remove('playing'));};
+ $('#abcPlay').addEventListener('click',()=>{
+ if(abcPlaying){stopAbc();return;}
+ const run=++abcRun;abcPlaying=true;$('#abcPlayLbl').textContent='توقف پخش';
+ const step=i=>{
+  if(run!==abcRun)return;
+  if(i>=ABC.length){stopAbc();toast('یک دور کامل الفبا تمام شد!');return;}
+  const t=$(`.abc[data-i="${i}"]`);
+  $$('.abc.playing').forEach(x=>x.classList.remove('playing'));
+  if(t){t.classList.add('playing');t.scrollIntoView({block:'nearest',behavior:reduceMotion?'auto':'smooth'});}
+  speak(ABC[i][2],null,()=>setTimeout(()=>step(i+1),450));
+ };
+ step(0);
+});
+ $('#abcGrid').addEventListener('click',e=>{
+ const t=e.target.closest('.abc');if(!t)return;
+ if(abcPlaying)stopAbc();
+ $$('.abc.playing').forEach(x=>x.classList.remove('playing'));
+ t.classList.add('playing');setTimeout(()=>t.classList.remove('playing'),1400);
+ speak(t.dataset.ex);
+});
+
+/* ---------- پر شدن خط تایم‌لاین ---------- */
+const tlSec=$('#path'),tlFill=$('#tlFill');
+function tlUpdate(){
+ if(!tlFill)return;
+ const r=tlSec.getBoundingClientRect();
+ const p=Math.min(1,Math.max(0,(innerHeight*.72-r.top)/r.height));
+ tlFill.style.height=(p*100)+'%';
+}
+
+/* ---------- مودال راهنما، بک‌تاپ، اسکرول‌اسپای ---------- */
+const helpModal=$('#helpModal');
+ $('#helpFab').addEventListener('click',()=>helpModal.classList.add('open'));
+helpModal.addEventListener('click',e=>{if(e.target.hasAttribute('data-close')||e.target.closest('#modalClose'))helpModal.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){helpModal.classList.remove('open');closeDrawer();}});
+backTop.addEventListener('click',()=>scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'}));
+const spy=new IntersectionObserver(es=>es.forEach(en=>{
+ if(en.isIntersecting){
+  $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
+ }}),{rootMargin:'-40% 0px -55% 0px'});
+['about','learn','alphabet','path'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
+
+/* ---------- شروع ---------- */
+setCat(0);
+onScroll();
+})();
+</script>
+</body>
+</html>
