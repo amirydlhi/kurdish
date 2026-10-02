@@ -9,6 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 
+@font-face{font-family:'Peyda';src:url('fonts/Peyda-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Peyda';src:url('fonts/Peyda-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Dana';src:url('fonts/Dana-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Dana';src:url('fonts/Dana-ExtraBold.woff2') format('woff2');font-weight:800 900;font-style:normal;font-display:swap}
+
 :root{
   --bg-cream:#F5F0E8;
   --bg-cream-light:#FDFBF7;
@@ -22,7 +27,8 @@
   --border-dark:#3D3630;
   --card:#FDFBF7;
   --card-dark:#211D19;
-  --success:#66744D;
+  --success:var(--accent-olive);
+  --accent-olive:#748060;
   --danger:#8D5145;
   --shadow:0 24px 55px -30px rgba(26,23,20,.42);
   --shadow-soft:0 16px 32px -24px rgba(26,23,20,.28);
@@ -38,7 +44,8 @@
   --fg-dark:#F3EDE4;
   --fg-light:#F5F0E8;
   --fg-muted:#B0A397;
-  --fg-muted-light:#8F857C;
+  --fg-muted-light:#9A9086;
+  --accent-olive:#8FA378;
   --border-warm:#3A332D;
   --border-dark:#433A32;
   --card:#211D19;
@@ -49,7 +56,8 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{font-family:'Vazirmatn',sans-serif;background:var(--bg-cream) var(--pattern);color:var(--fg-dark);line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color .35s,color .35s}
+body{font-family:'Peyda','Vazirmatn',sans-serif;background:var(--bg-cream) var(--pattern);color:var(--fg-dark);line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color .35s,color .35s}
+h1,h2,h3,h4,h5,h6{font-family:'Dana','Vazirmatn',sans-serif}
 ::selection{background:var(--accent-gold);color:var(--bg-dark)}
 ::-webkit-scrollbar{width:9px}
 ::-webkit-scrollbar-track{background:var(--bg-cream)}
@@ -221,21 +229,30 @@ section{padding:92px 0;position:relative}
 .learn-stage{display:grid;grid-template-columns:minmax(0,1fr);gap:34px;align-items:start;margin-bottom:40px}
 .learned{margin:0 auto 15px;max-width:520px}
 .learned .bar{height:5px;background:var(--border-warm);border-radius:99px;overflow:hidden}
-.learned .fill{height:100%;width:0;background:var(--accent-gold);transition:width .5s ease;border-radius:99px}
+.learned .fill{height:100%;width:0;background:var(--accent-olive);transition:width .5s ease;border-radius:99px}
 .learned .lbl{font-size:.68rem;color:var(--fg-muted);margin-top:6px;text-align:center}
-.fc-wrap{perspective:1500px;display:flex;justify-content:center}
-.flashcard{--cat:var(--accent-gold);position:relative;width:min(100%,430px);height:390px;cursor:pointer;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.25,.8,.25,1)}
+.fc-wrap{perspective:1500px;display:flex;justify-content:center;position:relative}
+.fc-wrap.pulse{animation:fcHaptic .32s cubic-bezier(.34,1.56,.64,1)}
+@keyframes fcHaptic{0%{transform:scale(1)}38%{transform:scale(.966)}100%{transform:scale(1)}}
+.fc-wrap{--peek-x:200px;padding-block:6px}
+.fc-peek{position:absolute;top:34px;bottom:34px;width:min(100%,430px);border-radius:var(--radius-lg);background:var(--card) var(--pattern);border:1px solid var(--border-warm);box-shadow:var(--shadow);pointer-events:none;z-index:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px 26px;transition:transform .3s,opacity .3s,filter .3s}
+.fc-peek::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--cat,var(--accent-gold));opacity:.7}
+.fc-peek-word{font-family:var(--ku);font-weight:700;font-size:clamp(1.1rem,2.2vw,1.55rem);color:var(--fg-dark);text-align:center;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
+.fc-peek-prev{transform:translateX(var(--peek-x)) scale(.86);opacity:.7}
+.fc-peek-next{transform:translateX(calc(var(--peek-x) * -1)) scale(.86);opacity:.85;filter:blur(2.5px)}
+.flashcard{--cat:var(--accent-gold);position:relative;z-index:1;width:min(100%,430px);height:390px;cursor:pointer;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.25,.8,.25,1)}
 .flashcard.flipped{transform:rotateY(180deg)}
 .fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;overflow:hidden}
 .fc-face::before{content:'';position:absolute;top:0;right:0;left:0;height:6px;background:var(--cat)}
-.fc-front{background:var(--card) var(--pattern);border:1px solid var(--border-warm);box-shadow:var(--shadow)}
+.fc-front{background:var(--card) var(--pattern);border:1px solid var(--border-warm);box-shadow:var(--shadow);padding:46px 36px}
+.fc-inner{width:100%;display:flex;flex-direction:column;align-items:center}
 .fc-tag{font-size:.62rem;font-weight:700;color:#9C8055;border:1px solid rgba(200,169,110,.55);background:rgba(200,169,110,.08);padding:4px 13px;border-radius:2px;margin-bottom:21px}
-.fc-word{font-family:var(--ku);font-size:clamp(2rem,4.4vw,3.05rem);font-weight:700;text-align:center;line-height:1.7;color:var(--fg-dark)}
+.fc-word{font-family:var(--ku);font-size:clamp(2rem,4.4vw,3.05rem);font-weight:700;text-align:center;line-height:1.7;color:var(--fg-dark);width:100%;overflow-wrap:anywhere}
 .fc-hint{position:absolute;bottom:20px;font-size:.65rem;color:var(--fg-muted);display:flex;align-items:center;gap:6px;opacity:.9}
 .fc-hint svg{width:14px;height:14px}
-.fc-back{background:#211D19;color:var(--fg-light);transform:rotateY(180deg);box-shadow:var(--shadow)}
+.fc-back{background:#211D19;color:var(--fg-light);transform:rotateY(180deg);box-shadow:var(--shadow);padding:42px 32px}
 .fc-cap{font-size:.62rem;letter-spacing:.16em;color:rgba(245,240,232,.48);margin-bottom:9px}
-.fc-fa{font-size:clamp(1.35rem,3vw,1.95rem);font-weight:900;text-align:center;margin-bottom:9px}
+.fc-fa{font-size:clamp(1.35rem,3vw,1.95rem);font-weight:900;text-align:center;margin-bottom:9px;width:100%;overflow-wrap:anywhere}
 .fc-pr{font-size:.82rem;letter-spacing:1.2px;color:#D8BE90;direction:ltr;margin-bottom:23px;font-weight:500}
 .fc-actions{display:flex;gap:9px}
 .fc-actions .btn{padding:10px 17px;border-radius:3px;font-size:.75rem}
@@ -271,7 +288,7 @@ section{padding:92px 0;position:relative}
 .wl-search svg{position:absolute;right:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--fg-muted)}
 #wordGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
 .w-group{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-weight:900;color:var(--fg-muted);font-size:.76rem;margin-top:10px}
-.w-group::before{content:'◆';color:var(--accent-gold);font-size:.5rem}
+.w-group::before{content:'◆';color:var(--accent-olive);font-size:.5rem}
 .w-group::after{content:'';flex:1;height:1px;background:var(--border-warm)}
 .w-item{background:var(--card);border:1px solid var(--border-warm);border-radius:7px;padding:11px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:.25s;position:relative}
 .w-item:hover{transform:translateY(-2px);border-color:var(--accent-gold);box-shadow:var(--shadow-soft)}
@@ -289,7 +306,7 @@ section{padding:92px 0;position:relative}
 #grammar{background:var(--bg-cream)}
 .gr-sub{margin-bottom:20px}
 .gr-sub-title{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.02rem;margin-bottom:22px}
-.gr-sub-title .dot{width:9px;height:9px;border-radius:2px;background:var(--accent-gold);flex:none;transform:rotate(45deg)}
+.gr-sub-title .dot{width:9px;height:9px;border-radius:2px;background:var(--accent-olive);flex:none;transform:rotate(45deg)}
 .verb-card{background:var(--card) var(--pattern);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:26px 26px 8px;box-shadow:var(--shadow-soft)}
 .verb-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:18px;border-bottom:1px dashed var(--border-warm)}
 .verb-title{font-family:var(--ku);font-size:1.7rem;font-weight:700;color:var(--fg-dark)}
@@ -397,7 +414,7 @@ section{padding:92px 0;position:relative}
   text-shadow:0 1px 3px rgba(0,0,0,.35);
 }
 #path .tl-link{
-  color:#D8BE90;
+  color:#C7D6A6;
 }
 #path .tl-item::after{
   border-color:#141210;
@@ -405,18 +422,18 @@ section{padding:92px 0;position:relative}
 }
 .timeline{position:relative;max-width:880px;margin:0 auto;padding:12px 0 2px}
 .tl-line{position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);background:var(--border-warm);border-radius:2px}
-.tl-fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(var(--accent-gold),#7D6B51,#6E765C);border-radius:2px;transition:height .15s linear}
+.tl-fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(var(--accent-olive),#6E765C);border-radius:2px;transition:height .15s linear}
 .tl-item{position:relative;width:calc(50% - 40px);margin-bottom:28px;background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius);padding:21px;transition:.3s;box-shadow:0 1px 0 rgba(255,255,255,.18) inset}
-.tl-item:hover{border-color:var(--accent-gold);transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.tl-item:hover{border-color:var(--accent-olive);transform:translateY(-3px);box-shadow:var(--shadow-soft)}
 .tl-item:nth-child(even){margin-inline-start:auto}
-.tl-item::after{content:attr(data-n);position:absolute;top:18px;width:34px;height:34px;border-radius:50%;background:var(--bg-dark);color:var(--accent-gold);display:grid;place-items:center;font-weight:800;font-size:.82rem;border:3px solid var(--bg-cream);z-index:2;transition:.3s}
-.tl-item:hover::after{background:var(--accent-gold);color:var(--bg-dark);transform:scale(1.08)}
+.tl-item::after{content:attr(data-n);position:absolute;top:18px;width:34px;height:34px;border-radius:50%;background:var(--bg-dark);color:var(--accent-olive);display:grid;place-items:center;font-weight:800;font-size:.82rem;border:3px solid var(--bg-cream);z-index:2;transition:.3s}
+.tl-item:hover::after{background:var(--accent-olive);color:#fff;transform:scale(1.08)}
 .tl-item:nth-child(odd)::after{inset-inline-end:-48px}
 .tl-item:nth-child(even)::after{inset-inline-start:-48px}
-.tl-tag{display:inline-block;font-size:.58rem;font-weight:800;color:#8B7653;background:rgba(200,169,110,.11);padding:3px 11px;border-radius:99px;margin-bottom:8px}
+.tl-tag{display:inline-block;font-size:.58rem;font-weight:800;color:#C4D2A9;background:rgba(116,128,96,.24);padding:3px 11px;border-radius:99px;margin-bottom:8px}
 .tl-item h4{font-size:.98rem;font-weight:900;margin-bottom:5px}
 .tl-item p{font-size:.74rem;color:var(--fg-muted);line-height:2;margin-bottom:10px}
-.tl-link{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:#8F7250;font-weight:800;font-size:.72rem;padding:0;transition:.25s}
+.tl-link{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:#5C6B49;font-weight:800;font-size:.72rem;padding:0;transition:.25s}
 .tl-link:hover{gap:10px;color:var(--fg-dark)}
 .tl-link svg{width:14px;height:14px}
 
@@ -511,6 +528,9 @@ section{padding:92px 0;position:relative}
   .about-grid{gap:30px}
   .feat{grid-template-columns:1fr 1fr}
   .flashcard{height:360px;max-width:390px}
+  .fc-peek{max-width:390px}
+  .fc-wrap{--peek-x:150px}
+  .fc-peek-word{font-size:1.15rem}
   .chips{gap:6px}
   .chip{padding:7px 10px;font-size:.68rem}
 }
@@ -519,6 +539,9 @@ section{padding:92px 0;position:relative}
   .brand-text small{display:none}
   .feat{grid-template-columns:1fr}
   .flashcard{height:335px;max-width:320px}
+  .fc-peek{max-width:320px}
+  .fc-wrap{--peek-x:56px}
+  .fc-peek-word{display:none}
   .fc-word{font-size:1.8rem}
   .fc-actions{gap:7px}
   .wl-search{margin-inline-start:0;width:100%}
@@ -547,7 +570,9 @@ section{padding:92px 0;position:relative}
   .stat-num{font-size:1.02rem}
   .stat-lbl{font-size:.6rem}
   .flashcard{height:320px;max-width:285px}
-  .fc-face{padding:24px 17px}
+  .fc-peek{max-width:285px}
+  .fc-wrap{--peek-x:40px}
+  .fc-front,.fc-back{padding:40px 24px}
   .fc-word{font-size:1.62rem}
   .fc-fa{font-size:1.3rem}
   .fc-hint{font-size:.58rem}
@@ -675,7 +700,7 @@ section{padding:92px 0;position:relative}
       <a href="#alphabet" class="btn btn-ghost">آشنایی با الفبا</a>
     </div>
     <div class="hero-meta h-in">
-      <span>۱۱۶ واژه بنیادی</span><i></i><span>همراه تلفظ صوتی</span>
+      <span>۱۳۲ واژه بنیادی</span><i></i><span>همراه تلفظ صوتی</span>
     </div>
   </div>
 
@@ -686,7 +711,7 @@ section{padding:92px 0;position:relative}
 
   <div class="hero-stats">
     <div class="container">
-      <div class="stat"><div class="stat-num" data-count="116">۰</div><div class="stat-lbl">واژه سورانی</div></div>
+      <div class="stat"><div class="stat-num" data-count="132">۰</div><div class="stat-lbl">واژه سورانی</div></div>
       <div class="stat"><div class="stat-num" data-count="33">۰</div><div class="stat-lbl">حرف الفبا</div></div>
       <div class="stat"><div class="stat-num" data-count="5">۰</div><div class="stat-lbl">حروف ویژه</div></div>
     </div>
@@ -717,16 +742,21 @@ section{padding:92px 0;position:relative}
           <div class="lbl" id="learnedLbl"></div>
         </div>
         <div class="fc-wrap">
+          <div class="fc-peek fc-peek-prev" aria-hidden="true"><span class="fc-peek-word ku" id="fcPeekPrev"></span></div>
+          <div class="fc-peek fc-peek-next" aria-hidden="true"><span class="fc-peek-word ku" id="fcPeekNext"></span></div>
           <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="کارت واژه — برای دیدن معنی کلیک کنید">
             <div class="fc-face fc-front">
-              <span class="fc-tag ku" id="fcTag"></span>
-              <div class="fc-word ku" id="fcKu"></div>
+              <div class="fc-inner" id="fcFrontIn">
+                <span class="fc-tag ku" id="fcTag"></span>
+                <div class="fc-word ku" id="fcKu"></div>
+              </div>
               <span class="fc-hint">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5a1.5 1.5 0 0 1 3 0v6"/><path d="M12 11V9.5a1.5 1.5 0 0 1 3 0V13"/><path d="M15 13v-1a1.5 1.5 0 0 1 3 0v3.5a5.5 5.5 0 0 1-5.5 5.5h-1a5.5 5.5 0 0 1-4.9-3L4.4 14a1.6 1.6 0 0 1 2.7-1.6L9 14.5"/></svg>
                 برای دیدن معنی، روی کارت بزنید
               </span>
             </div>
             <div class="fc-face fc-back">
+              <div class="fc-inner" id="fcBackIn">
               <span class="fc-cap">معنی در فارسی</span>
               <div class="fc-fa" id="fcFa"></div>
               <div class="fc-pr" id="fcPr"></div>
@@ -739,6 +769,7 @@ section{padding:92px 0;position:relative}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>بلدم</span>
                 </button>
+              </div>
               </div>
             </div>
           </div>
@@ -929,7 +960,7 @@ section{padding:92px 0;position:relative}
       <li><span>روی <b>کارت واژه</b> بزنید تا معنی فارسی را ببینید؛ با فلش‌های کیبورد بین کارت‌ها جابه‌جا شوید.</span></li>
       <li><span>آیکون <b>بلندگو</b> تلفظ واژه یا حرف را پخش می‌کند.</span></li>
       <li><span>واژه‌هایی را که بلدید با دکمهٔ <b>«بلدم»</b> علامت بزنید؛ پیشرفت شما ذخیره می‌شود.</span></li>
-      <li><span>با <b>چیپ‌های بالای واژه‌نامه</b> بین ۵ دستهٔ آموزشی جابه‌جا شوید.</span></li>
+      <li><span>با <b>چیپ‌های بالای واژه‌نامه</b> بین ۶ دستهٔ آموزشی جابه‌جا شوید.</span></li>
       <li><span>با آیکون <b>ماه/خورشید</b> بالای صفحه، حالت شب را روشن کنید.</span></li>
     </ul>
   </div>
@@ -950,7 +981,8 @@ const IC={
  mount:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>',
  zap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
  spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg>',
- arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>'
+ arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>',
+ angry:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 8l3 1.6"/><path d="M16.5 8l-3 1.6"/><path d="M8 16.5s1.5-2.3 4-2.3 4 2.3 4 2.3"/><line x1="9" y1="11.8" x2="9.01" y2="11.8"/><line x1="15" y1="11.8" x2="15.01" y2="11.8"/></svg>'
 };
 
 /* ---------- داده واژگان (دسته‌های سایت) ---------- */
@@ -974,7 +1006,11 @@ const CATS=[
  {id:'basic',fa:'واژه‌های پایه',ku:'وشە بنەڕەتییەکان',color:'#556530',icon:IC.spark,level:'مبتدی',
   desc:'ضمیر، عدد و صفت‌هایی که در هر جمله‌ای به کار می‌آیند.',
   tip:'«ئەو» هم «او» است و هم «آن»؛ یعنی در سورانی برای انسان و شیء یک واژه داریم.',
-  words:[{g:'ضمایر'},{id:'basic-min',fa:'من',ku:'من',pr:'Min'},{id:'basic-to',fa:'تو',ku:'تۆ / تُو',pr:'To / Tû'},{id:'basic-ew',fa:'او',ku:'ئەو',pr:'Ew'},{id:'basic-eme',fa:'ما',ku:'ئێمە',pr:'Ême'},{id:'basic-ewe',fa:'شما',ku:'ئێوە',pr:'Êwe'},{id:'basic-ewan',fa:'آنها',ku:'ئەوان',pr:'Ewan'},{g:'اعداد'},{id:'basic-yek',fa:'یک',ku:'یەک',pr:'Yek'},{id:'basic-du',fa:'دو',ku:'دوو',pr:'Dû'},{id:'basic-se',fa:'سه',ku:'سێ',pr:'Sê'},{id:'basic-cwar',fa:'چهار',ku:'چوار',pr:'Çwar'},{id:'basic-penc',fa:'پنج',ku:'پێنج',pr:'Pênc'},{id:'basic-ses',fa:'شش',ku:'شەش',pr:'Şeş'},{id:'basic-hewt',fa:'هفت',ku:'حەوت',pr:'Hewt'},{id:'basic-hest',fa:'هشت',ku:'هەشت',pr:'Heşt'},{id:'basic-no',fa:'نه',ku:'نۆ',pr:'No'},{id:'basic-de',fa:'ده',ku:'دە',pr:'De'},{g:'صفات و واژگان روزمره'},{id:'basic-gewre',fa:'بزرگ',ku:'گەورە',pr:'Gewre'},{id:'basic-bicuk',fa:'کوچک',ku:'بچووک',pr:'Biçûk'},{id:'basic-bas',fa:'خوب',ku:'باش / چاک',pr:'Baş / Çak'},{id:'basic-xirap',fa:'بد',ku:'خراپ',pr:'Xirap'},{id:'basic-nwe',fa:'جدید',ku:'نوێ',pr:'Nwê'},{id:'basic-kon',fa:'قدیمی',ku:'کۆن',pr:'Kon'},{id:'basic-germ',fa:'گرم',ku:'گەرم',pr:'Germ'},{id:'basic-sard',fa:'سرد',ku:'سارد',pr:'Sard'},{id:'basic-roj',fa:'روز',ku:'ڕۆژ',pr:'Řoj'},{id:'basic-sew',fa:'شب',ku:'شەو',pr:'Şew'},{id:'basic-naw',fa:'نام',ku:'ناو',pr:'Naw'},{id:'basic-eme2',fa:'این',ku:'ئەمە',pr:'Eme'},{id:'basic-ew2',fa:'آن',ku:'ئەو',pr:'Ew'},{id:'basic-sipi',fa:'سفید',ku:'سپی',pr:'Sipî'},{id:'basic-res',fa:'سیاه',ku:'ڕەش',pr:'Řeş'},{id:'basic-sur',fa:'سرخ',ku:'سوور',pr:'Sûr'},{id:'basic-sewz',fa:'سبز',ku:'سەوز',pr:'Sewz'}]}
+  words:[{g:'ضمایر'},{id:'basic-min',fa:'من',ku:'من',pr:'Min'},{id:'basic-to',fa:'تو',ku:'تۆ / تُو',pr:'To / Tû'},{id:'basic-ew',fa:'او',ku:'ئەو',pr:'Ew'},{id:'basic-eme',fa:'ما',ku:'ئێمە',pr:'Ême'},{id:'basic-ewe',fa:'شما',ku:'ئێوە',pr:'Êwe'},{id:'basic-ewan',fa:'آنها',ku:'ئەوان',pr:'Ewan'},{g:'اعداد'},{id:'basic-yek',fa:'یک',ku:'یەک',pr:'Yek'},{id:'basic-du',fa:'دو',ku:'دوو',pr:'Dû'},{id:'basic-se',fa:'سه',ku:'سێ',pr:'Sê'},{id:'basic-cwar',fa:'چهار',ku:'چوار',pr:'Çwar'},{id:'basic-penc',fa:'پنج',ku:'پێنج',pr:'Pênc'},{id:'basic-ses',fa:'شش',ku:'شەش',pr:'Şeş'},{id:'basic-hewt',fa:'هفت',ku:'حەوت',pr:'Hewt'},{id:'basic-hest',fa:'هشت',ku:'هەشت',pr:'Heşt'},{id:'basic-no',fa:'نه',ku:'نۆ',pr:'No'},{id:'basic-de',fa:'ده',ku:'دە',pr:'De'},{g:'صفات و واژگان روزمره'},{id:'basic-gewre',fa:'بزرگ',ku:'گەورە',pr:'Gewre'},{id:'basic-bicuk',fa:'کوچک',ku:'بچووک',pr:'Biçûk'},{id:'basic-bas',fa:'خوب',ku:'باش / چاک',pr:'Baş / Çak'},{id:'basic-xirap',fa:'بد',ku:'خراپ',pr:'Xirap'},{id:'basic-nwe',fa:'جدید',ku:'نوێ',pr:'Nwê'},{id:'basic-kon',fa:'قدیمی',ku:'کۆن',pr:'Kon'},{id:'basic-germ',fa:'گرم',ku:'گەرم',pr:'Germ'},{id:'basic-sard',fa:'سرد',ku:'سارد',pr:'Sard'},{id:'basic-roj',fa:'روز',ku:'ڕۆژ',pr:'Řoj'},{id:'basic-sew',fa:'شب',ku:'شەو',pr:'Şew'},{id:'basic-naw',fa:'نام',ku:'ناو',pr:'Naw'},{id:'basic-eme2',fa:'این',ku:'ئەمە',pr:'Eme'},{id:'basic-ew2',fa:'آن',ku:'ئەو',pr:'Ew'},{id:'basic-sipi',fa:'سفید',ku:'سپی',pr:'Sipî'},{id:'basic-res',fa:'سیاه',ku:'ڕەش',pr:'Řeş'},{id:'basic-sur',fa:'سرخ',ku:'سوور',pr:'Sûr'},{id:'basic-sewz',fa:'سبز',ku:'سەوز',pr:'Sewz'}]},
+ {id:'curse',fa:'فحش',ku:'جنێو',color:'#8A2B5A',icon:IC.angry,level:'متوسط',
+  desc:'متلک‌ها و ناسزاهای شوخ‌طبعانهٔ محلی؛ بیشتر برای شنیدن و فهمیدن، نه گفتن!',
+  tip:'<b>نکته:</b> این عبارت‌ها بیشتر در لحن شوخی و میان آشنایان به کار می‌روند؛ با غریبه‌ها و در موقعیت رسمی استفاده نکنید.',
+  words:[{id:'curse-bixawen',fa:'بی‌صاحب، کسی که پررو و بی‌تربیت باشه',ku:'بی‌خاوِن',pr:'Bî-xawen'},{id:'curse-shay',fa:'ببین این یکی رو! (به‌ معنای کسی که خیلی پررو شده)',ku:'شای ای فَرَزانه',pr:'Şay i farzane'},{id:'curse-kaw',fa:'گوسفند (برای شوخی با کسی که ساده‌س گفته میشه)',ku:'کاوِر',pr:'Kawer'},{id:'curse-gwerke',fa:'گوساله',ku:'گویرِکه',pr:'Gwîrəke'},{id:'curse-wil',fa:'ولگرد',ku:'ویل',pr:'Wîl'},{id:'curse-kar',fa:'الاغ',ku:'کَر',pr:'Kar'},{id:'curse-kurikar',fa:'یعنی کره‌خر',ku:'کُری کَر',pr:'Kurî kar'},{id:'curse-gemal',fa:'سگ',ku:'گمال',pr:'Gemal'},{id:'curse-cheni',fa:'چقدر بی‌ادب / وحشی شدی! (در لحن شوخی یا گلایه)',ku:'چِنی تو هاری',pr:'Çenî to harî'},{id:'curse-gele',fa:'یه اصطلاح مادرانه‌ی طنزآمیز موقع عصبانیت، یعنی یکی‌تون عصر بمیره یکی‌تون صبح (یعنی از دستتون خسته‌ام)',ku:'هر یه‌ گله‌تان ئیوارە بمرن، او گله‌تان صو شوکی بمرن!',pr:'Her ye gelətan êware bimrin, o gelətan sö şokî bimrin!'},{id:'curse-aw',fa:'تو رو آب برده (کنایه از بی‌خاصیت یا دست ‌و ‌پاچلفتی بودن)',ku:'تو دی‌ آو بُردیسم',pr:'To dî aw burdisim'},{id:'curse-bcho',fa:'برو بابا! (اصطلاحی برای بی‌خیال شدن از بحث)',ku:'بُچو کُرَه!',pr:'Bûço kuře!'},{id:'curse-bchokoch',fa:'برو بابا دست‌و‌پا چلفتی!',ku:'بُچو کُرَه‌ کُچ',pr:'Bûço kuře koç'},{id:'curse-koch',fa:'چلاق بشی (در لحن طنز، مثلا وقتی کسی کار اشتباهی میکنه)',ku:'کُچ بید',pr:'Koç bîd'},{id:'curse-hamkaft',fa:'آره دیگه، کسی شدی مثلا؟! (کنایه از پررو شدن)',ku:'هَم کَفتی سَر کِلا خُودا',pr:'Hem kefti ser kiła xuda'},{id:'curse-keywano',fa:'مثل پیرزنی که دوغش ریخته (کنایه از کسی که زیاد غر میزنه)',ku:'کِیوانو دو رِشیای',pr:'Kêwano do reşyay'}]}
 ];
 CATS.forEach(c=>c.items=c.words.filter(w=>!w.g));
 
@@ -1178,16 +1214,43 @@ const learnSec=$('#learn'),fc=$('#flashcard');
  <button class="chip" style="--c:${c.color}" data-cat="${i}">${c.icon}${c.fa}<span class="cnt">${faNum(c.items.length)}</span></button>`).join('');
  $('#chips').addEventListener('click',e=>{const ch=e.target.closest('.chip');if(ch)setCat(+ch.dataset.cat);});
 
+/* ── تنظیم خودکار اندازهٔ متن: فقط وقتی متن جا نشود کوچک می‌شود، با حاشیهٔ تنفس ── */
+function fitText(el,inner,box,minPx){
+ if(!el||!inner||!box)return;
+ el.style.transition='none';el.style.fontSize='';el.style.lineHeight='';
+ const cs=getComputedStyle(box);
+ const h=box.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+ if(h<=0)return;
+ const fits=()=>inner.offsetHeight<=h+.5&&inner.scrollWidth<=inner.clientWidth+1;
+ if(fits())return;
+ el.style.lineHeight='1.5';
+ if(fits())return;
+ let hi=parseFloat(getComputedStyle(el).fontSize),lo=minPx;
+ el.style.fontSize=lo+'px';
+ if(!fits())return;
+ for(let i=0;i<9;i++){const mid=(lo+hi)/2;el.style.fontSize=mid+'px';if(fits())lo=mid;else hi=mid;}
+ el.style.fontSize=lo+'px';
+}
+const fitFront=()=>fitText($('#fcKu'),$('#fcFrontIn'),$('.fc-front'),15);
+const fitBack=()=>fitText($('#fcFa'),$('#fcBackIn'),$('.fc-back'),14);
+const fitPeeks=()=>$$('.fc-peek').forEach(pk=>{const w=pk.querySelector('.fc-peek-word');fitText(w,w,pk,11);});
+const fitAllCards=()=>{fitFront();fitBack();fitPeeks();};
+let fitTimer;
+window.addEventListener('resize',()=>{clearTimeout(fitTimer);fitTimer=setTimeout(fitAllCards,120);});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAllCards);
+
 let backTimer;
 function renderCard(anim){
  const c=CATS[catIdx],w=c.items[order[pos]];
  learnSec.style.setProperty('--cat',c.color);
  clearTimeout(backTimer);
  const wasFlipped=fc.classList.contains('flipped');
- const setBack=()=>{$('#fcFa').textContent=w.fa;$('#fcPr').textContent=w.pr;};
+ const setBack=()=>{$('#fcFa').textContent=w.fa;$('#fcPr').textContent=w.pr;fitBack();};
  if(wasFlipped){fc.classList.remove('flipped');backTimer=setTimeout(setBack,760);}else setBack();
  $('#fcTag').textContent=c.ku;
+ {const n=c.items.length,pv=c.items[order[(pos-1+n)%n]],nx=c.items[order[(pos+1)%n]];$('#fcPeekPrev').textContent=pv?pv.ku:'';$('#fcPeekNext').textContent=nx?nx.ku:'';}
  $('#fcKu').textContent=w.ku;
+ fitFront();fitPeeks();
  $('#fcCounter').innerHTML=`<b>${faNum(pos+1)}</b> از ${faNum(c.items.length)}`;
  const ks=knownSet(c.id),on=ks.has(w.id);
  const kb=$('#fcKnowBtn');kb.classList.toggle('on',on);
@@ -1240,17 +1303,68 @@ $('#wlCount').addEventListener('click',()=>{
 function setCat(i){
  catIdx=i;pos=0;order=[...Array(CATS[i].items.length).keys()];gridOpen=false;
  $$('#chips .chip').forEach((ch,j)=>ch.classList.toggle('active',j===i));
- renderCard(false);renderGrid();updateLearned();
+ renderCard(true);renderGrid();updateLearned();
 }
 function goCat(i,scroll){setCat(i);if(scroll)learnSec.scrollIntoView({behavior:reduceMotion?'auto':'smooth'});}
 
 /* کنترل‌های فلش‌کارت */
-const next=()=>{pos=(pos+1)%CATS[catIdx].items.length;renderCard(true);updateLearned();};
-const prev=()=>{pos=(pos-1+CATS[catIdx].items.length)%CATS[catIdx].items.length;renderCard(true);updateLearned();};
+let fcBusy=false;
+function moveCard(dir){
+ if(fcBusy)return;
+ const wasFlipped=fc.classList.contains('flipped');
+ if(reduceMotion||wasFlipped){
+  pos=(pos+dir+CATS[catIdx].items.length)%CATS[catIdx].items.length;
+  renderCard(!wasFlipped);updateLearned();
+  return;
+ }
+ fcBusy=true;
+ const front=$('.fc-front');
+ front.style.transition='transform .16s ease-in,opacity .16s ease-in';
+ front.style.transform=`translateX(${dir*-26}px)`;
+ front.style.opacity='0';
+ setTimeout(()=>{
+  pos=(pos+dir+CATS[catIdx].items.length)%CATS[catIdx].items.length;
+  renderCard(false);updateLearned();
+  front.style.transition='none';
+  front.style.transform=`translateX(${dir*26}px)`;
+  front.style.opacity='0';
+  void front.offsetWidth;
+  front.style.transition='transform .3s cubic-bezier(.22,.9,.3,1),opacity .24s ease-out';
+  front.style.transform='translateX(0)';
+  front.style.opacity='1';
+  setTimeout(()=>{fcBusy=false;},310);
+ },160);
+}
+const next=()=>moveCard(1);
+const prev=()=>moveCard(-1);
  $('#fcNext').addEventListener('click',next);
  $('#fcPrev').addEventListener('click',prev);
-fc.addEventListener('click',()=>fc.classList.toggle('flipped'));
-fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fc.classList.toggle('flipped');}});
+/* بازخورد لمسی/صوتی هنگام چرخش فلش‌کارت */
+let actx;
+function fcTick(){
+ try{
+  actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+  if(actx.state==='suspended')actx.resume();
+  const o=actx.createOscillator(),g=actx.createGain();
+  o.type='sine';o.frequency.value=880;
+  g.gain.value=.05;
+  o.connect(g);g.connect(actx.destination);
+  const t=actx.currentTime;
+  o.start(t);
+  g.gain.exponentialRampToValueAtTime(.0001,t+.09);
+  o.stop(t+.1);
+ }catch(e){}
+}
+function fcFeedback(){
+ fcTick();
+ if(navigator.vibrate)try{navigator.vibrate(9);}catch(e){}
+ if(!reduceMotion){
+  const w=$('.fc-wrap');
+  w.classList.remove('pulse');void w.offsetWidth;w.classList.add('pulse');
+ }
+}
+fc.addEventListener('click',()=>{fc.classList.toggle('flipped');fcFeedback();});
+fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fc.classList.toggle('flipped');fcFeedback();}});
 const curWord=()=>CATS[catIdx].items[order[pos]];
 function doSpeak(btn){const w=curWord();speak(kuSpeak(w.sp||w.ku),btn);}
  $('#fcSpeak').addEventListener('click',e=>{e.stopPropagation();doSpeak(e.currentTarget);});
