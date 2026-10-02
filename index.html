@@ -236,7 +236,12 @@ section{padding:92px 0;position:relative}
 @keyframes fcHaptic{0%{transform:scale(1)}38%{transform:scale(.966)}100%{transform:scale(1)}}
 .fc-wrap{--peek-x:200px;padding-block:6px}
 .fc-peek{position:absolute;top:34px;bottom:34px;width:min(100%,430px);border-radius:var(--radius-lg);background:var(--card) var(--pattern);border:1px solid var(--border-warm);box-shadow:var(--shadow);pointer-events:none;z-index:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px 26px;transition:transform .3s,opacity .3s,filter .3s}
-.fc-peek::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--cat,var(--accent-gold));opacity:.7}
+.fc-peek::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--accent-gold);opacity:.7}
+.fc-peek{transition:transform .45s cubic-bezier(.22,.9,.3,1),opacity .45s ease,filter .45s ease!important}
+.fc-wrap.moving .fc-peek{opacity:.18!important}
+.fc-wrap.moving .fc-peek-prev{transform:translateX(calc(var(--peek-x) * .6)) scale(.82)}
+.fc-wrap.moving .fc-peek-next{transform:translateX(calc(var(--peek-x) * -.6)) scale(.82)}
+.fc-front{will-change:transform,opacity}
 .fc-peek-word{font-family:var(--ku);font-weight:700;font-size:clamp(1.1rem,2.2vw,1.55rem);color:var(--fg-dark);text-align:center;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
 .fc-peek-prev{transform:translateX(var(--peek-x)) scale(.86);opacity:.7}
 .fc-peek-next{transform:translateX(calc(var(--peek-x) * -1)) scale(.86);opacity:.85;filter:blur(2.5px)}
@@ -1308,32 +1313,71 @@ function setCat(i){
 function goCat(i,scroll){setCat(i);if(scroll)learnSec.scrollIntoView({behavior:reduceMotion?'auto':'smooth'});}
 
 /* کنترل‌های فلش‌کارت */
-let fcBusy=false;
-function moveCard(dir){
- if(fcBusy)return;
- const wasFlipped=fc.classList.contains('flipped');
- if(reduceMotion||wasFlipped){
-  pos=(pos+dir+CATS[catIdx].items.length)%CATS[catIdx].items.length;
+/* fcPhase: idle | flip | out | in — هر کلیک ثبت می‌شود و هیچ‌وقت گم نمی‌شود */
+let fcPhase='idle',fcRun=0,fcPending=0;
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function moveCard(dir){
+ const n=CATS[catIdx].items.length;
+ const front=$('.fc-front');
+ /* بدون انیمیشن (کاهش حرکت یا مرورگر قدیمی) */
+ if(reduceMotion||!front.animate){
+  const wasFlipped=fc.classList.contains('flipped');
+  pos=(pos+dir+n)%n;
   renderCard(!wasFlipped);updateLearned();
   return;
  }
- fcBusy=true;
- const front=$('.fc-front');
- front.style.transition='transform .16s ease-in,opacity .16s ease-in';
- front.style.transform=`translateX(${dir*-26}px)`;
- front.style.opacity='0';
- setTimeout(()=>{
-  pos=(pos+dir+CATS[catIdx].items.length)%CATS[catIdx].items.length;
+ /* کلیک وسط برگشتن یا رفتن کارت: به همان جابه‌جایی فعلی اضافه می‌شود */
+ if(fcPhase==='flip'||fcPhase==='out'){fcPending+=dir;return;}
+ const run=++fcRun;
+ const wrap=$('.fc-wrap');
+ let from={transform:'translateX(0) scale(1) rotate(0deg)',opacity:1},fast=false;
+ try{
+  if(fcPhase==='in'){
+   /* کارت در حال ورود است: از همان نقطه‌ای که هست سریع بیرون می‌رود */
+   const cs=getComputedStyle(front);
+   from={transform:cs.transform==='none'?'translateX(0)':cs.transform,opacity:cs.opacity};
+   front.getAnimations().forEach(x=>x.cancel());
+   fast=true;
+  }else if(fc.classList.contains('flipped')){
+   fcPhase='flip';
+   fc.classList.remove('flipped');
+   await wait(420);
+   if(run!==fcRun)return;
+  }
+  fcPhase='out';
+  const d=Math.min(fc.offsetWidth*.3,90);
+  wrap.classList.add('moving');
+  /* ۱) کارت فعلی آرام به بیرون می‌لغزد */
+  const out=front.animate([
+   from,
+   {transform:`translateX(${-d*dir}px) scale(.93) rotate(${-dir*3}deg)`,opacity:0}
+  ],{duration:fast?200:360,easing:'cubic-bezier(.45,0,.85,.55)',fill:'forwards'});
+  await out.finished;
+  if(run!==fcRun)return;
+  /* ۲) محتوا عوض می‌شود (کارت نامرئی است) — کلیک‌های صف‌شده هم اعمال می‌شوند */
+  const total=dir+fcPending;fcPending=0;
+  const sg=Math.sign(total)||dir;
+  pos=(((pos+total)%n)+n)%n;
   renderCard(false);updateLearned();
-  front.style.transition='none';
-  front.style.transform=`translateX(${dir*26}px)`;
-  front.style.opacity='0';
-  void front.offsetWidth;
-  front.style.transition='transform .3s cubic-bezier(.22,.9,.3,1),opacity .24s ease-out';
-  front.style.transform='translateX(0)';
-  front.style.opacity='1';
-  setTimeout(()=>{fcBusy=false;},310);
- },160);
+  fcPhase='in';
+  /* ۳) کارت جدید از سمت مقابل وارد می‌شود */
+  const inn=front.animate([
+   {transform:`translateX(${d*sg}px) scale(.93) rotate(${sg*3}deg)`,opacity:0},
+   {transform:'translateX(0) scale(1) rotate(0deg)',opacity:1}
+  ],{duration:fast?380:520,easing:'cubic-bezier(.22,.9,.3,1)'});
+  out.cancel();
+  wrap.classList.remove('moving');
+  await inn.finished;
+  if(run!==fcRun)return;
+  fcPhase='idle';
+  front.getAnimations().forEach(x=>x.cancel());
+ }catch(e){
+  /* انیمیشن لغو شد؛ اگر کلیک جدیدی جایش را گرفته کاری نکن */
+  if(run===fcRun){
+   fcPhase='idle';fcPending=0;wrap.classList.remove('moving');
+   front.getAnimations().forEach(x=>x.cancel());
+  }
+ }
 }
 const next=()=>moveCard(1);
 const prev=()=>moveCard(-1);
@@ -1363,8 +1407,8 @@ function fcFeedback(){
   w.classList.remove('pulse');void w.offsetWidth;w.classList.add('pulse');
  }
 }
-fc.addEventListener('click',()=>{fc.classList.toggle('flipped');fcFeedback();});
-fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fc.classList.toggle('flipped');fcFeedback();}});
+fc.addEventListener('click',()=>{if(fcPhase!=='idle')return;fc.classList.toggle('flipped');fcFeedback();});
+fc.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();if(fcPhase!=='idle')return;fc.classList.toggle('flipped');fcFeedback();}});
 const curWord=()=>CATS[catIdx].items[order[pos]];
 function doSpeak(btn){const w=curWord();speak(kuSpeak(w.sp||w.ku),btn);}
  $('#fcSpeak').addEventListener('click',e=>{e.stopPropagation();doSpeak(e.currentTarget);});
@@ -1395,7 +1439,7 @@ document.addEventListener('keydown',e=>{
  else if(e.key===' '){
   const ib=e.target.closest&&e.target.closest('button,a,[role="button"]');if(ib&&ib!==fc)return;
   const r=fc.getBoundingClientRect();
-  if(r.top<innerHeight*.85&&r.bottom>innerHeight*.15){e.preventDefault();fc.classList.toggle('flipped');}
+  if(r.top<innerHeight*.85&&r.bottom>innerHeight*.15){e.preventDefault();if(fcPhase!=='idle')return;fc.classList.toggle('flipped');}
  }
 });
  $$('.tl-link[data-goto]').forEach(b=>b.addEventListener('click',()=>goCat(+b.dataset.goto,true)));
