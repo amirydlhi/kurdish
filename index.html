@@ -495,6 +495,48 @@ section{padding:92px 0;position:relative}
 .tour-replay-btn{position:fixed;bottom:1.2rem;left:1.2rem;z-index:500;width:40px;height:40px;border-radius:50%;background:var(--bg-dark);color:var(--accent-gold);border:1px solid var(--accent-gold);font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s}
 .tour-replay-btn:hover{transform:scale(1.07)}
 
+/* ───── جستجوی سراسری ───── */
+#gs{position:fixed;inset:0;z-index:700;display:flex;justify-content:center;align-items:flex-start;padding:14px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+#gs.open{opacity:1;visibility:visible}
+.gs-bg{position:absolute;inset:0;background:rgba(18,15,12,.64);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.gs-panel{position:relative;width:min(740px,100%);max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);display:flex;flex-direction:column;background:var(--card);color:var(--fg-dark);border:1px solid var(--border-warm);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;transform:translateY(-14px);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+#gs.open .gs-panel{transform:none}
+.gs-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--border-warm)}
+.gs-bar>svg{width:20px;height:20px;flex:none;color:var(--accent-gold)}
+.gs-bar input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:inherit;font:inherit;font-size:1rem;padding:10px 0}
+.gs-bar input::placeholder{color:var(--fg-muted);opacity:.85;font-size:.86rem}
+.gs-x{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--border-warm);background:transparent;color:var(--fg-muted);display:grid;place-items:center;transition:.25s}
+.gs-x:hover{border-color:var(--accent-gold);color:var(--accent-gold)}
+.gs-x svg{width:15px;height:15px}
+#gsClear{display:none}
+#gsClear.show{display:grid}
+.gs-res{overflow-y:auto;padding:6px 8px 12px;overscroll-behavior:contain;min-height:60px}
+.gs-group{display:flex;justify-content:space-between;font-size:.68rem;font-weight:600;color:var(--fg-muted);padding:12px 10px 5px;letter-spacing:.02em}
+.gs-item{display:flex;align-items:center;gap:12px;width:100%;text-align:right;padding:9px 12px;border:0;border-radius:10px;background:transparent;color:inherit;cursor:pointer;transition:background .15s}
+.gs-item:hover,.gs-item.sel{background:rgba(200,169,110,.16)}
+.gs-b{flex:none;font-size:.6rem;font-weight:600;padding:2px 9px;border-radius:99px;background:var(--bg-cream);border:1px solid var(--border-warm);color:var(--fg-muted);white-space:nowrap}
+.gs-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.gs-l1{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px}
+.gs-ku{font-family:var(--ku);font-size:1.12rem;font-weight:700;line-height:1.7}
+.gs-fa{font-size:.84rem}
+.gs-sub{font-size:.7rem;color:var(--fg-muted);line-height:1.7}
+.gs-snip{font-size:.8rem;line-height:1.85}
+.gs-res mark{background:rgba(200,169,110,.5);color:inherit;border-radius:3px;padding:0 1px}
+.gs-empty{text-align:center;color:var(--fg-muted);padding:30px 18px;font-size:.8rem;line-height:2}
+.gs-tip{padding:22px 20px 26px;color:var(--fg-muted);font-size:.78rem;line-height:2.05}
+.gs-tip b{color:var(--fg-dark)}
+.gs-eg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.gs-eg button{border:1px solid var(--border-warm);background:var(--bg-cream);color:var(--fg-dark);border-radius:99px;padding:3px 14px;font-size:.78rem;transition:.2s}
+.gs-eg button:hover{border-color:var(--accent-gold);color:var(--accent-gold)}
+.gs-foot{display:flex;gap:18px;padding:8px 16px;border-top:1px solid var(--border-warm);font-size:.64rem;color:var(--fg-muted)}
+.gs-foot kbd{font:inherit;font-size:.62rem;border:1px solid var(--border-warm);border-bottom-width:2px;border-radius:5px;padding:0 5px;margin-inline-start:4px;background:var(--bg-cream)}
+@media(hover:none){.gs-foot{display:none}}
+.gs-flash{animation:gsFlash 2.6s ease}
+@keyframes gsFlash{0%,65%{background-color:rgba(200,169,110,.42);box-shadow:0 0 0 6px rgba(200,169,110,.42)}100%{background-color:transparent;box-shadow:0 0 0 6px transparent}}
+td.gs-flash{box-shadow:none;animation-name:gsFlashTd}
+@keyframes gsFlashTd{0%,65%{background-color:rgba(200,169,110,.45)}100%{background-color:transparent}}
+@media(max-width:480px){#gsBtn{width:38px;height:38px}.gs-panel{border-radius:16px}}
+
 /* ریسپانسیو */
 @media(max-width:1024px){
   .learn-stage{grid-template-columns:1fr}
@@ -621,6 +663,7 @@ section{padding:92px 0;position:relative}
       <a href="#about">معرفی</a>
     </nav>
     <div class="nav-actions">
+      <button class="icon-btn" id="gsBtn" aria-label="جستجو در کل سایت" title="جستجو (Ctrl+K یا /)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
       <button id="themeToggle" aria-label="تغییر به حالت شب" aria-pressed="false" title="تغییر حالت شب و روز">
         <svg class="theme-scene day" viewBox="0 0 64 30" aria-hidden="true">
           <defs>
@@ -683,6 +726,22 @@ section{padding:92px 0;position:relative}
   <a href="#grammar">دستور زبان</a>
   <a href="#alphabet">الفبا</a><a href="#path">مسیر یادگیری</a>
   <a href="#about">معرفی زبان</a>
+</div>
+
+
+<!-- ═══════════ جستجوی سراسری ═══════════ -->
+<div id="gs" role="dialog" aria-modal="true" aria-label="جستجو در کل سایت">
+  <div class="gs-bg" id="gsBg"></div>
+  <div class="gs-panel">
+    <div class="gs-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="gsInput" placeholder="جستجو در همهٔ واژه‌ها، افعال، الفبا و متن‌ها…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="عبارت جستجو">
+      <button type="button" class="gs-x" id="gsClear" aria-label="پاک کردن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <button type="button" class="gs-x" id="gsClose" aria-label="بستن جستجو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="gs-res" id="gsResults"></div>
+    <div class="gs-foot"><span><kbd>↑</kbd><kbd>↓</kbd> حرکت</span><span><kbd>Enter</kbd> رفتن به نتیجه</span><span><kbd>Esc</kbd> بستن</span></div>
+  </div>
 </div>
 
 <!-- ═══════════ هیرو ═══════════ -->
@@ -1496,6 +1555,254 @@ const spy=new IntersectionObserver(es=>es.forEach(en=>{
   $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
  }}),{rootMargin:'-40% 0px -55% 0px'});
 ['learn','grammar','alphabet','path','about'].forEach(id=>{const s=document.getElementById(id);if(s)spy.observe(s);});
+
+
+/* ---------- جستجوی سراسری (بدون حساسیت به همزه، نشانه‌ها و فاصله) ---------- */
+{
+const gsEl=$('#gs'),gsIn=$('#gsInput'),gsRes=$('#gsResults'),gsBtn=$('#gsBtn'),gsClear=$('#gsClear');
+const MAPC={'ئ':'','ء':'','ٴ':'','أ':'ا','إ':'ا','آ':'ا','ٱ':'ا','ؤ':'و','ۆ':'و','ۇ':'و','ۋ':'و','ۊ':'و','ي':'ی','ى':'ی','ې':'ی','ێ':'ی','ۍ':'ی','ك':'ک','ڪ':'ک','ڕ':'ر','ړ':'ر','ڵ':'ل','ە':'ه','ة':'ه','ھ':'ه','ہ':'ه','ۀ':'ه','ڤ':'ف','ł':'l','ə':'e','ı':'i'};
+const gsCh=ch=>{
+ ch=ch.toLowerCase();
+ if(Object.prototype.hasOwnProperty.call(MAPC,ch))return MAPC[ch];
+ const c=ch.charCodeAt(0);
+ if(c>=0x6F0&&c<=0x6F9)return String(c-0x6F0);
+ if(c>=0x660&&c<=0x669)return String(c-0x660);
+ return ch.normalize('NFD').replace(/[\u0300-\u036f\u064B-\u065F\u0670\u0640\u200c-\u200f]/g,'').replace(/[^\p{L}\p{N}]/gu,'');
+};
+/* متن را به شکل «کلید جستجو» درمی‌آورد و جای هر حرف را در متن اصلی نگه می‌دارد */
+function gsPrep(s){
+ s=String(s==null?'':s);
+ let n='';const map=[];let off=0;
+ for(const ch of s){
+  for(const x of gsCh(ch)){
+   if(x==='و'&&n.endsWith('و'))continue;
+   n+=x;map.push(off);
+  }
+  off+=ch.length;
+ }
+ return {n,map};
+}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function hl(text,q){
+ text=String(text==null?'':text);
+ if(!q)return esc(text);
+ const p=gsPrep(text),i=p.n.indexOf(q);
+ if(i<0)return esc(text);
+ const a=p.map[i];let b=p.map[i+q.length-1]+1;
+ while(b<text.length&&(/[\u0300-\u036f\u064B-\u065F\u0670\u0640]/.test(text[b])||(gsCh(text[b])==='و'&&gsCh(text[b-1])==='و')))b++;
+ return esc(text.slice(0,a))+'<mark>'+esc(text.slice(a,b))+'</mark>'+esc(text.slice(b));
+}
+const SPLIT=/[\/،,؛;()]/;
+const gsF=(...arr)=>{
+ const f=[];
+ arr.forEach(x=>{
+  if(!x)return;
+  const whole=gsPrep(x).n;if(whole)f.push(whole);
+  if(SPLIT.test(x))x.split(SPLIT).forEach(p=>{const n=gsPrep(p).n;if(n&&n!==whole)f.push(n);});
+ });
+ return f;
+};
+const WHERE={home:'صفحهٔ اصلی',learn:'واژه‌نامه',grammar:'دستور زبان',alphabet:'الفبا',path:'مسیر یادگیری',about:'معرفی زبان'};
+const COLS=['حال و آینده','گذشته','تلفظ / آوانویسی'];
+let gsIdx=null;
+function gsBuild(){
+ const idx=[];
+ CATS.forEach((c,ci)=>{
+  idx.push({k:'cat',f:gsF(c.fa,c.ku),ci,c});
+  c.items.forEach((w,wi)=>idx.push({k:'word',f:gsF(w.ku,w.fa,w.pr),ci,wi,w,c}));
+  [c.desc,(c.tip||'').replace(/<[^>]*>/g,'')].forEach(t=>{if(t)idx.push({k:'text',f:[gsPrep(t).n],txt:t,where:'دستهٔ «'+c.fa+'»',ci});});
+ });
+ VERBS.forEach((v,vi)=>{
+  const cells=[];
+  v.rows.forEach((r,j)=>r.forEach((t,col)=>cells.push({j,col,t,f:gsF(t)})));
+  idx.push({k:'verb',f:gsF(v.ku,v.alt,v.fa,v.tr),vi,v,cells});
+ });
+ ABC.forEach((a,i)=>idx.push({k:'abc',f:gsF(a[0],a[1],a[2],a[3]),i,a}));
+ const seen=new Set();
+ document.querySelectorAll('section h1,section h2,section h3,section h4,section p,.abc-special span,.stat-lbl').forEach(el=>{
+  if(el.closest('#wordGrid,#abcGrid,#verbBody,.flashcard,.wl-head,#gs'))return;
+  const t=el.textContent.replace(/\s+/g,' ').trim();
+  if(t.length<3||seen.has(t))return;
+  seen.add(t);
+  const sec=el.closest('section');
+  idx.push({k:'text',f:[gsPrep(t).n],txt:t,where:WHERE[sec&&sec.id]||'',el});
+ });
+ return idx;
+}
+function gsScore(q,fs){
+ let b=0;
+ for(const f of fs){
+  let s=0;
+  if(f===q)s=100;
+  else if(f.startsWith(q))s=80-Math.min(20,(f.length-q.length)*.3);
+  else{const i=f.indexOf(q);if(i>=0)s=55-Math.min(25,i*.3)-Math.min(15,(f.length-q.length)*.1);}
+  if(s>b)b=s;
+ }
+ return b;
+}
+const sk=s=>s.replace(/[هویا]/g,'');
+function gsSearch(q,loose){
+ const res=[];
+ const Q=loose?sk(q):q;
+ if(!Q)return res;
+ const S=fs=>gsScore(Q,loose?fs.map(sk):fs);
+ gsIdx.forEach(e=>{
+  let s=S(e.f),cell=null;
+  if(e.k==='verb'){
+   let cs=0;e.cells.forEach(c=>{const x=S(c.f);if(x>cs){cs=x;cell=c;}});
+   if(cs>s)s=cs;else cell=null;
+  }
+  if(s>0)res.push({e,s:loose?s*.5:s,cell});
+ });
+ return res;
+}
+const LIM={cat:4,word:40,verb:12,abc:8,text:10};
+const ORDER=['cat','word','verb','abc','text'];
+const LBL={cat:'دسته‌ها',word:'واژه‌ها',verb:'افعال',abc:'حرف‌های الفبا',text:'متن‌ها و توضیحات'};
+const BADGE={cat:'دسته',word:'واژه',verb:'فعل',abc:'حرف',text:'متن'};
+let gsList=[],gsSel=-1;
+function gsTip(){
+ gsList=[];gsSel=-1;
+ gsRes.innerHTML=`<div class="gs-tip">
+  <div>در <b>همهٔ واژه‌ها، افعال (با صرف کامل)، الفبا و متن‌های سایت</b> جستجو کنید؛ با فارسی، سورانی یا آوانگاری لاتین.</div>
+  <div><b>همزه، نشانه‌ها و فاصله</b> لازم نیست: «خول» همان «خۆڵ» را پیدا می‌کند و «زه وی» همان «زەوی» را.</div>
+  <div class="gs-eg"><button type="button" data-q="خول">خول</button><button type="button" data-q="زه وی">زه وی</button><button type="button" data-q="xol">xol</button><button type="button" data-q="دچم">دچم</button></div>
+ </div>`;
+}
+function gsRender(){
+ const raw=gsIn.value;
+ gsClear.classList.toggle('show',!!raw);
+ const q=gsPrep(raw).n;
+ if(!q){gsTip();return;}
+ if(!gsIdx)gsIdx=gsBuild();
+ let res=gsSearch(q,false),approx=false;
+ if(!res.length&&sk(q).length>=2){res=gsSearch(q,true);approx=res.length>0;}
+ if(!res.length){
+  gsList=[];gsSel=-1;
+  gsRes.innerHTML=`<div class="gs-empty">نتیجه‌ای برای «${esc(raw.trim())}» پیدا نشد.<br>املای دیگری را امتحان کنید یا از آوانگاری لاتین (مثل <b>xol</b>) استفاده کنید.</div>`;
+  return;
+ }
+ const hlq=approx?'':q;
+ const groups={};
+ res.sort((a,b)=>b.s-a.s).forEach(r=>{(groups[r.e.k]=groups[r.e.k]||[]).push(r);});
+ let html='',n=0;gsList=[];
+ if(approx)html+='<div class="gs-group"><span>نتایج نزدیک (بدون در نظر گرفتن صدادارها)</span></div>';
+ ORDER.forEach(k=>{
+  const g=groups[k];if(!g)return;
+  const shown=g.slice(0,LIM[k]);
+  html+=`<div class="gs-group"><span>${LBL[k]}</span><span>${faNum(g.length)}</span></div>`;
+  shown.forEach(r=>{
+   const e=r.e;let main='';
+   if(k==='word'){
+    main=`<span class="gs-l1"><span class="gs-ku ku">${hl(e.w.ku,hlq)}</span><span class="gs-fa">${hl(e.w.fa,hlq)}</span></span><span class="gs-sub"><bdi>${hl(e.w.pr,hlq)}</bdi> · ${esc(e.c.fa)}</span>`;
+   }else if(k==='cat'){
+    main=`<span class="gs-l1"><span class="gs-ku ku">${hl(e.c.ku,hlq)}</span><span class="gs-fa">${hl(e.c.fa,hlq)}</span></span><span class="gs-sub">${esc(e.c.desc||'')}</span>`;
+   }else if(k==='verb'){
+    const v=e.v;
+    const sub=r.cell?`${PERS[r.cell.j]} · ${COLS[r.cell.col]}: <span class="ku">${hl(r.cell.t,hlq)}</span>`:`صرف کامل فعل · <bdi>${hl(v.tr,hlq)}</bdi>`;
+    main=`<span class="gs-l1"><span class="gs-ku ku">${hl(v.ku,hlq)}${v.alt?` <small>/ ${hl(v.alt,hlq)}</small>`:''}</span><span class="gs-fa">${hl(v.fa,hlq)}</span></span><span class="gs-sub">${sub}</span>`;
+   }else if(k==='abc'){
+    main=`<span class="gs-l1"><span class="gs-ku ku">${hl(e.a[0],hlq)}</span><span class="gs-fa">${hl(e.a[1],hlq)}</span></span><span class="gs-sub">نمونه: <span class="ku">${hl(e.a[2],hlq)}</span> — ${hl(e.a[3],hlq)}</span>`;
+   }else{
+    main=`<span class="gs-snip">${gsSnip(e.txt,hlq)}</span>${e.where?`<span class="gs-sub">${esc(e.where)}</span>`:''}`;
+   }
+   html+=`<button type="button" class="gs-item" data-n="${n}"><span class="gs-b">${BADGE[k]}</span><span class="gs-main">${main}</span></button>`;
+   gsList.push(r);n++;
+  });
+ });
+ gsRes.innerHTML=html;
+ gsPick(0,false);
+ gsRes.scrollTop=0;
+}
+function gsSnip(txt,q){
+ txt=txt.replace(/\s+/g,' ').trim();
+ if(txt.length<=130||!q)return hl(txt.length>130?txt.slice(0,130)+' …':txt,q);
+ const p=gsPrep(txt),i=p.n.indexOf(q);
+ if(i<0)return esc(txt.slice(0,130))+' …';
+ const a=p.map[i],s=Math.max(0,a-45),e=Math.min(txt.length,s+130);
+ return (s>0?'… ':'')+hl(txt.slice(s,e),q)+(e<txt.length?' …':'');
+}
+function gsPick(i,scroll){
+ const items=gsRes.querySelectorAll('.gs-item');
+ if(!items.length){gsSel=-1;return;}
+ gsSel=(i+items.length)%items.length;
+ items.forEach((b,j)=>b.classList.toggle('sel',j===gsSel));
+ if(scroll)items[gsSel].scrollIntoView({block:'nearest'});
+}
+const smooth=()=>reduceMotion?'auto':'smooth';
+function gsFlash(el,cls){
+ if(!el)return;
+ el.classList.remove('gs-flash');void el.offsetWidth;el.classList.add('gs-flash');
+ setTimeout(()=>el.classList.remove('gs-flash'),2800);
+}
+function gsGo(r){
+ if(!r)return;
+ const e=r.e;
+ gsClose();
+ setTimeout(()=>{
+  if(e.k==='word'){
+   setCat(e.ci);
+   const p=order.indexOf(e.wi);pos=p<0?0:p;
+   renderCard(true);
+   $('.learn-stage').scrollIntoView({behavior:smooth(),block:'center'});
+  }else if(e.k==='cat'){
+   goCat(e.ci,true);
+  }else if(e.k==='verb'){
+   renderVerb(e.vi);
+   $('.verb-card').scrollIntoView({behavior:smooth(),block:'center'});
+   const target=r.cell?document.querySelectorAll('#verbBody tr')[r.cell.j].children[r.cell.col+1]:$('.verb-head');
+   setTimeout(()=>gsFlash(target),350);
+  }else if(e.k==='abc'){
+   const t=$(`.abc[data-i="${e.i}"]`);
+   if(t){t.scrollIntoView({behavior:smooth(),block:'center'});
+    $$('.abc.playing').forEach(x=>x.classList.remove('playing'));
+    setTimeout(()=>{t.classList.add('playing');setTimeout(()=>t.classList.remove('playing'),1800);},350);}
+  }else if(e.k==='text'){
+   if(e.el){e.el.scrollIntoView({behavior:smooth(),block:'center'});setTimeout(()=>gsFlash(e.el),350);}
+   else if(e.ci!=null){goCat(e.ci,true);}
+  }
+ },90);
+}
+function gsOpen(){
+ gsEl.classList.add('open');
+ document.body.style.overflow='hidden';
+ closeDrawer();document.body.style.overflow='hidden';
+ gsRender();
+ setTimeout(()=>{gsIn.focus();gsIn.select();},60);
+}
+function gsClose(){
+ if(!gsEl.classList.contains('open'))return;
+ gsEl.classList.remove('open');
+ document.body.style.overflow='';
+ gsIn.blur();
+}
+gsBtn.addEventListener('click',gsOpen);
+$('#gsClose').addEventListener('click',gsClose);
+$('#gsBg').addEventListener('click',gsClose);
+gsClear.addEventListener('click',()=>{gsIn.value='';gsRender();gsIn.focus();});
+gsIn.addEventListener('input',gsRender);
+gsRes.addEventListener('click',e=>{
+ const eg=e.target.closest('.gs-eg button');
+ if(eg){gsIn.value=eg.dataset.q;gsRender();gsIn.focus();return;}
+ const b=e.target.closest('.gs-item');if(b)gsGo(gsList[+b.dataset.n]);
+});
+gsRes.addEventListener('mousemove',e=>{
+ const b=e.target.closest('.gs-item');
+ if(b&&+b.dataset.n!==gsSel)gsPick(+b.dataset.n,false);
+});
+gsEl.addEventListener('keydown',e=>{
+ e.stopPropagation();
+ if(e.key==='Escape'){e.preventDefault();gsClose();}
+ else if(e.key==='ArrowDown'){e.preventDefault();gsPick(gsSel+1,true);}
+ else if(e.key==='ArrowUp'){e.preventDefault();gsPick(gsSel-1,true);}
+ else if(e.key==='Enter'&&gsList.length){e.preventDefault();gsGo(gsList[gsSel<0?0:gsSel]);}
+});
+document.addEventListener('keydown',e=>{
+ if(gsEl.classList.contains('open'))return;
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();gsOpen();return;}
+ if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.target.matches('input,textarea,select,[contenteditable]')){e.preventDefault();gsOpen();}
+});
+}
 
 /* ---------- شروع ---------- */
 setCat(0);
